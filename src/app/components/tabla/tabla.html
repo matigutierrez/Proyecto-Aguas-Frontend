@@ -1,0 +1,62 @@
+<div layout-padding>
+  <div flex="40" flex-offset="30" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="mar">
+    <div flex flex-xs="90" flex-offset-xs="5">
+      <center>
+        <h2>Buscar Cliente</h2>
+      </center>
+      <div flex layout="row">
+        <div flex="30" flex-offset="30" flex-xs="60" flex-offset-xs="10"> 
+          <md-input-container>
+            <input ng-model="medidor" type="text" placeholder="Buscar...">
+          <md-input-container>
+        </div> 
+        <div flex=10 flex-xs="20">
+            <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'Red'}">
+                <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
+            </md-button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-xs="94" flex-offset-xs="3" class="fond table borde">
+    <md-table-container>
+      <table md-table md-row-select multiple md-progress="promise">
+        <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+          <tr md-row>
+            <th md-column md-order-by="nameToLower"><span>RUT</span></th>
+            <th md-column md-numeric md-order-by="calories.value"><span>Nombre</span></th>
+            <th md-column md-numeric>Apellido P</th>
+            <th md-column md-numeric>Apellido M</th>
+            <th md-column md-numeric>Residencia</th>
+            <th md-column md-numeric>Vivienda</th>
+            <th md-column md-numeric>Boletas</th>
+            <th md-column md-numeric>Estado</th>
+          </tr>
+        </thead>
+        <tbody md-body>
+          <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
+            <td md-cell>19418977-k</td>
+            <td md-cell>Matias</td>
+            <td md-cell>Gutierrez</td>
+            <td md-cell>Luco</td>
+            <td md-cell>Vilcun</td>
+            <td md-cell>1</td>
+            <td md-cell>1</td>
+            <td md-cell>Activo</td>
+          </tr>
+          <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
+            <td md-cell>19432573-7</td>
+            <td md-cell>Diego</td>
+            <td md-cell>Fernandez</td>
+            <td md-cell>Sanchez</td>
+            <td md-cell>Temuco</td>
+            <td md-cell>2</td>
+            <td md-cell>1</td>
+            <td md-cell>Activo</td>
+          </tr>
+        </tbody>
+      </table>
+    </md-table-container>
+    <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+  </div>
+</div>

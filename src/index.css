@@ -1,0 +1,98 @@
+html, body, #root {
+  margin: 0;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+}
+
+body, h1, h2, h3 {
+  font-weight: 300
+}
+
+.marg {
+  margin-bottom: 5%;
+}
+
+.fond {
+  border: 1px solid #ccc;
+  padding: 0.01em 16px;
+  border-radius: 16px;
+  background-color: white;
+}
+
+.borde {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.buttonancho {
+  min-height: 20px;
+}
+
+.table {
+  margin-top: 2%;
+}
+
+.ima {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.some-pdf-container { 
+  width: 100%; height: 100%;
+} 
+
+.imag {
+  height: 100px;
+  width: 100px;
+  border-top-left-radius: 50% 50%;
+  border-top-right-radius: 50% 50%;
+  border-bottom-right-radius: 50% 50%;
+  border-bottom-left-radius: 50% 50%;
+  border: solid;
+}
+
+.texto {
+  text-align: left;
+  margin-left: 10px;
+}
+
+.bor {
+  border-top: solid 1px;
+}
+
+.nom {
+  margin-top: 5px;
+}
+
+.menu {
+  margin-right: 10px;
+}
+
+.tit {
+  font-family: 'Lora', serif;
+}
+
+.bot {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+md-icon.tama {
+  width: 12px;
+  height: 12px;
+}
+
+.tabla:hover {
+  background-color:#e5e5e5;
+}
+
+.toolbar, md-sidenav {
+  overflow: hidden;
+  position: fixed;
+  top: 0; 
+  width: 100%;
+}
+
+.mar {
+  margin-top: 60px
+}
