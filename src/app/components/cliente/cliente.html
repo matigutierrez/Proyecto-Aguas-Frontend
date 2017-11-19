@@ -1,6 +1,6 @@
 <div layout-padding>
-  <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-sm="94" flex-offset-sm="3" flex-xs="94" flex-offset-xs="3" class="fond table borde mar">
-    <div>
+  <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-sm="94" flex-offset-sm="3" flex-xs="94" flex-offset-xs="3" class="fond mar">
+    <div layout-padding>
       <div layout="row" layout-xs="column">
         <div flex="20" flex-xs="90" flex-offset-xs="5">
           <h2>Informacion Cliente</h2>
@@ -24,115 +24,115 @@
           </div>
         </div>
       </div>
-    </div>
-    <div ng-cloak>
-      <md-tabs md-dynamic-height md-border-bottom>
-        <md-tab label="vivienda">
-          <div class="md-padding">
-            <md-table-container>
-              <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
-                <thead md-head md-order="query.order" md-on-reorder="getDesserts">
-                  <tr md-row>
-                    <th md-column md-order-by="nameToLower"><span>Codigo</span></th>
-                    <th md-column md-numeric md-order-by="calories.value"><span>Direccion</span></th>
-                    <th md-column md-numeric>Subsidio</th>
-                    <th md-column md-numeric>Fecha Ingreso</th>
-                    <th md-column md-numeric>Ubicacion</th>
-                    <th md-column md-numeric>Estado</th>
-                  </tr>
-                </thead>
-                <tbody md-body>
-                  <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
-                    <td md-cell>e7w8qewq</td>
-                    <td md-cell>Av. Alemania</td>
-                    <td md-cell>Bono Subsidio</td>
-                    <td md-cell>10/26/2017</td>
-                    <td md-cell>Temuco</td>
-                    <td md-cell>Activo</td>
-                  </tr>
-                  <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
-                    <td md-cell>e7w8qewq</td>
-                    <td md-cell>Padre Las Casas</td>
-                    <td md-cell>Bono Subsidio(2)</td>
-                    <td md-cell>12/20/2017</td>
-                    <td md-cell>Temuco</td>
-                    <td md-cell>Activo</td>
-                  </tr>
-                </tbody>
-              </table>
-            </md-table-container>
-            <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
-          </div>
-        </md-tab>
-        <md-tab label="medidor">
-          <div class="md-padding">
-            <md-table-container>
-              <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
-                <thead md-head md-order="query.order" md-on-reorder="getDesserts">
-                  <tr md-row>
-                    <th md-column md-order-by="nameToLower"><span>Codigo</span></th>
-                    <th md-column md-numeric md-order-by="calories.value"><span>Numero</span></th>
-                    <th md-column md-numeric>Marca</th>
-                    <th md-column md-numeric>Fecha Registro</th>
-                    <th md-column md-numeric>Vivienda</th>
-                    <th md-column md-numeric>Estado</th>
-                  </tr>
-                </thead>
-                <tbody md-body>
-                  <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
-                    <td md-cell>d6sa786das</td>
-                    <td md-cell>321323</td>
-                    <td md-cell>ELSTER</td>
-                    <td md-cell>11/14/2017</td>
-                    <td md-cell>1</td>
-                    <td md-cell>Activo</td>
-                  </tr>
-                  <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
-                    <td md-cell>dsad8768as</td>
-                    <td md-cell>787987</td>
-                    <td md-cell>STAR</td>
-                    <td md-cell>06/20/2017</td>
-                    <td md-cell>1</td>
-                    <td md-cell>Activo</td>
-                  </tr>
-                </tbody>
-              </table>
-            </md-table-container>
-            <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
-          </div>
-        </md-tab>
-        <md-tab label="boletas">
-          <div class="md-padding">
-            <md-table-container>
-              <table md-table md-row-select multiple ng-model="selected" md-progress="promise">
-                <thead md-head md-order="query.order" md-on-reorder="getDesserts">
-                  <tr md-row>
-                    <th md-column md-order-by="nameToLower"><span>Nro Boleta</span></th>
-                    <th md-column md-numeric md-order-by="calories.value"><span>Domicilio</span></th>
-                    <th md-column md-numeric>Consumo</th>
-                    <th md-column md-numeric>Monto a Pagar</th>
-                    <th md-column md-numeric>Medidor</th>
-                    <th md-column md-numeric>Estado</th>
-                    <th md-column md-numeric></th>
-                  </tr>
-                </thead>
-                <tbody md-body>
-                  <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
-                    <td md-cell>7d98s7das</td>
-                    <td md-cell>Av. Alemania</td>
-                    <td md-cell>54,88m3</td>
-                    <td md-cell>$25700</td>
-                    <td md-cell>321323</td>
-                    <td md-cell>No Pagado</td>
-                    <td md-cell><md-button md-colors="{background: 'Red'}" ui-sref="pdf" layout-fill>PDF</md-button></td>
-                  </tr>
-                </tbody>
-              </table>
-            </md-table-container>
-            <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
-          </div>
-        </md-tab>
-      </md-tabs>
+      <div ng-cloak>
+        <md-tabs md-dynamic-height md-border-bottom>
+          <md-tab label="vivienda">
+            <div class="md-padding">
+              <md-table-container>
+                <table md-table md-row-select multiple md-progress="promise">
+                  <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+                    <tr md-row>
+                      <th md-column md-order-by="nameToLower"><span>Codigo</span></th>
+                      <th md-column md-numeric md-order-by="calories.value"><span>Direccion</span></th>
+                      <th md-column md-numeric>Subsidio</th>
+                      <th md-column md-numeric>Fecha Ingreso</th>
+                      <th md-column md-numeric>Ubicacion</th>
+                      <th md-column md-numeric>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody md-body>
+                    <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
+                      <td md-cell>e7w8qewq</td>
+                      <td md-cell>Av. Alemania</td>
+                      <td md-cell>Bono Subsidio</td>
+                      <td md-cell>10/26/2017</td>
+                      <td md-cell>Temuco</td>
+                      <td md-cell>Activo</td>
+                    </tr>
+                    <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
+                      <td md-cell>e7w8qewq</td>
+                      <td md-cell>Padre Las Casas</td>
+                      <td md-cell>Bono Subsidio(2)</td>
+                      <td md-cell>12/20/2017</td>
+                      <td md-cell>Temuco</td>
+                      <td md-cell>Activo</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </md-table-container>
+              <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+            </div>
+          </md-tab>
+          <md-tab label="medidor">
+            <div class="md-padding">
+              <md-table-container>
+                <table md-table md-row-select multiple md-progress="promise">
+                  <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+                    <tr md-row>
+                      <th md-column md-order-by="nameToLower"><span>Codigo</span></th>
+                      <th md-column md-numeric md-order-by="calories.value"><span>Numero</span></th>
+                      <th md-column md-numeric>Marca</th>
+                      <th md-column md-numeric>Fecha Registro</th>
+                      <th md-column md-numeric>Vivienda</th>
+                      <th md-column md-numeric>Estado</th>
+                    </tr>
+                  </thead>
+                  <tbody md-body>
+                    <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
+                      <td md-cell>d6sa786das</td>
+                      <td md-cell>321323</td>
+                      <td md-cell>ELSTER</td>
+                      <td md-cell>11/14/2017</td>
+                      <td md-cell>1</td>
+                      <td md-cell>Activo</td>
+                    </tr>
+                    <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
+                      <td md-cell>dsad8768as</td>
+                      <td md-cell>787987</td>
+                      <td md-cell>STAR</td>
+                      <td md-cell>06/20/2017</td>
+                      <td md-cell>1</td>
+                      <td md-cell>Activo</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </md-table-container>
+              <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+            </div>
+          </md-tab>
+          <md-tab label="boletas">
+            <div class="md-padding">
+              <md-table-container>
+                <table md-table md-row-select multiple md-progress="promise">
+                  <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+                    <tr md-row>
+                      <th md-column md-order-by="nameToLower"><span>Nro Boleta</span></th>
+                      <th md-column md-numeric md-order-by="calories.value"><span>Domicilio</span></th>
+                      <th md-column md-numeric>Consumo</th>
+                      <th md-column md-numeric>Monto a Pagar</th>
+                      <th md-column md-numeric>Medidor</th>
+                      <th md-column md-numeric>Estado</th>
+                      <th md-column md-numeric></th>
+                    </tr>
+                  </thead>
+                  <tbody md-body>
+                    <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
+                      <td md-cell>7d98s7das</td>
+                      <td md-cell>Av. Alemania</td>
+                      <td md-cell>54,88m3</td>
+                      <td md-cell>$25700</td>
+                      <td md-cell>321323</td>
+                      <td md-cell>No Pagado</td>
+                      <td md-cell><md-button md-colors="{background: 'Red'}" ui-sref="pdf" layout-fill>PDF</md-button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </md-table-container>
+              <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+            </div>
+          </md-tab>
+        </md-tabs>
+      </div>
     </div>
   </div>
 </div>

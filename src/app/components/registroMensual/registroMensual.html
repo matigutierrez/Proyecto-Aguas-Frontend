@@ -1,145 +1,139 @@
 <div layout-padding>
-  <form name="proyectForm">
-    <div flex="40" flex-offset="30" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="fond mar">
-      <div>
-        <div layout-xs="column">
-          <div flex>
-            <div layout="row" layout-xs="column">
-              <div flex>
-                <center>
-                  <h2 layout-align="center center" layout="column" flex-xs="90" flex-offset-xs="5">Registro de Lectura Mensual</h2>
-                </center>
-                <md-input-container class="md-icon-float md-block">
-                  <label>Número Medidor</label>
-                  <input ng-model="nroMedidor" type="number">
-                </md-input-container>
-              </div>
+  <div flex="40" flex-offset="30" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="fond mar">
+    <div layout-padding>
+      <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center" flex-xs="90" flex-offset-xs="5">
+        <h2>Registro de Lectura Mensual</h2>
+      </div>  
+      <div layout-xs="column">
+        <div flex>
+          <md-input-container class="md-icon-float md-block">
+            <label>Número Medidor</label>
+            <input ng-model="nroMedidor" type="number">
+          </md-input-container>
+        </div>
+      </div>  
+      <div layout-xs="column">
+        <div flex>
+          <div layout="row" layout-xs="column">
+            <div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Marca Medidor</label>
+                <input ng-model="mcaMedidor" type="text" disabled>
+              </md-input-container>
+            </div>
+            <div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Dueño Medidor</label>
+                <input ng-model="dueMedidor" type="text" disabled>
+              </md-input-container>
             </div>
           </div>
         </div>
-        <div layout-xs="column">
-          <div flex>
-            <div layout="row" layout-xs="column">
-              <div flex>
-                <md-input-container md-no-float class="md-block">
-                  <label>Marca Medidor</label>
-                  <input ng-model="mcaMedidor" type="text" disabled>
-                </md-input-container>
-              </div>
-              <div flex>
-                <md-input-container md-no-float class="md-block">
-                  <label>Dueño Medidor</label>
-                  <input ng-model="dueMedidor" type="text" disabled>
-                </md-input-container>
-              </div>
+      </div>
+      <div layout-xs="column">
+        <div flex>
+          <div layout="row" layout-xs="column">
+            <div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Domicilio</label>
+                <input ng-model="domicilio" type="text" disabled>
+              </md-input-container>
+            </div>
+            <div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Lectura Anterior</label>
+                <input ng-model="lecAnterior" type="number" disabled>
+              </md-input-container>
             </div>
           </div>
         </div>
-        <div layout-xs="column">
-          <div flex>
-            <div layout="row" layout-xs="column">
-              <div flex>
-                <md-input-container md-no-float class="md-block">
-                  <label>Domicilio</label>
-                  <input ng-model="domicilio" type="text" disabled>
-                </md-input-container>
-              </div>
-              <div flex>
-                <md-input-container md-no-float class="md-block">
-                  <label>Lectura Anterior</label>
-                  <input ng-model="lecAnterior" type="number" disabled>
-                </md-input-container>
-              </div>
+      </div>
+      <div layout-xs="column">
+        <div flex>
+          <div layout="row" layout-xs="column">
+            <div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Año</label>
+                <input ng-model="anio" type="number">
+              </md-input-container>
+            </div>
+            <div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Mes</label>
+                <md-select ng-model="mes">
+                  <md-option value="enero">Enero</md-option>
+                  <md-option value="febrero">Febrero</md-option>
+                  <md-option value="marzo">Marzo</md-option>
+                  <md-option value="abril">Abril</md-option>
+                  <md-option value="mayo">Mayo</md-option>
+                  <md-option value="junio">Junio</md-option>
+                  <md-option value="julio">Julio</md-option>
+                  <md-option value="agosto">Agosto</md-option>
+                  <md-option value="septiembre">Septiembre</md-option>
+                  <md-option value="octubre">Octubre</md-option>
+                  <md-option value="noviembre">Noviembre</md-option>
+                  <md-option value="diciembre">Diciembre</md-option>
+                </md-select>
+              </md-input-container>
             </div>
           </div>
         </div>
-        <div layout-xs="column">
-          <div flex>
-            <div layout="row" layout-xs="column">
-              <div flex>
-                <md-input-container md-no-float class="md-block">
-                  <label>Año</label>
-                  <input ng-model="anio" type="number">
-                </md-input-container>
-              </div>
-              <div flex>
-                <md-input-container md-no-float class="md-block">
-                  <label>Mes</label>
-                  <md-select ng-model="mes">
-                    <md-option value="enero">Enero</md-option>
-                    <md-option value="febrero">Febrero</md-option>
-                    <md-option value="marzo">Marzo</md-option>
-                    <md-option value="abril">Abril</md-option>
-                    <md-option value="mayo">Mayo</md-option>
-                    <md-option value="junio">Junio</md-option>
-                    <md-option value="julio">Julio</md-option>
-                    <md-option value="agosto">Agosto</md-option>
-                    <md-option value="septiembre">Septiembre</md-option>
-                    <md-option value="octubre">Octubre</md-option>
-                    <md-option value="noviembre">Noviembre</md-option>
-                    <md-option value="diciembre">Diciembre</md-option>
-                  </md-select>
-                </md-input-container>
-              </div>
+      </div>
+      <div layout-xs="column">
+        <div flex>
+          <div layout="row" layout-xs="column">
+            <div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Lectura Actual</label>
+                <input ng-model="lecActual" type="number">
+              </md-input-container>
+            </div>
+            <div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Fecha Registro Consumo</label>
+                <div flex-gt-xs>
+                  <md-datepicker ng-model="ctrl.myDate" md-placeholder="Seleccione Día"></md-datepicker>
+                </div>
+              </md-input-container>
             </div>
           </div>
         </div>
-        <div layout-xs="column">
-          <div flex>
-            <div layout="row" layout-xs="column">
-              <div flex>
-                <md-input-container md-no-float class="md-block">
-                  <label>Lectura Actual</label>
-                  <input ng-model="lecActual" type="number">
-                </md-input-container>
-              </div>
-              <div flex>
-                <md-input-container md-no-float class="md-block">
-                  <label>Fecha Registro Consumo</label>
-                  <div flex-gt-xs>
-                    <md-datepicker ng-model="ctrl.myDate" md-placeholder="Seleccione Día"></md-datepicker>
-                  </div>
-                </md-input-container>
-              </div>
+      </div>
+      <div layout-xs="column">
+        <div flex>
+          <div layout="row" layout-xs="column">
+            <div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Cargo Fijo</label>
+                <input ng-model="carFijo" type="number">
+              </md-input-container>
+            </div>
+            <div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Alcantarillado</label>
+                <input ng-model="alcantarillado" type="number">
+              </md-input-container>
             </div>
           </div>
         </div>
-        <div layout-xs="column">
-          <div flex>
-            <div layout="row" layout-xs="column">
-              <div flex>
-                <md-input-container md-no-float class="md-block">
-                  <label>Cargo Fijo</label>
-                  <input ng-model="carFijo" type="number">
-                </md-input-container>
-              </div>
-              <div flex>
-                <md-input-container md-no-float class="md-block">
-                  <label>Alcantarillado</label>
-                  <input ng-model="alcantarillado" type="number">
-                </md-input-container>
-              </div>
+      </div>
+      <div layout-xs="column">
+        <div flex>
+          <div layout="row" layout-xs="column">
+            <div flex>
+              <md-input-container class="md-icon-float md-block">
+                <label>Valor a Pagar (CLP) $:</label>
+                <input ng-model="valorPagar" type="number">
+              </md-input-container>
             </div>
           </div>
         </div>
-        <div layout-xs="column">
-          <div flex>
-            <div layout="row" layout-xs="column">
-              <div flex>
-                <md-input-container class="md-icon-float md-block">
-                  <label>Valor a Pagar (CLP) $:</label>
-                  <input ng-model="valorPagar" type="number">
-                </md-input-container>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div flex layout-xs="column">
-          <center>
-            <md-button class="md-raised marg" md-colors="{background: 'Red'}" layout-fill style="min-height: 50px;">Registrar</md-button>
-          </center>
+      </div>
+      <div flex layout-xs="column">
+        <div layout="row" layout-align="center center" layout-padding>
+          <md-button class="md-raised marg" md-colors="{background: 'Red'}" layout-fill style="min-height: 50px;">Registrar</md-button>
         </div>
       </div>
     </div>
-  </form>
+  </div>
 </div>

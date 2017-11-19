@@ -1,45 +1,43 @@
 <div layout-padding>
-  <form name="formMedidor">
-    <div flex="40" flex-offset="30" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="fond mar">
-      <div class="borde">
-        <div layout-xs="column">
-          <div flex>
-            <center>
-              <h2>Registro Medidor</h2>
-            </center>
-            <md-input-container class="md-icon-float md-block">
-              <label>Numero Medidor</label>
-              <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
-              <input ng-model="medidor" type="text">
-            </md-input-container>
-          </div>
+  <div flex="40" flex-offset="30" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="fond mar">
+    <div layout-padding>
+      <div layout-xs="column">
+        <div flex>
+          <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center" flex-xs="90" flex-offset-xs="5">
+            <h2>Registro Medidor</h2>
+          </div>  
+          <md-input-container class="md-icon-float md-block">
+            <label>Numero Medidor</label>
+            <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
+            <input ng-model="medidor" type="text">
+          </md-input-container>
         </div>
-        <div layout-xs="column">
-          <div flex>
-            <div layout="row" layout-xs="column">
-              <div flex flex-xs="100">
-                <md-input-container class="md-block" flex-gt-sm>
-                <label>Marca</label>
-                  <md-select ng-model="user.state">
-                    <md-option></md-option>
-                  </md-select>
-                </md-input-container>
-              </div>
-              <div flex flex-xs="100">
-                <md-input-container>
-                  <label>Registro</label>
-                  <md-datepicker ng-model="user.submissionDate"></md-datepicker>
-                </md-input-container>
-              </div>
+      </div>
+      <div layout-xs="column">
+        <div flex>
+          <div layout="row" layout-xs="column">
+            <div flex flex-xs="100">
+              <md-input-container class="md-block" flex-gt-sm>
+              <label>Marca</label>
+                <md-select ng-model="user.state">
+                  <md-option></md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+            <div flex flex-xs="100">
+              <md-input-container>
+                <label>Registro</label>
+                <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+              </md-input-container>
             </div>
           </div>
         </div>
-        <div flex layout-xs="column">
-          <center>
-            <md-button class="md-raised marg" md-colors="{background: 'Red'}" layout-fill style="min-height: 50px;">Registrar</md-button>
-          </center>
+      </div>
+      <div flex layout-xs="column">
+        <div layout="row" layout-align="center center" layout-padding>
+          <md-button class="md-raised marg" md-colors="{background: 'Red'}" layout-fill style="min-height: 50px;">Registrar</md-button>
         </div>
       </div>
     </div>
-  </form>
+  </div>
 </div>

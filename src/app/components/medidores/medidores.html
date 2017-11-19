@@ -1,24 +1,26 @@
 <div layout-padding>
   <div flex="40" flex-offset="30" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="mar">
     <div flex flex-xs="90" flex-offset-xs="5">
-      <center>
-        <h2>Buscar Medidores</h2>
-      </center>
+      <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center">
+        <div>
+          <h2>Buscar Medidores</h2>
+        </div>
+      </div>
       <div flex layout="row">
-          <div flex="30" flex-offset="30" flex-xs="60" flex-offset-xs="10"> 
-            <md-input-container>
-              <input ng-model="medidor" type="text" placeholder="Buscar...">
-            <md-input-container>
-          </div> 
-          <div flex=10 flex-xs="20">
-              <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'Red'}">
-                  <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
-              </md-button>
-          </div>
+        <div flex="30" flex-offset="30" flex-xs="60" flex-offset-xs="10"> 
+          <md-input-container>
+            <input ng-model="medidor" type="text" placeholder="Buscar...">
+          <md-input-container>
+        </div> 
+        <div flex=10 flex-xs="20">
+          <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'Red'}">
+              <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
+          </md-button>
+        </div>
       </div>
     </div>
   </div>
-  <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-xs="94" flex-offset-xs="3" class="fond table borde">
+  <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-xs="94" flex-offset-xs="3" class="fond">
     <md-table-container>
       <table md-table md-row-select multiple md-progress="promise">
         <thead md-head md-order="query.order" md-on-reorder="getDesserts">

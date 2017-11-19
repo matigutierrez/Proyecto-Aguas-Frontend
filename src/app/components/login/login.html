@@ -1,40 +1,36 @@
 <div layout-padding>
-  <form name="projectForm">
-    <div flex="40" flex-offset="30" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="fond mar">
-      <div class="borde">
-        <div layout-xs="column">
-          <div flex>
-            <center>
-              <h2>Inicia Sesion</h2>
-              <img ng-src="/assets/img/user.png" class="md-card-image" alt="Washed Out">
-            </center>
-            <md-input-container class="md-icon-float md-block">
-              <label>Usuario</label>
-              <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
-              <input ng-model="artist" type="text">
-            </md-input-container>
-          </div>
+  <div flex="40" flex-offset="30" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="fond mar">
+    <div layout-padding>
+      <div layout-xs="column" layout="row" layout-align="center center">
+        <div>
+          <h2>Inicia Sesion</h2>
+          <img ng-src="/assets/img/user.png" class="md-card-image" alt="Washed Out">
         </div>
-        <div layout-xs="column">
-          <div flex>
-            <md-input-container md-no-float class="md-block">
-              <label>Contraseña</label>
-              <md-icon md-svg-src="/assets/img/pass.svg"></md-icon>
-              <input ng-model="title" type="password">
-            </md-input-container>
-          </div>
-        </div>
-        <div flex layout-xs="column">
-          <center>
-            <md-button class="md-raised marg" md-colors="{background: 'Red'}" layout-fill style="min-height: 50px;">Ingresar</md-button>
-          </center>
-        </div>
-        <div layout-xs="column" class="marg">
-          <md-checkbox name="tos" ng-model="project.tos" required>
-            No cerrar sesión
-          </md-checkbox>
-        </div>  
       </div>
+      <div layout-xs="column">
+        <div flex>
+          <md-input-container class="md-icon-float md-block">
+            <label>Usuario</label>
+            <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
+            <input ng-model="artist" type="text">
+          </md-input-container>
+          <md-input-container md-no-float class="md-block">
+            <label>Contraseña</label>
+            <md-icon md-svg-src="/assets/img/pass.svg"></md-icon>
+            <input ng-model="title" type="password">
+          </md-input-container>
+        </div>
+      </div>
+      <div flex layout-xs="column">
+        <center>
+          <md-button class="md-raised" md-colors="{background: 'Red'}" layout-fill style="min-height: 50px;">Ingresar</md-button>
+        </center>
+      </div>
+      <div layout-xs="column" layout-padding>
+        <md-checkbox name="tos" ng-model="project.tos" required>
+          No cerrar sesión
+        </md-checkbox>
+      </div>  
     </div>
-  </form>
+  </div>
 </div>

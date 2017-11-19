@@ -8,10 +8,6 @@ body, h1, h2, h3 {
   font-weight: 300
 }
 
-.marg {
-  margin-bottom: 5%;
-}
-
 .fond {
   border: 1px solid #ccc;
   padding: 0.01em 16px;
@@ -19,17 +15,8 @@ body, h1, h2, h3 {
   background-color: white;
 }
 
-.borde {
-  margin-left: 1%;
-  margin-right: 1%;
-}
-
 .buttonancho {
   min-height: 20px;
-}
-
-.table {
-  margin-top: 2%;
 }
 
 .ima {
@@ -53,7 +40,6 @@ body, h1, h2, h3 {
 
 .texto {
   text-align: left;
-  margin-left: 10px;
 }
 
 .bor {
@@ -70,11 +56,6 @@ body, h1, h2, h3 {
 
 .tit {
   font-family: 'Lora', serif;
-}
-
-.bot {
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 md-icon.tama {
@@ -94,5 +75,5 @@ md-icon.tama {
 }
 
 .mar {
-  margin-top: 60px
+  margin-top: 70px
 }
