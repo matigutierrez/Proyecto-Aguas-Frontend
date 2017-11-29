@@ -3,7 +3,7 @@ angular
   .config(routesConfig);
 
 /** @ngInject */
-function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
+function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
   $locationProvider.html5Mode(true).hashPrefix('!');
   $urlRouterProvider.otherwise('login');
 
@@ -55,5 +55,28 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider) {
     .state('viviendas', {
       url: '/viviendas',
       component: 'viviendas'
+    })
+    .state('funciona', {
+      url: '/funciona',
+      template: '<h1>FUNCIONA</h1>'
     });
+
+  $httpProvider.interceptors.push('InterceptorApi');
+}
+
+function middlewareConfig($state, CredentialsService, $transitions) {
+  // Funcion cada vez que se intenta acceder a una ruta
+  $transitions.onStart({}, function (trans) {
+    var isPrivate = trans.$to().isPrivate;
+    var to = trans.$to().name;
+    // Compruebo si esta logeado para acceder a rutas protegidas, si no esta logeado se va a la pestaña login
+    if (isPrivate && !CredentialsService.isLogged()) {
+      $state.go('login');
+    }
+
+    // Compruebo que quiera entrar a el login cuando ya esta logeado
+    if (to === 'login' && CredentialsService.isLogged()) {
+      $state.go('app');
+    }
+  });
 }

@@ -8,17 +8,18 @@
         </div>
       </div>
       <div layout-xs="column">
-        <div flex>
+        <div flex ng-submit="vm.login(vm.credentials)">
           <md-input-container class="md-icon-float md-block">
             <label>Usuario</label>
             <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
-            <input ng-model="artist" type="text">
+            <input ng-model="vm.credentials.nombre_usu" type="text">
           </md-input-container>
           <md-input-container md-no-float class="md-block">
             <label>Contraseña</label>
             <md-icon md-svg-src="/assets/img/pass.svg"></md-icon>
-            <input ng-model="title" type="password">
+            <input ng-model="vm.credentials.password" type="password">
           </md-input-container>
+          <span ng-if="vm.loginError" style="color: red">Credenciales Erroneas</span>
         </div>
       </div>
       <div flex layout-xs="column">

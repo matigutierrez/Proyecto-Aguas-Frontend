@@ -5,9 +5,27 @@
   .module('app')
   .component('login', {
     templateUrl: 'app/components/login/login.html',
-    controller: loginCtr,
+    controller: loginCtrl,
     controllerAs: 'vm'
   });
 
-  function loginCtr() {}
+  loginCtrl.$inject = ['LoginService', 'CredentialsService', '$state', '$rootScope'];
+
+  function loginCtrl(LoginService, CredentialsService, $state, $rootScope) {
+    var vm = this;
+    vm.loginError = false;
+
+    vm.credentials = {};
+
+    vm.login = function (credentials) {
+      LoginService.save(credentials, function (data) {
+        CredentialsService.setToken(data.token);
+        CredentialsService.setUser(data.email);
+        $rootScope.$emit('isLogin');
+        $state.go('funciona');
+      }, function (error) {
+        vm.loginError = true;
+      });
+    }
+  }
 })();
