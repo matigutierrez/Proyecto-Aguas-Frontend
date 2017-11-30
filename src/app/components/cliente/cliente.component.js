@@ -11,7 +11,7 @@
 
   clienteCtr.$inject = ['ClienteService', '$state', '$rootScope'];
 
-  function clienteCtr() {
+  function clienteCtr(ClienteService) {
   	var vm = this;
 
   	vm.noticia = [];

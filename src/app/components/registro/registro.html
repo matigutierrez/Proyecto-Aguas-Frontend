@@ -11,7 +11,7 @@
           <md-input-container class="md-icon-float md-block">
             <label>RUT</label>
             <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
-            <input ng-model="vm.cliente.rut" type="text">
+            <input ng-model="vm.cliente.rut_cliente" type="">
           </md-input-container>
         </div>
       </div>
@@ -47,60 +47,32 @@
       <div layout-xs="column">
         <div flex>
           <md-input-container md-no-float class="md-block">
-            <label>Domicilio</label>
+            <label>Telefono</label>
             <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
-            <input ng-model="title" type="text">
+            <input ng-model="vm.cliente.telefono" type="text">
           </md-input-container>
         </div>
       </div>
       <div layout-xs="column">
         <div flex>
-          <div layout="row" layout-xs="column">
-            <div flex flex-xs="100">
-              <md-input-container class="md-block" flex-gt-sm>
-              <label>% Subsidio</label>
-                <md-select ng-model="user.state">
-                  <md-option></md-option>
-                </md-select>
-              </md-input-container>
-            </div>
-            <div flex flex-xs="100">
-              <md-input-container>
-                <label>Date</label>
-                <md-datepicker ng-model="user.submissionDate"></md-datepicker>
-              </md-input-container>
-            </div>
-          </div>
+          <md-input-container md-no-float class="md-block">
+            <label>Email</label>
+            <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
+            <input ng-model="vm.cliente.email" type="text">
+          </md-input-container>
         </div>
       </div>
       <div layout-xs="column">
         <div flex>
-          <div layout="row" layout-xs="column">
-            <div flex>
-              <md-input-container class="md-block" flex-gt-sm>
-              <label>Region</label>
-              <md-icon md-svg-src="/assets/img/marca.svg"></md-icon>
-                <md-select ng-model="user.state">
-                  <md-option></md-option>
-                </md-select>
-              </md-input-container>
-            </div>
-            <div flex>
-              <md-input-container class="md-block" flex-gt-sm>
-              <label>Ciudad/Zona</label>
-              <md-icon md-svg-src="/assets/img/ciudad.svg"></md-icon>
-                <md-select ng-model="user.state">
-                  <md-option></md-option>
-                </md-select>
-              </md-input-container>
-            </div>
-          </div>
+          <md-input-container md-no-float class="md-block">
+            <label>Residencia</label>
+            <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
+            <input ng-model="vm.cliente.residencia" type="text">
+          </md-input-container>
         </div>
       </div>
-      <div flex layout-xs="column">
-        <center>
-          <md-button class="md-raised" md-colors="{background: 'Red'}" layout-fill style="min-height: 50px;">Registrarme</md-button>
-        </center>
+      <div layout="row" layout-align="center center" flex layout-xs="column">
+        <md-button class="md-raised" md-colors="{background: 'Red'}" layout-fill style="min-height: 50px;" ng-click="vm.crearcliente(vm.cliente)">Registrarme</md-button>
       </div>
       <div layout-xs="column" layout-padding>
         <md-checkbox name="tos" ng-model="button" required>
