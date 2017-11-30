@@ -9,5 +9,14 @@
     controllerAs: 'vm'
   });
 
-  function medidoresCtr() {}
+  medidoresCtr.$inject = ['MedidorService', '$state', '$rootScope'];
+
+  function medidoresCtr(MedidorService) {
+  	var vm = this;
+    vm.medidor = [];
+
+    MedidorService.query().$promise.then(function (data) {
+      vm.medidor = data;
+    });
+  }
 })();

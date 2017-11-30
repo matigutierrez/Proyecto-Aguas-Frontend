@@ -18,7 +18,7 @@
       var medid = {
         num_medidor: medidor.num_medidor,
         marca_medidor: medidor.marca_medidor,
-        lectura_inicial: medidor.lectura_inicial,
+        lectura_inicial: 0,
         vivienda_id: medidor.vivienda_id,
         estado_medidor_id: 1
       };
