@@ -6,28 +6,43 @@
           <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center" flex-xs="90" flex-offset-xs="5">
             <h2>Registro Medidor</h2>
           </div>  
-          <md-input-container class="md-icon-float md-block">
-            <label>Numero Medidor</label>
-            <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
-            <input ng-model="medidor" type="text">
-          </md-input-container>
         </div>
       </div>
       <div layout-xs="column">
         <div flex>
-          <div layout="row" layout-xs="column">
-            <div flex flex-xs="100">
-              <md-input-container class="md-block" flex-gt-sm>
-              <label>Marca</label>
-                <md-select ng-model="user.state">
-                  <md-option></md-option>
-                </md-select>
+          <div layout-xs="column">
+            <div flex>
+              <md-input-container class="md-icon-float md-block">
+                <label>Numero Medidor</label>
+                <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
+                <input ng-model="vm.medidor.num_medidor" type="">
               </md-input-container>
             </div>
-            <div flex flex-xs="100">
-              <md-input-container>
-                <label>Registro</label>
-                <md-datepicker ng-model="user.submissionDate"></md-datepicker>
+          </div>
+          <div layout-xs="column">
+            <div flex>
+              <md-input-container class="md-icon-float md-block">
+                <label>Marca Medidor</label>
+                <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
+                <input ng-model="vm.medidor.marca_medidor" type="text">
+              </md-input-container>
+            </div>
+          </div>
+          <div layout-xs="column">
+            <div flex>
+              <md-input-container class="md-icon-float md-block">
+                <label>Lectura Inicial</label>
+                <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
+                <input ng-model="vm.medidor.lectura_inicial" type="text">
+              </md-input-container>
+            </div>
+          </div>
+          <div layout-xs="column">
+            <div flex>
+              <md-input-container class="md-icon-float md-block">
+                <label>Vivienda</label>
+                <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
+                <input ng-model="vm.medidor.vivienda_id" type="text">
               </md-input-container>
             </div>
           </div>
@@ -35,7 +50,7 @@
       </div>
       <div flex layout-xs="column">
         <div layout="row" layout-align="center center" layout-padding>
-          <md-button class="md-raised marg" md-colors="{background: 'Red'}" layout-fill style="min-height: 50px;">Registrar</md-button>
+          <md-button class="md-raised marg" md-colors="{background: 'Red'}" layout-fill style="min-height: 50px;" ng-click="vm.crearmedidor(vm.medidor)">Registrar</md-button>
         </div>
       </div>
     </div>
