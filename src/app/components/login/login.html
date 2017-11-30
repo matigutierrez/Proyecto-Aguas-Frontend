@@ -8,7 +8,7 @@
         </div>
       </div>
       <div layout-xs="column">
-        <div flex ng-submit="vm.login(vm.credentials)">
+        <div flex>
           <md-input-container class="md-icon-float md-block">
             <label>Usuario</label>
             <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
@@ -24,7 +24,7 @@
       </div>
       <div flex layout-xs="column">
         <center>
-          <md-button class="md-raised" md-colors="{background: 'Red'}" layout-fill style="min-height: 50px;">Ingresar</md-button>
+          <md-button class="md-raised" md-colors="{background: 'Red'}" ng-click="vm.login(vm.credentials)" layout-fill style="min-height: 50px;">Ingresar</md-button>
         </center>
       </div>
       <div layout-xs="column" layout-padding>

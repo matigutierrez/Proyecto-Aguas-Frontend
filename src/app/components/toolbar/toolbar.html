@@ -5,6 +5,12 @@
         <md-icon md-svg-icon="/assets/img/menu.svg"></md-icon>
       </md-button>
       <h2 flex md-truncate>Be-Water</h2>
+      <md-button ng-if="!vm.isLogged" ui-sref="login">
+        Iniciar Sesion
+      </md-button>
+      <md-button ng-if="vm.isLogged" ng-click="vm.logout()">
+        Cerrar Sesion
+      </md-button>
     </div>
   </md-toolbar>
   <md-sidenav  md-colors="{background: 'Red-600'}" class="md-sidenav-left" md-component-id="left" md-whiteframe="4">

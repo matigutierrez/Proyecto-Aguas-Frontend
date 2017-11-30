@@ -1,6 +1,7 @@
 angular
   .module('app')
-  .config(routesConfig);
+  .config(routesConfig)
+  .run(middlewareConfig);
 
 /** @ngInject */
 function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
@@ -55,10 +56,6 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
     .state('viviendas', {
       url: '/viviendas',
       component: 'viviendas'
-    })
-    .state('funciona', {
-      url: '/funciona',
-      template: '<h1>FUNCIONA</h1>'
     });
 
   $httpProvider.interceptors.push('InterceptorApi');

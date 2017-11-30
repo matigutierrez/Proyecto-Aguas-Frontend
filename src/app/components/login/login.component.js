@@ -20,12 +20,12 @@
     vm.login = function (credentials) {
       LoginService.save(credentials, function (data) {
         CredentialsService.setToken(data.token);
-        CredentialsService.setUser(data.email);
+        CredentialsService.setUser(data.nombre_usu);
         $rootScope.$emit('isLogin');
-        $state.go('funciona');
+        $state.go('registro');
       }, function (error) {
         vm.loginError = true;
       });
-    }
+    };
   }
 })();

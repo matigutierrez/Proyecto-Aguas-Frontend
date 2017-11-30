@@ -9,8 +9,11 @@
     controllerAs: 'vm'
   });
 
-  function toolbarCtr($mdSidenav) {
+  toolbarCtr.$inject = ['CredentialsService', '$mdSidenav', '$state', '$rootScope'];
+
+  function toolbarCtr(CredentialsService, $mdSidenav, $state, $rootScope) {
     var vm = this;
+    vm.isLogged = CredentialsService.isLogged();
     vm.toggleLeft = buildToggler('left');
     vm.toggleRight = buildToggler('right');
     vm.isOpen = false;
@@ -20,5 +23,15 @@
         $mdSidenav(componentId).toggle();
       };
     }
+
+    vm.logout = function () {
+      CredentialsService.clearCredentials();
+      vm.isLogged = false;
+      $state.go('login');
+    };
+
+    $rootScope.$on('isLogin', function () {
+      vm.isLogged = true;
+    });
   }
 })();
