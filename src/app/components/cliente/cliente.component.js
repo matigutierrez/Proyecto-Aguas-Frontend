@@ -9,5 +9,16 @@
     controllerAs: 'vm'
   });
 
-  function clienteCtr() {}
+  clienteCtr.$inject = ['ClienteService', '$state', '$rootScope'];
+
+  function clienteCtr() {
+  	var vm = this;
+
+  	vm.noticia = [];
+
+    ClienteService.query().$promise.then(function (data) {
+      vm.noticia = data;
+    });
+
+  }
 })();

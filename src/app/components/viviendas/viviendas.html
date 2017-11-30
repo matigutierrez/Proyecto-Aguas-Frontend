@@ -33,22 +33,13 @@
           </tr>
         </thead>
         <tbody md-body>
-          <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
-            <td md-cell>e7w8qewq</td>
-            <td md-cell>Av. Alemania</td>
-            <td md-cell>Bono Subsidio</td>
-            <td md-cell>10/26/2017</td>
-            <td md-cell>Temuco</td>
-            <td md-cell>Activo</td>
-            <td md-cell><md-button md-colors="{background: 'Red'}" layout-fill>Modificar</md-button></td>
-          </tr>
-          <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
-            <td md-cell>e7w8qewq</td>
-            <td md-cell>Padre Las Casas</td>
-            <td md-cell>Bono Subsidio(2)</td>
-            <td md-cell>12/20/2017</td>
-            <td md-cell>Temuco</td>
-            <td md-cell>Activo</td>
+          <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="viviend in vm.vivienda">
+            <td md-cell>{{ viviend.direccion }}</td>
+            <td md-cell>{{ viviend.fecha_ingreso }}</td>
+            <td md-cell>{{ viviend.rut_cliente }}</td>
+            <td md-cell>{{ viviend.estado_id }}</td>
+            <td md-cell>{{ viviend.comuna_id }}</td>
+            <td md-cell>{{ viviend.subsidio_id }}</td>
             <td md-cell><md-button md-colors="{background: 'Red'}" layout-fill>Modificar</md-button></td>
           </tr>
         </tbody>

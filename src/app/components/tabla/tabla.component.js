@@ -9,15 +9,14 @@
     controllerAs: 'vm'
   });
 
-  function tablaCtr() {
+  tablaCtr.$inject = ['ClienteService', '$state', '$rootScope'];
+
+  function tablaCtr(ClienteService) {
     var vm = this;
+    vm.cliente = [];
 
-    vm.selected = [];
-
-    vm.query = {
-      order: 'name',
-      limit: 5,
-      page: 1
-    };
+    ClienteService.query().$promise.then(function (data) {
+      vm.cliente = data;
+    });
   }
 })();

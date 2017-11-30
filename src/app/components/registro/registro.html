@@ -11,7 +11,7 @@
           <md-input-container class="md-icon-float md-block">
             <label>RUT</label>
             <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
-            <input ng-model="rut" type="text">
+            <input ng-model="vm.cliente.rut" type="text">
           </md-input-container>
         </div>
       </div>
@@ -20,7 +20,7 @@
           <md-input-container md-no-float class="md-block">
             <label>Nombre Social</label>
             <md-icon md-svg-src="/assets/img/usuario.svg"></md-icon>
-            <input ng-model="nombre" type="text">
+            <input ng-model="vm.cliente.nombre" type="text">
           </md-input-container>
         </div>
       </div>
@@ -31,14 +31,14 @@
               <md-input-container md-no-float class="md-block">
                 <label>Apellido Paterno</label>
                 <md-icon md-svg-src="/assets/img/usuario.svg"></md-icon>
-                <input ng-model="apellidop" type="text">
+                <input ng-model="vm.cliente.apellido_pater" type="text">
               </md-input-container>
             </div>
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>Apellido Materno</label>
                 <md-icon md-svg-src="/assets/img/usuario.svg"></md-icon>
-                <input ng-model="apellidom" type="text">
+                <input ng-model="vm.cliente.apellido_mater" type="text">
               </md-input-container>
             </div>
           </div>

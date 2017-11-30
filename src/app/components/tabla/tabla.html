@@ -27,32 +27,20 @@
             <th md-column md-numeric md-order-by="calories.value"><span>Nombre</span></th>
             <th md-column md-numeric>Apellido P</th>
             <th md-column md-numeric>Apellido M</th>
+            <th md-column md-numeric>Telefono</th>
+            <th md-column md-numeric>Email</th>
             <th md-column md-numeric>Residencia</th>
-            <th md-column md-numeric>Vivienda</th>
-            <th md-column md-numeric>Boletas</th>
-            <th md-column md-numeric>Estado</th>
           </tr>
         </thead>
         <tbody md-body>
-          <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
-            <td md-cell>19418977-k</td>
-            <td md-cell>Matias</td>
-            <td md-cell>Gutierrez</td>
-            <td md-cell>Luco</td>
-            <td md-cell>Vilcun</td>
-            <td md-cell>1</td>
-            <td md-cell>1</td>
-            <td md-cell>Activo</td>
-          </tr>
-          <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
-            <td md-cell>19432573-7</td>
-            <td md-cell>Diego</td>
-            <td md-cell>Fernandez</td>
-            <td md-cell>Sanchez</td>
-            <td md-cell>Temuco</td>
-            <td md-cell>2</td>
-            <td md-cell>1</td>
-            <td md-cell>Activo</td>
+          <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="client in vm.cliente">
+            <td md-cell>{{ client.rut_cliente }}</td>
+            <td md-cell>{{ client.nombre }}</td>
+            <td md-cell>{{ client.apellido_pater }}</td>
+            <td md-cell>{{ client.apellido_mater }}</td>
+            <td md-cell>{{ client.telefono }}</td>
+            <td md-cell>{{ client.email }}</td>
+            <td md-cell>{{ client.residencia }}</td>
           </tr>
         </tbody>
       </table>
