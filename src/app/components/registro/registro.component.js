@@ -14,7 +14,7 @@
   function registroCtr(ClienteService, $state) {
     var vm = this;
 
-    vm.crearcliente = function (cliente) { 
+    vm.crearcliente = function (cliente) {
       var client = {
         rut_cliente: parseInt(cliente.rut_cliente),
         nombre: cliente.nombre,

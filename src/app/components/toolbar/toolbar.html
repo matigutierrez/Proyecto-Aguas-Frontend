@@ -19,7 +19,7 @@
         <div layout="row">
           <img src="/assets/img/marco.jpg" class="imag"></img>
           <div layout="column" layout-padding>
-            <h5>Marcos Pinilla</h5>
+            <h5>{{ vm.usuario.nombre_usu }}</h5>
           </div>
         </div>
       </div>
@@ -36,7 +36,7 @@
         </div>
         <div flex layout="column">
           <md-button class="texto" ui-sref="registro" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Registrarme
+            <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Registro Clientes
           </md-button>
         </div>
         <div flex layout="column">

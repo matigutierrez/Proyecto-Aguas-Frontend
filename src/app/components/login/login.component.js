@@ -23,7 +23,7 @@
         CredentialsService.setUser(data.nombre_usu);
         $rootScope.$emit('isLogin');
         $state.go('registro');
-      }, function (error) {
+      }, function () {
         vm.loginError = true;
       });
     };

@@ -113,6 +113,7 @@
                       <th md-column md-numeric>Medidor</th>
                       <th md-column md-numeric>Estado</th>
                       <th md-column md-numeric></th>
+                      <th md-column md-numeric></th>
                     </tr>
                   </thead>
                   <tbody md-body>
@@ -124,6 +125,7 @@
                       <td md-cell>321323</td>
                       <td md-cell>No Pagado</td>
                       <td md-cell><md-button md-colors="{background: 'Red'}" ui-sref="pdf" layout-fill>PDF</md-button></td>
+                      <td md-cell><md-button md-colors="{background: 'Red'}" layout-fill ng-click="vm.descarga()" download="vm.pdf">Descargar PDF</md-button></td>
                     </tr>
                   </tbody>
                 </table>

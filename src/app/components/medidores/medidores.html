@@ -9,11 +9,11 @@
       <div flex layout="row">
         <div flex="30" flex-offset="30" flex-xs="60" flex-offset-xs="10"> 
           <md-input-container>
-            <input ng-model="medidor" type="text" placeholder="Buscar...">
+            <input ng-model="vm.datomedidor" type="text" placeholder="Buscar...">
           <md-input-container>
         </div> 
         <div flex=10 flex-xs="20">
-          <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'Red'}">
+          <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'Red'}" ng-click="vm.busqueda(vm.datomedidor)">
               <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
           </md-button>
         </div>
@@ -22,13 +22,13 @@
   </div>
   <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-xs="94" flex-offset-xs="3" class="fond">
     <md-table-container>
-      <table md-table md-row-select multiple md-progress="promise">
+      <table md-table md-row-select multiple md-progress="vm.medidor">
         <thead md-head md-order="query.order" md-on-reorder="getDesserts">
           <tr md-row>
             <th md-column md-order-by="nameToLower"><span>Codigo</span></th>
             <th md-column md-numeric md-order-by="calories.value"><span>Marca</span></th>
             <th md-column md-numeric>Fecha Registro</th>
-            <th md-column md-numeric>Lectura Incial</th>
+            <th md-column md-numeric>Lectura Inicial</th>
             <th md-column md-numeric>Vivienda</th>
             <th md-column md-numeric>Estado</th>
             <th md-column md-numeric></th>

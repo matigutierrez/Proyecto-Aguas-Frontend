@@ -9,16 +9,21 @@
     controllerAs: 'vm'
   });
 
-  clienteCtr.$inject = ['ClienteService', '$state', '$rootScope'];
+  clienteCtr.$inject = ['ClienteService', 'PdfService', '$state', '$rootScope'];
 
-  function clienteCtr(ClienteService) {
-  	var vm = this;
+  function clienteCtr(ClienteService, PdfService) {
+    var vm = this;
 
-  	vm.noticia = [];
+    vm.noticia = [];
 
     ClienteService.query().$promise.then(function (data) {
       vm.noticia = data;
     });
 
+    vm.descarga = function () {
+      PdfService.get().$promise.then(function (data) {
+        vm.pdf = data;
+      });
+    };
   }
 })();

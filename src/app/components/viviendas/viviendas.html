@@ -7,11 +7,11 @@
       <div flex layout="row">
         <div flex="30" flex-offset="30" flex-xs="60" flex-offset-xs="10"> 
           <md-input-container>
-            <input ng-model="medidor" type="text" placeholder="Buscar...">
+            <input ng-model="vm.datovivienda" type="text" placeholder="Buscar...">
           <md-input-container>
         </div> 
         <div flex=10 flex-xs="20">
-            <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'Red'}">
+            <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'Red'}" ng-click="vm.busqueda(vm.datovivienda)">
                 <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
             </md-button>
         </div>

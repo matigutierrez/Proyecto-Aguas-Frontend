@@ -18,5 +18,15 @@
     ViviendaService.query().$promise.then(function (data) {
       vm.vivienda = data;
     });
+
+    vm.busqueda = function (dato) {
+      var viviendas = [];
+      for (var i = 0; i < vm.vivienda.length; i++) {
+        if (vm.vivienda[i].direccion === dato) {
+          viviendas.push(vm.vivienda[i]);
+        }
+      }
+      vm.vivienda = viviendas;
+    };
   }
 })();
