@@ -8,19 +8,19 @@
         <div flex>
           <div layout="row">
             <md-icon class="ima" md-svg-src="/assets/img/usuario.svg"></md-icon>
-            <h2 class="ima">Matias Ignacio Gutierrez Luco</h2>
+            <h2 class="ima">{{ vm.cliente.nombre + ' ' + vm.cliente.apellido_pater + ' ' + vm.cliente.apellido_mater }}</h2>
           </div>
           <div layout="row">
             <md-icon class="ima" md-svg-src="/assets/img/marca.svg"></md-icon>
-            <p class="ima">Lomas de Vilcun, Temuco, Chile</p>
+            <p class="ima">{{ vm.cliente.residencia }}</p>
           </div>
           <div layout="row">
             <md-icon class="ima" md-svg-src="/assets/img/telefono.svg"></md-icon>
-            <p class="ima">+56987432356</p>
+            <p class="ima">+{{ vm.cliente.telefono }}</p>
           </div>
           <div layout="row">
             <md-icon class="ima" md-svg-src="/assets/img/correo.svg"></md-icon>
-            <p class="ima">m.gutierrez06@ufromail.cl</p>
+            <p class="ima">{{ vm.cliente.email }}</p>
           </div>
         </div>
       </div>

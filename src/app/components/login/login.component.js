@@ -22,7 +22,7 @@
         CredentialsService.setToken(data.token);
         CredentialsService.setUser(data.nombre_usu);
         $rootScope.$emit('isLogin');
-        $state.go('registro');
+        $state.go('cliente');
       }, function () {
         vm.loginError = true;
       });

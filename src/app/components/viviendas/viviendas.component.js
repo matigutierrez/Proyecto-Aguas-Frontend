@@ -12,7 +12,7 @@
   viviendasCtrl.$inject = ['ViviendaService', '$state', '$rootScope'];
 
   function viviendasCtrl(ViviendaService) {
-  	var vm = this;
+    var vm = this;
     vm.vivienda = [];
 
     ViviendaService.query().$promise.then(function (data) {

@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  clienteCtr.$inject = ['ClienteService', 'PdfService', '$state', '$rootScope'];
+  clienteCtr.$inject = ['ClienteService', 'ObtenerClienteService', 'PdfService', '$state', '$rootScope'];
 
-  function clienteCtr(ClienteService, PdfService) {
+  function clienteCtr(ClienteService, ObtenerClienteService, PdfService) {
     var vm = this;
 
     vm.noticia = [];
@@ -25,5 +25,9 @@
         vm.pdf = data;
       });
     };
+
+    ObtenerClienteService.query().$promise.then(function (data) {
+      vm.cliente = data[0];
+    });
   }
 })();
