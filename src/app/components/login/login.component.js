@@ -19,9 +19,12 @@
 
     vm.login = function (credentials) {
       LoginService.save(credentials, function (data) {
+        var message = true;
         CredentialsService.setToken(data.token);
         CredentialsService.setUser(data.nombre_usu);
+        CredentialsService.setSide(true);
         $rootScope.$emit('isLogin');
+        $rootScope.$broadcast('side', message);
         $state.go('cliente');
       }, function () {
         vm.loginError = true;

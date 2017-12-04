@@ -22,9 +22,18 @@
       return localStorage.getItem('user');
     };
 
+    this.setSide = function (side) {
+      localStorage.setItem('side', side);
+    };
+
+    this.getSide = function () {
+      return localStorage.getItem('side');
+    };
+
     this.clearCredentials = function () {
       localStorage.removeItem('token');
       localStorage.removeItem('user');
+      localStorage.removeItem('side');
     };
 
     this.isLogged = function () {

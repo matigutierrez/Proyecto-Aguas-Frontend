@@ -67,7 +67,7 @@ md-icon.tama {
   background-color:#e5e5e5;
 }
 
-.toolbar, md-sidenav {
+.toolbar{
   overflow: hidden;
   position: fixed;
   top: 0; 

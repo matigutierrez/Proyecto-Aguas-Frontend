@@ -9,14 +9,15 @@
     controllerAs: 'vm'
   });
 
-  toolbarCtr.$inject = ['CredentialsService', 'UsuarioLogService', '$mdSidenav', '$state', '$rootScope'];
+  toolbarCtr.$inject = ['CredentialsService', 'UsuarioLogService', '$mdSidenav', '$state', '$rootScope', '$scope'];
 
-  function toolbarCtr(CredentialsService, UsuarioLogService, $mdSidenav, $state, $rootScope) {
+  function toolbarCtr(CredentialsService, UsuarioLogService, $mdSidenav, $state, $rootScope, $scope) {
     var vm = this;
     vm.isLogged = CredentialsService.isLogged();
     vm.toggleLeft = buildToggler('left');
     vm.toggleRight = buildToggler('right');
     vm.isOpen = false;
+    vm.vista = CredentialsService.getSide() || false;
 
     UsuarioLogService.get().$promise.then(function (data) {
       vm.usuario = data;
@@ -31,11 +32,16 @@
     vm.logout = function () {
       CredentialsService.clearCredentials();
       vm.isLogged = false;
+      vm.vista = false;
       $state.go('login');
     };
 
     $rootScope.$on('isLogin', function () {
       vm.isLogged = true;
+    });
+
+    $scope.$on('side', function ($event, message) {
+      vm.vista = message;
     });
   }
 })();
