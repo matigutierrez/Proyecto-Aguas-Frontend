@@ -1,7 +1,7 @@
 <div layout="row" style="height: 100%;">
-  <md-sidenav md-colors="{background: 'Red-600'}" flex="20" ng-if="vm.vista"
+  <md-sidenav md-colors="{background: 'BlueGrey-700'}" flex-lg="20" flex-md="20" flex-sm flex-order-sm flex-xs flex-order-gt-xs ng-if="vm.vista"
     class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
-    <md-toolbar class="md-theme-indigo table"  md-colors="{background: 'Red-600'}">
+    <md-toolbar class="md-theme-indigo table"  md-colors="{background: 'BlueGrey-500'}">
       <div layout-padding>
         <div layout="row">
           <img src="/assets/img/marco.jpg" class="imag"></img>
@@ -12,21 +12,13 @@
       </div>
     </md-toolbar>
     <div layout-padding>
-      <md-divider></md-divider>
-      <div flex layout="column">
-        <div layout="column">
-          <div layout="column" layout-aling="start center" ng-if="!vm.vista">
-            <md-button class="texto" ui-sref="login" ng-click="vm.toggleLeft()">
-              <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Login
-            </md-button>
-          </div>
-        </div>
+      <div layout="column">
         <div flex layout="column">
           <md-button class="texto" ui-sref="registro" ng-click="vm.toggleLeft()">
             <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Registro Clientes
           </md-button>
         </div>
-        <div flex layout="column">
+        <div layout="column">
           <md-button class="texto" ui-sref="registromedidor" ng-click="vm.toggleLeft()">
             <md-icon md-svg-src="/assets/img/usuarios.svg" ></md-icon>Registro Medidor
           </md-button>
@@ -75,8 +67,11 @@
     </div>
   </md-sidenav>
   <div layout="column" flex flex-xs="100" flex-md="100" flex-sm="100">
-    <md-toolbar class="md-hue-2 toolbar" md-colors="{background: 'Red'}" layout="row">
+    <md-toolbar class="md-hue-2 toolbar" md-colors="{background: 'BlueGrey-600'}" layout="row">
       <div class="md-toolbar-tools">
+        <md-button hide show-xs class="md-icon-button" ng-click="vm.toggleLeft()">
+          <md-icon md-svg-icon="/assets/img/menu.svg"></md-icon>
+        </md-button>
         <h2 flex md-truncate>Be-Water</h2>
         <md-button ng-if="!vm.isLogged" ui-sref="login">
           Iniciar Sesion

@@ -74,6 +74,13 @@ md-icon.tama {
   width: 100%;
 }
 
+md-sidenav{
+  overflow: hidden;
+  position: fixed;
+  top: 0; 
+  width: 100%;
+}
+
 .mar {
   margin-top: 70px
 }
