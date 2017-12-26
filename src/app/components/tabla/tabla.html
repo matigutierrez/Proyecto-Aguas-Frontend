@@ -1,8 +1,11 @@
 <div layout-padding>
   <div flex="40" flex-offset="30" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="mar">
     <div flex flex-xs="90" flex-offset-xs="5">
-      <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center">
-        <h2>Buscar Cliente</h2>
+      <div layout-xs="column" layout-xs="column" layout="column" layout-align="center center">
+        <center>
+          <h2>Buscar Cliente</h2>
+          <h4>INGRESE NOMBRE DEL CLIENTE</h4>
+        </center>
       </div>  
       <div flex layout="row">
         <div flex="30" flex-offset="30" flex-xs="60" flex-offset-xs="10"> 
@@ -23,6 +26,7 @@
       <table md-table md-row-select multiple md-progress="promise">
         <thead md-head md-order="query.order" md-on-reorder="getDesserts">
           <tr md-row>
+            <th md-column md-numeric>ID</th>
             <th md-column md-order-by="nameToLower"><span>RUT</span></th>
             <th md-column md-numeric md-order-by="calories.value"><span>Nombre</span></th>
             <th md-column md-numeric>Apellido P</th>
@@ -30,10 +34,12 @@
             <th md-column md-numeric>Telefono</th>
             <th md-column md-numeric>Email</th>
             <th md-column md-numeric>Residencia</th>
+            <th md-column md-numeric></th>
           </tr>
         </thead>
         <tbody md-body>
           <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="client in vm.cliente">
+            <td md-cell>{{ client.id }}</td>
             <td md-cell>{{ client.rut_cliente }}</td>
             <td md-cell>{{ client.nombre }}</td>
             <td md-cell>{{ client.apellido_pater }}</td>
@@ -41,6 +47,7 @@
             <td md-cell>{{ client.telefono }}</td>
             <td md-cell>{{ client.email }}</td>
             <td md-cell>{{ client.residencia }}</td>
+            <th md-cell><md-button class="md-raised md-primary" ui-sref="cliente">Ver Cliente</md-button></th>
           </tr>
         </tbody>
       </table>

@@ -1,9 +1,12 @@
 <div layout-padding>
   <div flex="40" flex-offset="30" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="mar">
     <div flex flex-xs="90" flex-offset-xs="5">
-      <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center">
+      <div layout-xs="column" layout-xs="column" layout="column" layout-align="center center">
         <div>
-          <h2>Buscar Medidores</h2>
+          <center>
+            <h2>Buscar Medidores</h2>
+            <h4>INGRESE MARCA DEL MEDIDOR</h4>
+          </center>
         </div>
       </div>
       <div flex layout="row">
@@ -40,8 +43,8 @@
             <td md-cell>{{ medid.marca_medidor }}</td>
             <td md-cell>{{ medid.fecha_registro }}</td>
             <td md-cell>{{ medid.lectura_inicial }}</td>
-            <td md-cell>{{ medid.vivienda_id }}</td>
-            <td md-cell>{{ medid.estado_medidor_id }}</td>
+            <td md-cell>{{ medid.vivienda.direccion }}</td>
+            <td md-cell>{{ medid.estado_medidor.des_estado_medidor }}</td>
             <td md-cell><md-button md-colors="{background: 'LightBlue-900'}" layout-fill>Modificar</md-button></td>
           </tr>
         </tbody>

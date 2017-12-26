@@ -24,7 +24,7 @@
       };
 
       MedidorService.save(medid);
-      $state.go('tabla');
+      $state.go('medidores');
     };
   }
 })();

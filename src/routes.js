@@ -56,6 +56,26 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
     .state('viviendas', {
       url: '/viviendas',
       component: 'viviendas'
+    })
+    .state('menuRegistros', {
+      url: '/menuRegistros',
+      component: 'menuRegistros'
+    })
+    .state('menuListas', {
+      url: '/menuListas',
+      component: 'menuListas'
+    })
+    .state('viviendaCliente', {
+      url: '/viviendaCliente',
+      component: 'viviendaCliente'
+    })
+    .state('registroVivienda', {
+      url: '/registroVivienda',
+      component: 'registroVivienda'
+    })
+    .state('lecturaMensual', {
+      url: '/lecturaMensual',
+      component: 'lecturaMensual'
     });
 
   $httpProvider.interceptors.push('InterceptorApi');

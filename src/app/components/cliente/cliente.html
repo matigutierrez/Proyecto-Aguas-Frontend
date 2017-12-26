@@ -8,19 +8,19 @@
         <div flex>
           <div layout="row">
             <md-icon class="ima" md-svg-src="/assets/img/usuario.svg"></md-icon>
-            <h2 class="ima">{{ vm.cliente.nombre + ' ' + vm.cliente.apellido_pater + ' ' + vm.cliente.apellido_mater }}</h2>
+            <h2 class="ima">{{ vm.noticia.nombre + ' ' + vm.noticia.apellido_pater + ' ' + vm.noticia.apellido_mater }}</h2>
           </div>
           <div layout="row">
             <md-icon class="ima" md-svg-src="/assets/img/marca.svg"></md-icon>
-            <p class="ima">{{ vm.cliente.residencia }}</p>
+            <p class="ima">{{ vm.noticia.residencia }}</p>
           </div>
           <div layout="row">
             <md-icon class="ima" md-svg-src="/assets/img/telefono.svg"></md-icon>
-            <p class="ima">+{{ vm.cliente.telefono }}</p>
+            <p class="ima">+{{ vm.noticia.telefono }}</p>
           </div>
           <div layout="row">
             <md-icon class="ima" md-svg-src="/assets/img/correo.svg"></md-icon>
-            <p class="ima">{{ vm.cliente.email }}</p>
+            <p class="ima">{{ vm.noticia.email }}</p>
           </div>
         </div>
       </div>
@@ -32,30 +32,22 @@
                 <table md-table md-row-select multiple md-progress="promise">
                   <thead md-head md-order="query.order" md-on-reorder="getDesserts">
                     <tr md-row>
-                      <th md-column md-order-by="nameToLower"><span>Codigo</span></th>
-                      <th md-column md-numeric md-order-by="calories.value"><span>Direccion</span></th>
+                      <th md-column md-order-by="nameToLower"><span>Código</span></th>
+                      <th md-column md-numeric md-order-by="calories.value"><span>Dirección</span></th>
                       <th md-column md-numeric>Subsidio</th>
                       <th md-column md-numeric>Fecha Ingreso</th>
-                      <th md-column md-numeric>Ubicacion</th>
+                      <th md-column md-numeric>Ubicación</th>
                       <th md-column md-numeric>Estado</th>
                     </tr>
                   </thead>
                   <tbody md-body>
-                    <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
-                      <td md-cell>e7w8qewq</td>
-                      <td md-cell>Av. Alemania</td>
-                      <td md-cell>Bono Subsidio</td>
-                      <td md-cell>10/26/2017</td>
-                      <td md-cell>Temuco</td>
-                      <td md-cell>Activo</td>
-                    </tr>
-                    <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
-                      <td md-cell>e7w8qewq</td>
-                      <td md-cell>Padre Las Casas</td>
-                      <td md-cell>Bono Subsidio(2)</td>
-                      <td md-cell>12/20/2017</td>
-                      <td md-cell>Temuco</td>
-                      <td md-cell>Activo</td>
+                    <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="viviend in vm.vivienda">
+                      <td md-cell>{{ viviend.id }}</td>
+                      <td md-cell>{{ viviend.direccion }}</td>
+                      <td md-cell>{{ viviend.subsidio.des_subsidio }}</td>
+                      <td md-cell>{{ viviend.fecha_ingreso }}</td>
+                      <td md-cell>{{ viviend.comuna.des_comu }}</td>
+                      <td md-cell>{{ viviend.estado.des_estado }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -69,30 +61,24 @@
                 <table md-table md-row-select multiple md-progress="promise">
                   <thead md-head md-order="query.order" md-on-reorder="getDesserts">
                     <tr md-row>
-                      <th md-column md-order-by="nameToLower"><span>Codigo</span></th>
-                      <th md-column md-numeric md-order-by="calories.value"><span>Numero</span></th>
+                      <th md-column md-order-by="nameToLower"><span>Código</span></th>
+                      <th md-column md-numeric md-order-by="calories.value"><span>Número</span></th>
                       <th md-column md-numeric>Marca</th>
                       <th md-column md-numeric>Fecha Registro</th>
+                      <th md-column md-numeric>Lectura Incial</th>
                       <th md-column md-numeric>Vivienda</th>
                       <th md-column md-numeric>Estado</th>
                     </tr>
                   </thead>
                   <tbody md-body>
-                    <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
-                      <td md-cell>d6sa786das</td>
-                      <td md-cell>321323</td>
-                      <td md-cell>ELSTER</td>
-                      <td md-cell>11/14/2017</td>
-                      <td md-cell>1</td>
-                      <td md-cell>Activo</td>
-                    </tr>
-                    <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
-                      <td md-cell>dsad8768as</td>
-                      <td md-cell>787987</td>
-                      <td md-cell>STAR</td>
-                      <td md-cell>06/20/2017</td>
-                      <td md-cell>1</td>
-                      <td md-cell>Activo</td>
+                    <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="medi in vm.medidor">
+                      <td md-cell>{{ medi.id }}</td>
+                      <td md-cell>{{ medi.num_medidor }}</td>
+                      <td md-cell>{{ medi.marca_medidor }}</td>
+                      <td md-cell>{{ medi.fecha_registro }}</td>
+                      <td md-cell>{{ medi.lectura_inicial }}</td>
+                      <td md-cell>{{ medi.vivienda.direccion }}</td>
+                      <td md-cell>{{ medi.estado_medidor.des_estado_medidor }}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -107,23 +93,29 @@
                   <thead md-head md-order="query.order" md-on-reorder="getDesserts">
                     <tr md-row>
                       <th md-column md-order-by="nameToLower"><span>Nro Boleta</span></th>
-                      <th md-column md-numeric md-order-by="calories.value"><span>Domicilio</span></th>
-                      <th md-column md-numeric>Consumo</th>
+                      <th md-column md-numeric>Cliente</th>
+                      <th md-column md-numeric>Domicilio</th>
                       <th md-column md-numeric>Monto a Pagar</th>
-                      <th md-column md-numeric>Medidor</th>
-                      <th md-column md-numeric>Estado</th>
+                      <th md-column md-numeric>Lectura Ant/Act</th>
+                      <th md-column md-numeric>Consumo</th>
+                      <th md-column md-numeric>Subsidio</th>
+                      <th md-column md-numeric>Total</th>
+                      <th md-column md-numeric>Fecha Pago</th>
                       <th md-column md-numeric></th>
                       <th md-column md-numeric></th>
                     </tr>
                   </thead>
                   <tbody md-body>
-                    <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla">
-                      <td md-cell>7d98s7das</td>
-                      <td md-cell>Av. Alemania</td>
-                      <td md-cell>54,88m3</td>
-                      <td md-cell>$25700</td>
-                      <td md-cell>321323</td>
-                      <td md-cell>No Pagado</td>
+                    <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="boleta in vm.boleta">
+                      <td md-cell>{{ boleta.nro_boleta }}</td>
+                      <td md-cell>{{ boleta.nombre_cliente }}</td>
+                      <td md-cell>{{ boleta.domicilio }}</td>
+                      <td md-cell>{{ boleta.monto_pagar }}</td>
+                      <td md-cell>{{ boleta.lectura_anterior + ' | ' + boleta.lectura_actual}}</td>
+                      <td md-cell>{{ boleta.consumo }}</td>
+                      <td md-cell>{{ boleta.subsidio }}</td>
+                      <td md-cell>{{ boleta.total }}</td>
+                      <td md-cell>{{ boleta.fecha_pago }}</td>
                       <td md-cell><md-button md-colors="{background: 'Red'}" ui-sref="pdf" layout-fill>PDF</md-button></td>
                       <td md-cell><md-button md-colors="{background: 'Red'}" layout-fill ng-click="vm.descarga()" download="vm.pdf">Descargar PDF</md-button></td>
                     </tr>

@@ -25,7 +25,7 @@
         CredentialsService.setSide(true);
         $rootScope.$emit('isLogin');
         $rootScope.$broadcast('side', message);
-        $state.go('cliente');
+        $state.go('menuRegistros');
       }, function () {
         vm.loginError = true;
       });

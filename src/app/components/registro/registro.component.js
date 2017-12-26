@@ -16,7 +16,7 @@
 
     vm.crearcliente = function (cliente) {
       var client = {
-        rut_cliente: parseInt(cliente.rut_cliente),
+        rut_cliente: parseInt(cliente.rut_cliente, 10),
         nombre: cliente.nombre,
         apellido_pater: cliente.apellido_pater,
         apellido_mater: cliente.apellido_mater,

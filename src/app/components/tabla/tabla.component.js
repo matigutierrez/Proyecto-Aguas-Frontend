@@ -11,7 +11,7 @@
 
   tablaCtr.$inject = ['ClienteService', '$state', '$rootScope'];
 
-  function tablaCtr(ClienteService) {
+  function tablaCtr(ClienteService, $state) {
     var vm = this;
     vm.cliente = [];
 

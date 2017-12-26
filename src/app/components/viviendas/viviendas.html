@@ -1,8 +1,11 @@
 <div layout-padding>
   <div flex="40" flex-offset="30" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="mar">
     <div flex flex-xs="90" flex-offset-xs="5">
-      <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center">
-        <h2>Buscar Viviendas</h2>
+      <div layout-xs="column" layout-xs="column" layout="column" layout-align="center center">
+        <center>
+          <h2>Buscar Viviendas</h2>
+          <h4>INGRESE DIRECCION</h4>
+        </center>
       </div>  
       <div flex layout="row">
         <div flex="30" flex-offset="30" flex-xs="60" flex-offset-xs="10"> 
@@ -29,17 +32,16 @@
             <th md-column md-numeric>Fecha Ingreso</th>
             <th md-column md-numeric>Ubicacion</th>
             <th md-column md-numeric>Estado</th>
-            <th md-column md-numeric></th>
           </tr>
         </thead>
         <tbody md-body>
           <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="viviend in vm.vivienda">
+            <td md-cell>{{ viviend.id }}</td>
             <td md-cell>{{ viviend.direccion }}</td>
+            <td md-cell>{{ viviend.subsidio.des_subsidio }}</td>
             <td md-cell>{{ viviend.fecha_ingreso }}</td>
-            <td md-cell>{{ viviend.rut_cliente }}</td>
-            <td md-cell>{{ viviend.estado_id }}</td>
-            <td md-cell>{{ viviend.comuna_id }}</td>
-            <td md-cell>{{ viviend.subsidio_id }}</td>
+            <td md-cell>{{ viviend.comuna.des_comu }}</td>
+            <td md-cell>{{ viviend.estado.des_estado }}</td>
             <td md-cell><md-button md-colors="{background: 'LightBlue-900'}" layout-fill>Modificar</md-button></td>
           </tr>
         </tbody>

@@ -1,0 +1,79 @@
+<div layout-padding>
+  <div flex="60" flex-offset="20" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="fond mar">
+    <div layout-padding flex layout="column">
+      <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center">
+        <div>
+          <h2>Registro de Vivienda</h2>
+        </div>
+      </div>
+      <div layout-xs="column">
+        <div flex>
+          <md-input-container class="md-icon-float md-block">
+            <label>Dirección</label>
+            <md-icon md-svg-src="/assets/img/usuario.svg"></md-icon>
+            <input ng-model="vm.vivienda.direccion" type="">
+          </md-input-container>
+        </div>
+      </div>
+      <div layout-xs="column">
+        <!--<div flex>
+          <md-input-container md-no-float class="md-block">
+            <label>Estado Vivienda</label>
+            <md-icon md-svg-src="/assets/img/usuario.svg"></md-icon>
+            <input ng-model="vm.vivienda.estado_id" type="text">
+          </md-input-container>
+        </div>-->
+        <div flex>
+          <md-input-container md-no-float class="md-block">
+            <label>Estado Vivienda</label>
+            <md-select ng-model="vm.vivienda.estado_id">
+              <md-option ng-repeat="est in vm.estado" value="{{ est.id }}">{{ est.des_estado }}</md-option>
+            </md-select>
+          </md-input-container>
+        </div>
+      </div>
+      <div layout-xs="column">
+        <div>
+          <div layout="row" layout-xs="column">
+            <!--<div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Región</label>
+                <md-select ng-model="vm.comuna.region_id">
+                  <md-option ng-repeat="regi in vm.region | orderBy : 'id'" value="{{ regi.id }}">{{ regi.des_zona }}</md-option>
+                </md-select>
+              </md-input-container>
+            </div>-->
+            <!--<div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Comuna</label>
+                <md-icon md-svg-src="/assets/img/usuario.svg"></md-icon>
+                <input ng-model="vm.vivienda.comuna_id" type="text">
+              </md-input-container>
+            </div>-->
+            <div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Comuna</label>
+                <md-select ng-model="vm.vivienda.comuna_id">
+                  <md-option ng-repeat="comu in vm.comuna | orderBy : 'id'" value="{{ comu.id }}">{{ comu.des_comu }}</md-option>
+                </md-select>
+              </md-input-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div layout-xs="column">
+        <div flex>
+          <md-input-container md-no-float class="md-block">
+            <label>Subsidio</label>
+            <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
+            <input ng-model="vm.vivienda.subsidio_id" type="text">
+          </md-input-container>
+        </div>
+      </div>
+      
+      <div layout="row" layout-align="center center" flex layout-xs="column">
+        <md-button class="md-raised" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;" ng-click="vm.crearvivienda(vm.vivienda)">Registrar Vivienda</md-button>
+      </div>  
+    </div>
+  </div>
+</div>

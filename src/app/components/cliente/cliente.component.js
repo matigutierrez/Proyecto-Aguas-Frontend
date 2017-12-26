@@ -9,15 +9,29 @@
     controllerAs: 'vm'
   });
 
-  clienteCtr.$inject = ['ClienteService', 'ObtenerClienteService', 'PdfService', '$state', '$rootScope'];
+  clienteCtr.$inject = ['BoletaEmitidaService', 'MedidorService', 'ViviendaService', 'ClienteService', 'ObtenerClienteService', 'PdfService', '$state', '$rootScope'];
 
-  function clienteCtr(ClienteService, ObtenerClienteService, PdfService) {
+  function clienteCtr(BoletaEmitidaService, MedidorService, ViviendaService, ClienteService, ObtenerClienteService, PdfService) {
     var vm = this;
 
     vm.noticia = [];
-
     ClienteService.query().$promise.then(function (data) {
-      vm.noticia = data;
+      vm.noticia = data[0];
+    });
+
+    vm.vivienda = [];
+    ViviendaService.query().$promise.then(function (data) {
+      vm.vivienda = data;
+    });
+
+    vm.medidor = [];
+    MedidorService.query().$promise.then(function (data) {
+      vm.medidor = data;
+    });
+
+    vm.boleta = [];
+    BoletaEmitidaService.query().$promise.then(function (data) {
+      vm.boleta = data;
     });
 
     vm.descarga = function () {
