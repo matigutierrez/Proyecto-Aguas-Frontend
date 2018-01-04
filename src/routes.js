@@ -76,6 +76,18 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
     .state('lecturaMensual', {
       url: '/lecturaMensual',
       component: 'lecturaMensual'
+    })
+    .state('boletasPendientes', {
+      url: '/boletasPendientes',
+      component: 'boletasPendientes'
+    })
+    .state('abonoBoleta', {
+      url: '/abonoBoleta',
+      component: 'abonoBoleta'
+    })
+    .state('boletasAbonadas', {
+      url: '/boletasAbonadas',
+      component: 'boletasAbonadas'
     });
 
   $httpProvider.interceptors.push('InterceptorApi');

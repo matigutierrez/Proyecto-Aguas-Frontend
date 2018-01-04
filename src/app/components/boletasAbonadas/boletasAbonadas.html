@@ -4,18 +4,18 @@
       <div flex flex-xs="90" flex-offset-xs="5">
         <div layout-xs="column" layout-xs="column" layout="column" layout-align="center center" style="margin-top: -50px;">
           <center>
-            <h2>Buscar Viviendas</h2>
-            <h4>INGRESE DIRECCIÓN</h4>
+            <h2>Buscar Abonos</h2>
+            <h4>INGRESE CÓDIGO DEL ABONO</h4>
           </center>
         </div>  
         <div flex layout="row">
           <div flex="30" flex-offset="30" flex-xs="60" flex-offset-xs="10"> 
             <md-input-container>
-              <input ng-model="vm.datovivienda" type="text" placeholder="Buscar...">
+              <input ng-model="vm.codigoabono" type="number" placeholder="Buscar...">
             <md-input-container>
           </div> 
           <div flex=10 flex-xs="20">
-              <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'light-blue-600'}" ng-click="vm.busqueda(vm.datovivienda)">
+              <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'light-blue-600'}" ng-click="vm.busqueda(vm.codigoabono)">
                   <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
               </md-button>
           </div>
@@ -27,22 +27,20 @@
         <table md-table md-row-select multiple md-progress="promise">
           <thead md-head md-order="query.order" md-on-reorder="getDesserts">
             <tr md-row>
-              <th md-column md-numeric>Codigo</th>
-              <th md-column md-numeric>Dirección</th>
-              <th md-column md-numeric>Subsidio</th>
-              <th md-column md-numeric>Fecha Ingreso</th>
-              <th md-column md-numeric>Ubicación</th>
-              <th md-column md-numeric>Estado</th>
+              <th md-column md-numeric>Codigo Abono</th>
+              <th md-column md-numeric>Fecha</th>
+              <th md-column md-numeric>Monto Abonado</th>
+              <th md-column md-numeric>Boleta Emitida</th>
+              <th md-column md-numeric>Nombre Cliente</th>
             </tr>
           </thead>
           <tbody md-body>
-            <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="viviend in vm.vivienda">
-              <td md-cell>{{ viviend.id }}</td>
-              <td md-cell>{{ viviend.direccion }}</td>
-              <td md-cell>{{ viviend.subsidio.des_subsidio }}</td>
-              <td md-cell>{{ viviend.fecha_ingreso }}</td>
-              <td md-cell>{{ viviend.comuna.des_comu }}</td>
-              <td md-cell>{{ viviend.estado.des_estado }}</td>
+            <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="abono in vm.abonadas">
+              <td md-cell>{{ abono.cod_abono }}</td>
+              <td md-cell>{{ abono.fecha }}</td>
+              <td md-cell>{{ abono.monto_abonado }}</td>
+              <td md-cell>{{ abono.boleta_emitida.nro_boleta }}</td>
+              <td md-cell>{{ abono.boleta_emitida.nombre_cliente }}</td>
               <td md-cell><md-button class="btn1" layout-fill>Modificar</md-button></td>
             </tr>
           </tbody>

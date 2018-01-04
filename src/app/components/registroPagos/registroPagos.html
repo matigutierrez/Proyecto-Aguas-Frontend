@@ -4,71 +4,78 @@
       <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center" flex-xs="90" flex-offset-xs="5">
         <h2>Registro de Pagos</h2>
       </div>  
-      <div layout-xs="column">
+      <div layout-xs="column" class="datos">
         <div flex>
           <div layout-xs="row" layout="row">
             <div flex="60" flex-xs="50">
               <md-input-container md-no-float class="md-block">
                 <label>Número Cobranza</label>
+                <md-icon md-svg-src="/assets/img/numcobranza.svg"></md-icon>
                 <input ng-model="numCobranza" type="number">
               </md-input-container>
             </div>
             <div flex="40" flex-xs="50">
               <md-input-container md-no-float class="md-block">
-                <center><md-button md-colors="{background: 'LightBlue-900'}" class="md-raised md-primary">Buscar</md-button></center>
+                <center><md-button id="registro" md-colors="{background: 'LightBlue-900'}" class="md-raised md-primary">Buscar</md-button></center>
               </md-input-container>
             </div>
           </div>
         </div>
       </div>
-      <div layout-xs="column">
+      <div layout-xs="column" class="datos">
         <div flex>
           <div layout="row" layout-xs="column">
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>Número Medidor</label>
+                <md-icon md-svg-src="/assets/img/number.svg"></md-icon>
                 <input ng-model="nroMedidor" type="number">
               </md-input-container>
             </div>
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>Nombre Socio</label>
+                <md-icon md-svg-src="/assets/img/usuario.svg"></md-icon>
                 <input ng-model="nomSocio" type="text">
               </md-input-container>
             </div>
           </div>
         </div>
       </div>
-      <div layout-xs="column">
+      <div layout-xs="column" class="datos">
         <div flex>
           <div layout="row" layout-xs="column">
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>Suma del Mes</label>
+                <md-icon md-svg-src="/assets/img/suma.svg"></md-icon>
                 <input ng-model="sumaMes" type="number">
               </md-input-container>
             </div>
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>+ Saldo</label>
+                <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
                 <input ng-model="masSaldo" type="number">
               </md-input-container>
             </div>
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>- Subsidio</label>
+                <md-icon md-svg-src="/assets/img/subsidio.svg"></md-icon>
                 <input ng-model="subsidio" type="number">
               </md-input-container>
             </div>
           </div>
         </div>
       </div>
-      <div layout-xs="column">
+      <div layout-xs="column" class="datos">
         <div flex>
           <div layout="row" layout-xs="column">
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>Total a Pagar $:</label>
+                <md-icon md-svg-src="/assets/img/totalpagar.svg"></md-icon>
                 <input ng-model="totalPagar" type="number" disabled>
               </md-input-container>
             </div>
@@ -83,35 +90,15 @@
           </div>
         </div>
       </div>
-      <div flex layout-xs="column">
-        <div layout="row" layout-align="center center">
-          <md-button class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;">Ingresar</md-button>
+      <div flex layout-xs="column" class="datos">
+        <div layout="row" layout-align="center center" layout-padding>
+          <md-button id="registro" class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;">Ingresar Pago</md-button>
         </div>
       </div>
-      <div layout-xs="column">
-        <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center" flex-xs="90" flex-offset-xs="5">
-          <h2>Boletas pendientes anteriores:</h2>
-        </div>  
-        <md-table-container>
-          <table md-table>
-            <thead md-head>
-              <tr md-row>
-                <th md-column md-numeric><span>Nro. Boleta</span></th>
-                <th md-column md-numeric><span>Suma Mes</span></th>
-                <th md-column md-numeric><span>Saldo</span></th>
-                <th md-column md-numeric><span>Subsidio</span></th>
-              </tr>
-            </thead>
-            <tbody md-body>
-              <tr md-row class="tabla">
-                <td md-cell>095675</td>
-                <td md-cell>21000</td>
-                <td md-cell>12000</td>
-                <td md-cell>20000</td>
-              </tr>
-            </tbody>
-          </table>
-        </md-table-container>
+      <div flex layout-xs="column">
+        <div layout="row" layout-align="center center" layout-padding>
+          <md-button id="registro" class="md-raised marg" md-colors="{background: 'LightGreen-900'}" ui-sref="boletasPendientes" layout-fill style="min-height: 50px;">Boletas Pendientes</md-button>
+        </div>
       </div>
     </div>
   </div>

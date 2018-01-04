@@ -1,55 +1,57 @@
 <div layout-padding>
-  <div flex="40" flex-offset="30" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="mar">
-    <div flex flex-xs="90" flex-offset-xs="5">
-      <div layout-xs="column" layout-xs="column" layout="column" layout-align="center center">
-        <div>
-          <center>
-            <h2>Buscar Medidores</h2>
-            <h4>INGRESE MARCA DEL MEDIDOR</h4>
-          </center>
+  <div class="fond mar">
+    <div flex="40" flex-offset="30" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="mar">
+      <div flex flex-xs="90" flex-offset-xs="5">
+        <div layout-xs="column" layout-xs="column" layout="column" layout-align="center center" style="margin-top: -50px;">
+          <div>
+            <center>
+              <h2>Buscar Medidores</h2>
+              <h4>INGRESE MARCA DEL MEDIDOR</h4>
+            </center>
+          </div>
         </div>
-      </div>
-      <div flex layout="row">
-        <div flex="30" flex-offset="30" flex-xs="60" flex-offset-xs="10"> 
-          <md-input-container>
-            <input ng-model="vm.datomedidor" type="text" placeholder="Buscar...">
-          <md-input-container>
-        </div> 
-        <div flex=10 flex-xs="20">
-          <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'Red-800'}" ng-click="vm.busqueda(vm.datomedidor)">
-              <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
-          </md-button>
+        <div flex layout="row">
+          <div flex="30" flex-offset="30" flex-xs="60" flex-offset-xs="10"> 
+            <md-input-container>
+              <input ng-model="vm.datomedidor" type="text" placeholder="Buscar...">
+            <md-input-container>
+          </div> 
+          <div flex=10 flex-xs="20">
+            <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'light-blue-600'}" ng-click="vm.busqueda(vm.datomedidor)">
+                <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
+            </md-button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-xs="94" flex-offset-xs="3" class="fond">
-    <md-table-container>
-      <table md-table md-row-select multiple md-progress="vm.medidor">
-        <thead md-head md-order="query.order" md-on-reorder="getDesserts">
-          <tr md-row>
-            <th md-column md-order-by="nameToLower"><span>Codigo</span></th>
-            <th md-column md-numeric md-order-by="calories.value"><span>Marca</span></th>
-            <th md-column md-numeric>Fecha Registro</th>
-            <th md-column md-numeric>Lectura Inicial</th>
-            <th md-column md-numeric>Vivienda</th>
-            <th md-column md-numeric>Estado</th>
-            <th md-column md-numeric></th>
-          </tr>
-        </thead>
-        <tbody md-body>
-          <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="medid in vm.medidor">
-            <td md-cell>{{ medid.num_medidor }}</td>
-            <td md-cell>{{ medid.marca_medidor }}</td>
-            <td md-cell>{{ medid.fecha_registro }}</td>
-            <td md-cell>{{ medid.lectura_inicial }}</td>
-            <td md-cell>{{ medid.vivienda.direccion }}</td>
-            <td md-cell>{{ medid.estado_medidor.des_estado_medidor }}</td>
-            <td md-cell><md-button md-colors="{background: 'LightBlue-900'}" layout-fill>Modificar</md-button></td>
-          </tr>
-        </tbody>
-      </table>
-    </md-table-container>
-    <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+    <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-xs="94" flex-offset-xs="3" class="fond" style="margin-bottom: 20px">
+      <md-table-container>
+        <table md-table md-row-select multiple md-progress="vm.medidor">
+          <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+            <tr md-row>
+              <th md-column md-numeric>Código</th>
+              <th md-column md-numeric>Marca</th>
+              <th md-column md-numeric>Fecha Registro</th>
+              <th md-column md-numeric>Lectura Inicial</th>
+              <th md-column md-numeric>Vivienda</th>
+              <th md-column md-numeric>Estado</th>
+              <th md-column md-numeric></th>
+            </tr>
+          </thead>
+          <tbody md-body>
+            <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="medid in vm.medidor">
+              <td md-cell>{{ medid.num_medidor }}</td>
+              <td md-cell>{{ medid.marca_medidor }}</td>
+              <td md-cell>{{ medid.fecha_registro }}</td>
+              <td md-cell>{{ medid.lectura_inicial }}</td>
+              <td md-cell>{{ medid.vivienda.direccion }}</td>
+              <td md-cell>{{ medid.estado_medidor.des_estado_medidor }}</td>
+              <td md-cell><md-button class="btn1" layout-fill>Modificar</md-button></td>
+            </tr>
+          </tbody>
+        </table>
+      </md-table-container>
+      <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+    </div>
   </div>
  </div> 

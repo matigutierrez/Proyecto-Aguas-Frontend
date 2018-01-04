@@ -4,7 +4,7 @@
       <div layout-xs="column">
         <div flex>
           <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center" flex-xs="90" flex-offset-xs="5">
-            <h2>Registro Medidor</h2>
+            <h2>Registro Abono</h2>
           </div>  
         </div>
       </div>
@@ -13,27 +13,27 @@
           <div layout-xs="column" class="datos">
             <div flex>
               <md-input-container class="md-icon-float md-block">
-                <label>Numero Medidor</label>
+                <label>Código Abono</label>
                 <md-icon md-svg-src="/assets/img/number.svg" class="name"></md-icon>
-                <input ng-model="vm.medidor.num_medidor" type="">
+                <input ng-model="vm.abono.cod_abono" type="">
               </md-input-container>
             </div>
           </div>
           <div layout-xs="column" class="datos">
             <div flex>
               <md-input-container class="md-icon-float md-block">
-                <label>Marca Medidor</label>
-                <md-icon md-svg-src="/assets/img/brand.svg" class="name"></md-icon>
-                <input ng-model="vm.medidor.marca_medidor" type="text">
+                <label>Monto Abonado</label>
+                <md-icon md-svg-src="/assets/img/saldo.svg" class="name"></md-icon>
+                <input ng-model="vm.abono.monto_abonado" type="text">
               </md-input-container>
             </div>
           </div>
           <div layout-xs="column" class="datos">
             <div flex>
               <md-input-container class="md-icon-float md-block">
-                <label>Vivienda</label>
-                <md-icon md-svg-src="/assets/img/casa.svg" class="name"></md-icon>
-                <input ng-model="vm.medidor.vivienda_id" type="text">
+                <label>ID Boleta</label>
+                <md-icon md-svg-src="/assets/img/number.svg" class="name"></md-icon>
+                <input ng-model="vm.abono.boleta_emitida_id" type="text">
               </md-input-container>
             </div>
           </div>
@@ -41,7 +41,7 @@
       </div>
       <div flex layout-xs="column">
         <div layout="row" layout-align="center center" layout-padding>
-          <md-button id="registro" class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;" ng-click="vm.crearmedidor(vm.medidor)">Registrar Medidor</md-button>
+          <md-button id="registro" class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;" ng-click="vm.registrarAbono(vm.abono)">Registrar Abono</md-button>
         </div>
       </div>
     </div>

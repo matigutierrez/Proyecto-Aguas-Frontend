@@ -1,12 +1,13 @@
 <div layout="row" style="height: 100%;">
-  <md-sidenav md-colors="{background: 'BlueGrey-700'}" flex-lg="20" flex-md="20" flex-sm flex-order-sm flex-xs flex-order-gt-xs ng-if="vm.vista"
+  <md-sidenav flex-lg="20" flex-md="20" flex-sm flex-order-sm flex-xs flex-order-gt-xs ng-if="vm.vista"
     class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
-    <md-toolbar class="md-theme-indigo table"  md-colors="{background: 'BlueGrey-500'}">
-      <div layout-padding>
-        <div layout="row">
-          <img src="/assets/img/marco.jpg" class="imag"></img>
-          <div layout="column" layout-padding>
-            <h5>{{ vm.usuario.nombre_usu }}</h5>
+    <md-toolbar class="md-theme-indigo table"  md-colors="{background: 'light-blue-600'}">
+      <div layout="row" layout-align="center center">
+        <img src="/assets/img/Administrador.png" class="imag"></img>
+        <div layout-padding layout="column">
+          <div>
+            <h3 class="admin">{{ vm.usuario.nombre_usu }}</h3>
+            <h6 class="info">Administrador</h6>
           </div>
         </div>
       </div>
@@ -15,12 +16,12 @@
       <div layout="column">
         <div flex layout="column">
           <md-button class="texto" ui-sref="menuRegistros" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Registros
+            <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Registros
           </md-button>
         </div>
         <div flex layout="column">
           <md-button class="texto" ui-sref="menuListas" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Busqueda
+            <md-icon md-svg-src="/assets/img/search.svg"></md-icon>Busqueda
           </md-button>
         </div>
         <!--<div flex layout="column">
@@ -55,7 +56,7 @@
         </div>-->
         <div layout="column">
           <md-button class="texto" ui-sref="emisionCobranza" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Emision Cobranza
+            <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Emisión Cobranza
           </md-button>
         </div>
         <!--<div layout="column">
@@ -68,23 +69,23 @@
             <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Cliente
           </md-button>
         </div>-->
-        <div flex layout="column">
-          <md-button ng-if="vm.isLogged" ng-click="vm.logout()">
-            Cerrar Sesion
+        <div flex layout="column" class="separar">
+          <md-button class="sesion" ng-if="vm.isLogged" ng-click="vm.logout()">
+            Cerrar Sesión
           </md-button>
         </div>
       </div>
     </div>
   </md-sidenav>
   <div layout="column" flex flex-xs="100" flex-md="100" flex-sm="100">
-    <md-toolbar class="md-hue-2 toolbar" md-colors="{background: 'BlueGrey-600'}" layout="row">
+    <md-toolbar class="md-hue-2 toolbar" md-colors="{background: 'light-blue-700'}" layout="row">
       <div class="md-toolbar-tools">
         <md-button hide show-xs class="md-icon-button" ng-click="vm.toggleLeft()">
           <md-icon md-svg-icon="/assets/img/menu.svg"></md-icon>
         </md-button>
         <h2 flex md-truncate>Be-Water</h2>
-        <md-button ng-if="!vm.isLogged" ui-sref="login">
-          Iniciar Sesion
+        <md-button class="sesion" ng-if="!vm.isLogged" ui-sref="login">
+          Iniciar Sesión
         </md-button>
       </div>
     </md-toolbar>

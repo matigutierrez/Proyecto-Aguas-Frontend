@@ -3,63 +3,61 @@
     <div layout-padding>
       <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center" flex-xs="90" flex-offset-xs="5">
         <h2>Registro de Lectura Mensual</h2>
-      </div>  
-      <div layout-xs="column">
-        <div flex>
-          <md-input-container class="md-icon-float md-block">
-            <label>Número Medidor</label>
-            <input ng-model="nroMedidor" type="number">
-          </md-input-container>
-        </div>
-      </div>  
-      <div layout-xs="column">
+      </div> 
+      <div layout-xs="column" class="datos">
         <div flex>
           <div layout="row" layout-xs="column">
+            <div flex>
+              <md-input-container class="md-icon-float md-block">
+                <label>Número Medidor</label>
+                <md-icon md-svg-src="/assets/img/number.svg"></md-icon>
+                <input ng-model="nroMedidor" type="number">
+              </md-input-container>
+            </div>
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>Marca Medidor</label>
+                <md-icon md-svg-src="/assets/img/brand.svg"></md-icon>
                 <input ng-model="mcaMedidor" type="text" disabled>
-              </md-input-container>
-            </div>
-            <div flex>
-              <md-input-container md-no-float class="md-block">
-                <label>Dueño Medidor</label>
-                <input ng-model="dueMedidor" type="text" disabled>
               </md-input-container>
             </div>
           </div>
         </div>
       </div>
-      <div layout-xs="column">
+      <div layout-xs="column" class="datos">
         <div flex>
           <div layout="row" layout-xs="column">
             <div flex>
               <md-input-container md-no-float class="md-block">
-                <label>Domicilio</label>
-                <input ng-model="domicilio" type="text" disabled>
+                <label>Dueño Medidor</label>
+                <md-icon md-svg-src="/assets/img/usuario.svg"></md-icon>
+                <input ng-model="dueMedidor" type="text" disabled>
               </md-input-container>
             </div>
             <div flex>
               <md-input-container md-no-float class="md-block">
-                <label>Lectura Anterior</label>
-                <input ng-model="lecAnterior" type="number" disabled>
+                <label>Domicilio</label>
+                <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
+                <input ng-model="domicilio" type="text" disabled>
               </md-input-container>
             </div>
           </div>
         </div>
       </div>
-      <div layout-xs="column">
+      <div layout-xs="column" class="datos">
         <div flex>
           <div layout="row" layout-xs="column">
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>Año</label>
+                <md-icon md-svg-src="/assets/img/calendar.svg"></md-icon>
                 <input ng-model="anio" type="number">
               </md-input-container>
             </div>
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>Mes</label>
+                <md-icon md-svg-src="/assets/img/mes.svg"></md-icon>
                 <md-select ng-model="mes">
                   <md-option value="enero">Enero</md-option>
                   <md-option value="febrero">Febrero</md-option>
@@ -76,21 +74,9 @@
                 </md-select>
               </md-input-container>
             </div>
-          </div>
-        </div>
-      </div>
-      <div layout-xs="column">
-        <div flex>
-          <div layout="row" layout-xs="column">
             <div flex>
               <md-input-container md-no-float class="md-block">
-                <label>Lectura Actual</label>
-                <input ng-model="lecActual" type="number">
-              </md-input-container>
-            </div>
-            <div flex>
-              <md-input-container md-no-float class="md-block">
-                <label>Fecha Registro Consumo</label>
+                <label>Fecha Registro</label>
                 <div flex-gt-xs>
                   <md-datepicker ng-model="ctrl.myDate" md-placeholder="Seleccione Día"></md-datepicker>
                 </div>
@@ -99,40 +85,65 @@
           </div>
         </div>
       </div>
-      <div layout-xs="column">
+      <div layout-xs="column" class="datos">
+        <div flex>
+          <div layout="row" layout-xs="column">
+            <div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Lectura Anterior</label>
+                <md-icon md-svg-src="/assets/img/lectura.svg"></md-icon>
+                <input ng-model="lecAnterior" type="number" disabled>
+              </md-input-container>
+            </div>
+            <div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Lectura Actual</label>
+                <md-icon md-svg-src="/assets/img/lectura.svg"></md-icon>
+                <input ng-model="lecActual" type="number">
+              </md-input-container>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div layout-xs="column" class="datos">
         <div flex>
           <div layout="row" layout-xs="column">
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>Cargo Fijo</label>
+                <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
                 <input ng-model="carFijo" type="number">
               </md-input-container>
             </div>
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>Alcantarillado</label>
+                <md-icon md-svg-src="/assets/img/lectura.svg"></md-icon>
                 <input ng-model="alcantarillado" type="number">
               </md-input-container>
             </div>
           </div>
         </div>
       </div>
-      <div layout-xs="column">
+      <div layout-xs="column" class="datos">
         <div flex>
           <div layout="row" layout-xs="column">
             <div flex>
               <md-input-container class="md-icon-float md-block">
                 <label>Valor a Pagar (CLP) $:</label>
+                <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
                 <input ng-model="valorPagar" type="number">
               </md-input-container>
             </div>
+            <div flex>
+              <div layout="row" layout-align="center center" layout-padding>
+                <md-button id="registro" class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px; width: 200px;">Registrar Lectura</md-button>
+              </div>
+            </div>
           </div>
+          
         </div>
-      </div>
-      <div flex layout-xs="column">
-        <div layout="row" layout-align="center center" layout-padding>
-          <md-button class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;">Registrar</md-button>
-        </div>
+        
       </div>
     </div>
   </div>

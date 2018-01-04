@@ -1,14 +1,30 @@
 <div layout-padding>
   <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-sm="94" flex-offset-sm="3" flex-xs="94" flex-offset-xs="3" class="fond mar">
     <div layout-padding>
-      <div layout="row" layout-xs="column">
-        <div flex="20" flex-xs="90" flex-offset-xs="5">
-          <h2>Informacion Cliente</h2>
+      <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center">
+        <div>
+          <h2>Perfil del Cliente</h2>
         </div>
-        <div flex>
+      </div>
+      <div layout="row" layout-xs="column">
+        <div flex="40" flex-xs="100" flex-sm="50" flex-md="50" layout="column" layout-xs="column" class="fond" style="background-color: #B0DFEE">
+          <div flex>
+            <img style="display: block; margin: auto; margin-top: 6px; width: 200px;" src="/assets/img/perfil.png">
+            <h3 style="text-align: center;" class="ima">{{ vm.noticia.nombre + ' ' + vm.noticia.apellido_pater + ' ' + vm.noticia.apellido_mater }}</h3>
+            <div flex layout-xs="column">
+              <div layout="row" layout-align="center center" layout-padding>
+                <md-button id="registro" ui-sref="#" layout-fill style="background-color: #FFDBAB; height: 50px; width: 170px; margin-top: -15px; border: 1px solid;"><md-icon style="margin-top: -9px;" md-svg-src="/assets/img/edit.svg"></md-icon>Editar Perfil</md-button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div layout-align="center center" class="fond" style="background-color: #B0DFEE;">
+          <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center">
+            <h3>Info. Básica</h3>
+          </div>
           <div layout="row">
-            <md-icon class="ima" md-svg-src="/assets/img/usuario.svg"></md-icon>
-            <h2 class="ima">{{ vm.noticia.nombre + ' ' + vm.noticia.apellido_pater + ' ' + vm.noticia.apellido_mater }}</h2>
+            <md-icon class="ima" md-svg-src="/assets/img/rut.svg"></md-icon>
+            <p class="ima">{{ vm.noticia.rut_cliente }}</p>
           </div>
           <div layout="row">
             <md-icon class="ima" md-svg-src="/assets/img/marca.svg"></md-icon>
@@ -24,6 +40,8 @@
           </div>
         </div>
       </div>
+      
+      <hr style="border:15px; background-color: #83CEF6; border-radius: 15px;">
       <div ng-cloak>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab label="vivienda">
@@ -32,8 +50,8 @@
                 <table md-table md-row-select multiple md-progress="promise">
                   <thead md-head md-order="query.order" md-on-reorder="getDesserts">
                     <tr md-row>
-                      <th md-column md-order-by="nameToLower"><span>Código</span></th>
-                      <th md-column md-numeric md-order-by="calories.value"><span>Dirección</span></th>
+                      <th md-column md-numeric>Código</th>
+                      <th md-column md-numeric>Dirección</th>
                       <th md-column md-numeric>Subsidio</th>
                       <th md-column md-numeric>Fecha Ingreso</th>
                       <th md-column md-numeric>Ubicación</th>
@@ -61,8 +79,8 @@
                 <table md-table md-row-select multiple md-progress="promise">
                   <thead md-head md-order="query.order" md-on-reorder="getDesserts">
                     <tr md-row>
-                      <th md-column md-order-by="nameToLower"><span>Código</span></th>
-                      <th md-column md-numeric md-order-by="calories.value"><span>Número</span></th>
+                      <th md-column md-numeric>Código</th>
+                      <th md-column md-numeric>Número</th>
                       <th md-column md-numeric>Marca</th>
                       <th md-column md-numeric>Fecha Registro</th>
                       <th md-column md-numeric>Lectura Incial</th>
@@ -92,13 +110,11 @@
                 <table md-table md-row-select multiple md-progress="promise">
                   <thead md-head md-order="query.order" md-on-reorder="getDesserts">
                     <tr md-row>
-                      <th md-column md-order-by="nameToLower"><span>Nro Boleta</span></th>
+                      <th md-column md-numeric>Nro Boleta</th>
                       <th md-column md-numeric>Cliente</th>
                       <th md-column md-numeric>Domicilio</th>
                       <th md-column md-numeric>Monto a Pagar</th>
                       <th md-column md-numeric>Lectura Ant/Act</th>
-                      <th md-column md-numeric>Consumo</th>
-                      <th md-column md-numeric>Subsidio</th>
                       <th md-column md-numeric>Total</th>
                       <th md-column md-numeric>Fecha Pago</th>
                       <th md-column md-numeric></th>
@@ -110,14 +126,12 @@
                       <td md-cell>{{ boleta.nro_boleta }}</td>
                       <td md-cell>{{ boleta.nombre_cliente }}</td>
                       <td md-cell>{{ boleta.domicilio }}</td>
-                      <td md-cell>{{ boleta.monto_pagar }}</td>
+                      <td md-cell>${{ boleta.monto_pagar }}</td>
                       <td md-cell>{{ boleta.lectura_anterior + ' | ' + boleta.lectura_actual}}</td>
-                      <td md-cell>{{ boleta.consumo }}</td>
-                      <td md-cell>{{ boleta.subsidio }}</td>
-                      <td md-cell>{{ boleta.total }}</td>
+                      <td md-cell>${{ boleta.total }}</td>
                       <td md-cell>{{ boleta.fecha_pago }}</td>
-                      <td md-cell><md-button md-colors="{background: 'Red'}" ui-sref="pdf" layout-fill>PDF</md-button></td>
-                      <td md-cell><md-button md-colors="{background: 'Red'}" layout-fill ng-click="vm.descarga()" download="vm.pdf">Descargar PDF</md-button></td>
+                      <td md-cell><md-button style="margin-right: -40px; margin-left: -20px;" class="md-fab" md-colors="{background: 'LightBlue-700'}" ui-sref="pdf"><md-icon class="icon1" md-svg-src="/assets/img/pdf.svg"></md-icon></md-button></td>
+                      <td md-cell><md-button class="md-fab" md-colors="{background: 'LightBlue-700'}" ng-click="vm.descarga()" download="vm.pdf"><md-icon md-svg-src="/assets/img/download.svg"></md-icon></md-button></td>
                     </tr>
                   </tbody>
                 </table>
