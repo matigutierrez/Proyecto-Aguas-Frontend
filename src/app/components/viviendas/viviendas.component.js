@@ -11,7 +11,7 @@
 
   viviendasCtrl.$inject = ['ViviendaService', '$state', '$rootScope'];
 
-  function viviendasCtrl(ViviendaService) {
+  function viviendasCtrl(ViviendaService, $state, $rootScope) {
     var vm = this;
     vm.vivienda = [];
 
@@ -27,6 +27,18 @@
         }
       }
       vm.vivienda = viviendas;
+    };
+
+    vm.actualizarvivienda = function (id) {
+      $rootScope.$broadcast('id', id);
+      $state.go('actualizarVivienda');
+    };
+
+    vm.eliminarvivienda = function (id) {
+      ViviendaService.delete({id: id});
+      ViviendaService.query().$promise.then(function (data) {
+        vm.vivienda = data;
+      });
     };
   }
 })();

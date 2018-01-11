@@ -3,17 +3,19 @@
     <div flex="40" flex-offset="30" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="mar">
       <div flex flex-xs="90" flex-offset-xs="5">
         <div layout-xs="column" layout-xs="column" layout="column" layout-align="center center" style="margin-top: -50px;">
-          <h2>Buscar Lectura Mensual</h2>
-          <h4>INGRESE CÓDIGO DE LA VIVIENDA</h4>
+          <center>
+            <h2>Buscar Boletas Emitidas</h2>
+            <h4>INGRESE NÚMERO DE LA BOLETA</h4>
+          </center>
         </div>  
         <div flex layout="row">
           <div flex="30" flex-offset="30" flex-xs="60" flex-offset-xs="10"> 
             <md-input-container>
-              <input ng-model="vm.datolectura" type="number" placeholder="Buscar...">
+              <input ng-model="vm.nroBoleta" type="number" placeholder="Buscar...">
             <md-input-container>
           </div> 
           <div flex=10 flex-xs="20">
-              <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'light-blue-600'}" ng-click="vm.busqueda(vm.datolectura)">
+              <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'light-blue-600'}" ng-click="vm.busqueda(vm.nroBoleta)">
                   <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
               </md-button>
           </div>
@@ -33,28 +35,30 @@
         <table md-table md-row-select multiple md-progress="promise">
           <thead md-head md-order="query.order" md-on-reorder="getDesserts">
             <tr md-row>
-              <th md-column md-numeric>Código</th>
-              <th md-column md-numeric>Fecha Registro</th>
-              <th md-column md-numeric>Lectura/Lec. Ant.</th>
-              <th md-column md-numeric>Saldo Pagado</th>
-              <th md-column md-numeric>Consumo</th>
-              <th md-column md-numeric>Valor a Pagar</th>
-              <th md-column md-numeric>Vivienda</th>
+              <th md-column md-numeric>N° Boleta</th>
+              <th md-column md-numeric>Nombre Cliente</th>
+              <th md-column md-numeric>Domicilio</th>
+              <th md-column md-numeric>Monto a Pagar</th>
+              <th md-column md-numeric>Fecha de Pago</th>
+              <th md-column md-numeric></th>
               <th md-column md-numeric></th>
             </tr>
           </thead>
           <tbody md-body>
-            <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="lectura in vm.lecturaMensual">
-              <td md-cell>{{ lectura.id }}</td>
-              <td md-cell>{{ lectura.fecha_registro_consumo }}</td>
-              <td md-cell>{{ lectura.lectura + ' | ' + lectura.lectura_anterior}}</td>
-              <td md-cell>{{ lectura.saldo_pagado }}</td>
-              <td md-cell>{{ lectura.consumo }}</td>
-              <td md-cell>{{ lectura.valor_pagar }}</td>
-              <td md-cell>{{ lectura.vivienda.direccion }}</td>
+            <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="emi in vm.emitidas">
+              <td md-cell>{{ emi.nro_boleta }}</td>
+              <td md-cell>{{ emi.nombre_cliente }}</td>
+              <td md-cell>{{ emi.domicilio }}</td>
+              <td md-cell>{{ emi.monto_pagar }}</td>
+              <td md-cell>{{ emi.fecha_pago }}</td>
               <td md-cell>
-                <md-button class="md-icon-button">
+                <md-button class="md-icon-button" style="margin-right: -40px;">
                   <md-icon  md-svg-icon="/assets/img/edituser.svg"></md-icon>
+                </md-button>
+              </td>
+              <td md-cell>
+                <md-button class="md-icon-button" ng-click="vm.eliminarBoletaEmitida(abono.id)" style="margin-right: -25px;">
+                  <md-icon  md-svg-icon="/assets/img/deleteuser.svg"></md-icon>
                 </md-button>
               </td>
             </tr>
@@ -70,7 +74,6 @@
       <md-button class="md-icon-button md-raised" layout-fill ui-sref="menuListas" style="margin-bottom: 10px; margin-top: -13px;">
         <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>
       </md-button>
-    </div>
+    </div> 
   </div>
-  
 </div>

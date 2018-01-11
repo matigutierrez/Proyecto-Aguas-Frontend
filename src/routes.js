@@ -65,10 +65,6 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
       url: '/menuListas',
       component: 'menuListas'
     })
-    .state('viviendaCliente', {
-      url: '/viviendaCliente',
-      component: 'viviendaCliente'
-    })
     .state('registroVivienda', {
       url: '/registroVivienda',
       component: 'registroVivienda'
@@ -88,6 +84,30 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
     .state('boletasAbonadas', {
       url: '/boletasAbonadas',
       component: 'boletasAbonadas'
+    })
+    .state('boletasEmitidas', {
+      url: '/boletasEmitidas',
+      component: 'boletasEmitidas'
+    })
+    .state('actualizarMedidor', {
+      url: '/actualizarMedidor',
+      component: 'actualizarMedidor'
+    })
+    .state('actualizarVivienda', {
+      url: '/actualizarVivienda',
+      component: 'actualizarVivienda'
+    })
+    .state('actualizarCliente', {
+      url: '/actualizarCliente',
+      component: 'actualizarCliente'
+    })
+    .state('viviendaCliente', {
+      url: '/viviendaCliente',
+      component: 'viviendaCliente'
+    })
+    .state('asignarVivienda', {
+      url: '/asignarVivienda',
+      component: 'asignarVivienda'
     });
 
   $httpProvider.interceptors.push('InterceptorApi');

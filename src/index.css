@@ -120,7 +120,7 @@ md-card{
 }
 
 .md-headline {
-  font-size: 25px;
+  font-size: 22px;
   text-transform: capitalize;
 }
 
@@ -156,4 +156,24 @@ md-card{
 
 .icon1 {
   margin-right: 0px;
+}
+
+.logo {
+  width: 150px;
+  margin-bottom: -340px;
+}
+
+.volverRegistros {
+  height: 40px;
+  width: 150px;
+  margin-top: -10px;
+  border-radius: 13px;
+  font-size: 15px;
+  line-height: 40px;
+}
+
+.volverListas {
+  margin-bottom: 15px;
+  border-radius: 13px;
+  width: 150px;
 }

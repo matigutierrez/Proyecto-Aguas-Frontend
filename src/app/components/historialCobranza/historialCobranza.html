@@ -24,6 +24,9 @@
       </div>
     </div>
   </div><br>
+  <div flex="20" layout="row" flex layout-xs="column">
+    <md-button class="md-raised volverListas" md-colors="{background: 'cyan-600'}" layout-fill ui-sref="emisionCobranza">Volver</md-button>
+  </div>
   <div layout-xs="column" flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-xs="94" flex-offset-xs="3" class="fond">
     <md-table-container>
       <table md-table>
@@ -60,5 +63,8 @@
       </table>
     </md-table-container>
     <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+  </div>
+  <div flex="20" layout="row" flex layout-xs="column">
+    <md-button class="md-raised volverListas" md-colors="{background: 'cyan-600'}" layout-fill ui-sref="emisionCobranza" style="margin-top: 10px;">Volver</md-button>
   </div>
 </div>

@@ -9,7 +9,7 @@
     controllerAs: 'vm'
   });
 
-  registroViviendaCtr.$inject = ['RegionService', 'EstadoService', 'ComunaService', 'ViviendaService', '$state', '$rootScope'];
+  registroViviendaCtr.$inject = ['RegionService', 'EstadoService', 'ComunaService', 'ViviendaService', '$state'];
 
   function registroViviendaCtr(RegionService, EstadoService, ComunaService, ViviendaService, $state) {
     var vm = this;

@@ -11,7 +11,7 @@
 
   tablaCtr.$inject = ['ClienteService', '$state', '$rootScope'];
 
-  function tablaCtr(ClienteService, $state) {
+  function tablaCtr(ClienteService, $state, $rootScope) {
     var vm = this;
     vm.cliente = [];
 
@@ -27,6 +27,25 @@
         }
       }
       vm.cliente = clientes;
+    };
+
+    vm.vercliente = function (index) {
+      var data = vm.cliente[index];
+      $rootScope.$broadcast('datoscliente', data);
+      $state.go('cliente');
+      console.log(data);
+    };
+
+    vm.updatecliente = function (id) {
+      $rootScope.$broadcast('id', id);
+      $state.go('actualizarCliente');
+    }
+
+    vm.eliminarcliente = function (id) {
+      ClienteService.delete({id: id});
+      ClienteService.query().$promise.then(function (data) {
+        vm.cliente = data;
+      });
     };
   }
 })();

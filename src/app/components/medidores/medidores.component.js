@@ -11,7 +11,7 @@
 
   medidoresCtr.$inject = ['MedidorService', '$state', '$rootScope'];
 
-  function medidoresCtr(MedidorService) {
+  function medidoresCtr(MedidorService, $state, $rootScope) {
     var vm = this;
     vm.medidor = [];
 
@@ -27,6 +27,18 @@
         }
       }
       vm.medidor = medidores;
+    };
+
+    vm.actualizarmedidor = function (id) {
+      $rootScope.$broadcast('id', id);
+      $state.go('actualizarMedidor');
+    };
+
+    vm.eliminarmedidor = function (id) {
+      MedidorService.delete({id: id});
+      MedidorService.query().$promise.then(function (data) {
+        vm.medidor = data;
+      });
     };
   }
 })();

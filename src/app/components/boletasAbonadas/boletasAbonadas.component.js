@@ -33,5 +33,12 @@
       }
       vm.abonadas = abonado;
     };
+
+    vm.eliminarabono = function (id) {
+      BoletaEmitidaService.delete({id: id});
+      BoletaEmitidaService.query().$promise.then(function (data) {
+        vm.abonadas = data;
+      });
+    };
   }
 })();

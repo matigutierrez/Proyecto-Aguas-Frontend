@@ -24,11 +24,20 @@
         </div>
       </div>
     </div>
+    <div layout="row" flex layout-xs="column">
+      <md-button class="md-icon-button md-raised" layout-fill ui-sref="menuListas" style="margin-bottom: 10px;">
+        <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>
+      </md-button>
+    </div> 
+    <!--<div flex="20" layout="row" flex layout-xs="column">
+      <md-button class="md-raised volverListas" md-colors="{background: 'cyan-600'}" layout-fill ui-sref="menuListas">Volver</md-button>
+    </div>-->
     <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-xs="94" flex-offset-xs="3" class="fond" style="margin-bottom: 20px">
       <md-table-container>
         <table md-table md-row-select multiple md-progress="vm.medidor">
           <thead md-head md-order="query.order" md-on-reorder="getDesserts">
             <tr md-row>
+              <th md-column md-numeric>ID</th>
               <th md-column md-numeric>Código</th>
               <th md-column md-numeric>Marca</th>
               <th md-column md-numeric>Fecha Registro</th>
@@ -36,22 +45,41 @@
               <th md-column md-numeric>Vivienda</th>
               <th md-column md-numeric>Estado</th>
               <th md-column md-numeric></th>
+              <th md-column md-numeric></th>
             </tr>
           </thead>
           <tbody md-body>
             <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="medid in vm.medidor">
+              <td md-cell>{{ medid.id }}</td>
               <td md-cell>{{ medid.num_medidor }}</td>
               <td md-cell>{{ medid.marca_medidor }}</td>
               <td md-cell>{{ medid.fecha_registro }}</td>
               <td md-cell>{{ medid.lectura_inicial }}</td>
               <td md-cell>{{ medid.vivienda.direccion }}</td>
               <td md-cell>{{ medid.estado_medidor.des_estado_medidor }}</td>
-              <td md-cell><md-button class="btn1" layout-fill>Modificar</md-button></td>
+              <td md-cell>
+                <md-button class="md-icon-button" ng-click="vm.actualizarmedidor(medid.id)" style="margin-right: -40px;">
+                  <md-icon  md-svg-icon="/assets/img/edituser.svg"></md-icon>
+                </md-button>
+              </td>
+              <td md-cell>
+                <md-button class="md-icon-button" ng-click="vm.eliminarmedidor(medid.id)" style="margin-right: -25px;">
+                  <md-icon  md-svg-icon="/assets/img/deleteuser.svg"></md-icon>
+                </md-button>
+              </td>
             </tr>
           </tbody>
         </table>
       </md-table-container>
       <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
     </div>
+    <!--<div flex="20" layout="row" flex layout-xs="column">
+      <md-button class="md-raised volverListas" md-colors="{background: 'cyan-600'}" layout-fill ui-sref="menuListas">Volver</md-button>
+    </div>-->
+    <div layout="row" flex layout-xs="column">
+      <md-button class="md-icon-button md-raised" layout-fill ui-sref="menuListas" style="margin-bottom: 10px; margin-top: -13px;">
+        <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>
+      </md-button>
+    </div> 
   </div>
  </div> 

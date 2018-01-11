@@ -1,7 +1,7 @@
 <div layout-padding>
   <div flex="100" flex-md="90" flex-offset-md="5" flex-sm="90" flex-offset-sm="5" flex-xs="90" flex-offset-xs="5" class="mar">
     <div layout-padding flex layout="column">
-      <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center">
+      <div layout-xs="column" layout-xs="column" layout-lg="row" layout="row" layout-align="center center">
         <div layout="column" layout-sm="column" layout-xs="column">
 
           <div layout-md="column" layout-lg="row">
@@ -40,6 +40,26 @@
               </md-button>
             </div> 
             <div flex>
+              <md-button ui-sref="asignarVivienda">
+                <md-card>
+                  <md-card-title>
+                    <md-card-title-text>
+                      <span class="md-headline">Asignar</span>
+                      <span class="md-headline">Vivienda</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                      <div class="md-media-md card-media">
+                        <center><img style="width: 80px" src="/assets/img/userhouse.png"></img></center>
+                      </div>
+                    </md-card-title-media>
+                  </md-card-title>
+                </md-card>
+              </md-button>
+            </div>
+          </div>
+          
+          <div layout-md="column" layout-lg="row">
+            <div flex>
               <md-button ui-sref="registromedidor">
                 <md-card>
                   <md-card-title>
@@ -55,10 +75,7 @@
                   </md-card-title>
                 </md-card>
               </md-button>
-            </div> 
-          </div>
-          
-          <div layout-md="column" layout-lg="row">
+            </div>
             <div flex>
               <md-button ui-sref="registroMensual">
                 <md-card>
@@ -92,7 +109,10 @@
                   </md-card-title>
                 </md-card>
               </md-button>
-            </div>
+            </div> 
+          </div>
+          
+          <div layout-md="column" layout-lg="row">
             <div flex>
               <md-button ui-sref="abonoBoleta">
                 <md-card>
@@ -109,10 +129,9 @@
                   </md-card-title>
                 </md-card>
               </md-button>
-            </div> 
+            </div>
           </div>
         </div>
-
       </div>  
     </div>
   </div>

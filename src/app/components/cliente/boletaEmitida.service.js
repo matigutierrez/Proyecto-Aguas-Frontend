@@ -5,7 +5,7 @@
   .module('app')
   .service('BoletaEmitidaService', boletaEmitidaService);
 
-  boletaEmitidaService = ['$resource', 'API'];
+  boletaEmitidaService.$inject = ['$resource', 'API'];
 
   function boletaEmitidaService($resource, API) {
     return $resource(API + 'boletaemitida/:id', {id: '@id'}, {

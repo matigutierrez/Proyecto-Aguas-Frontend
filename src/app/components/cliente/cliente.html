@@ -1,6 +1,11 @@
 <div layout-padding>
   <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-sm="94" flex-offset-sm="3" flex-xs="94" flex-offset-xs="3" class="fond mar">
     <div layout-padding>
+      <div layout="row" flex layout-xs="column">
+        <md-button class="md-icon-button md-raised" layout-fill ui-sref="tabla" style="margin-bottom: -50px; margin-top: -5px; margin-left: -16px;">
+          <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>
+        </md-button>
+      </div>
       <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center">
         <div>
           <h2>Perfil del Cliente</h2>
@@ -10,7 +15,7 @@
         <div flex="40" flex-xs="100" flex-sm="50" flex-md="50" layout="column" layout-xs="column" class="fond" style="background-color: #B0DFEE">
           <div flex>
             <img style="display: block; margin: auto; margin-top: 6px; width: 200px;" src="/assets/img/perfil.png">
-            <h3 style="text-align: center;" class="ima">{{ vm.noticia.nombre + ' ' + vm.noticia.apellido_pater + ' ' + vm.noticia.apellido_mater }}</h3>
+            <h3 style="text-align: center;" class="ima">{{ vm.nombre + ' ' + vm.apellido_pater + ' ' + vm.apellido_mater }}</h3>
             <div flex layout-xs="column">
               <div layout="row" layout-align="center center" layout-padding>
                 <md-button id="registro" ui-sref="#" layout-fill style="background-color: #FFDBAB; height: 50px; width: 170px; margin-top: -15px; border: 1px solid;"><md-icon style="margin-top: -9px;" md-svg-src="/assets/img/edit.svg"></md-icon>Editar Perfil</md-button>
@@ -24,24 +29,25 @@
           </div>
           <div layout="row">
             <md-icon class="ima" md-svg-src="/assets/img/rut.svg"></md-icon>
-            <p class="ima">{{ vm.noticia.rut_cliente }}</p>
+            <p class="ima">{{ vm.rut_cliente }}</p>
           </div>
           <div layout="row">
             <md-icon class="ima" md-svg-src="/assets/img/marca.svg"></md-icon>
-            <p class="ima">{{ vm.noticia.residencia }}</p>
+            <p class="ima">{{ vm.residencia }}</p>
           </div>
           <div layout="row">
             <md-icon class="ima" md-svg-src="/assets/img/telefono.svg"></md-icon>
-            <p class="ima">+{{ vm.noticia.telefono }}</p>
+            <p class="ima">+{{ vm.telefono }}</p>
           </div>
           <div layout="row">
             <md-icon class="ima" md-svg-src="/assets/img/correo.svg"></md-icon>
-            <p class="ima">{{ vm.noticia.email }}</p>
+            <p class="ima">{{ vm.email }}</p>
           </div>
         </div>
       </div>
       
       <hr style="border:15px; background-color: #83CEF6; border-radius: 15px;">
+
       <div ng-cloak>
         <md-tabs md-dynamic-height md-border-bottom>
           <md-tab label="vivienda">

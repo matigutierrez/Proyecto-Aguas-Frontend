@@ -18,7 +18,7 @@
       var abonoBoleta = {
         cod_abono: abono.cod_abono,
         monto_abonado: abono.monto_abonado,
-        boleta_emitida_id: abono.boleta_emitida_id,
+        boleta_emitida_id: abono.boleta_emitida_id
       };
 
       AbonoService.save(abonoBoleta);
