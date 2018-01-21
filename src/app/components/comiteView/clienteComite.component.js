@@ -9,14 +9,13 @@
     controllerAs: 'vm'
   });
 
-  clienteComiteCtrl.$inject = ['$rootScope', 'ComiteClienteService'];
+  clienteComiteCtrl.$inject = ['$rootScope', 'ComiteService'];
 
-  function clienteComiteCtrl($rootScope, ComiteClienteService) {
+  function clienteComiteCtrl($rootScope, ComiteService) {
     var vm = this;
 
-    //esto está malo
     vm.cliente = [];
-    ComiteClienteService.query().$promise.then(function (data) {
+    ComiteService.query().$promise.then(function (data) {
       vm.cliente = data;
       console.log(vm.cliente);
     });

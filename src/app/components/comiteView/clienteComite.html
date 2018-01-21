@@ -43,7 +43,7 @@
           </thead>
           <tbody md-body>
             <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="medid in vm.cliente">
-              <td md-cell>{{ medid.nombre }}</td>
+              <td md-cell>{{ medid.medidor.vivienda.vivienda_cliente.cliente.nombre }}</td>
               <td md-cell>{{ medid.vivienda.medidor.num_medidor }}</td>
               <td md-cell>{{ medid.vivienda.comuna.comuna_id }}</td>
               <td md-cell>{{ medid.vivienda.direccion }}</td>

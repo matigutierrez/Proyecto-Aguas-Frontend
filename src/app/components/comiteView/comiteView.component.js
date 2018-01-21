@@ -18,7 +18,7 @@
 
     ComiteService.query().$promise.then(function (data) {
       dataComit = $rootScope.datosComite;
-      console.log(dataComit);
+      console.log(dataComit.clientes());
       vm.nombre = dataComit.nombre;
       vm.comuna_id = dataComit.comuna.des_comu;
     });
