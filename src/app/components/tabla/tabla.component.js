@@ -31,13 +31,13 @@
 
     vm.vercliente = function (index) {
       var data = vm.cliente[index];
-      $rootScope.$broadcast('datoscliente', data);
+      $rootScope.datosCliente = data;
       $state.go('cliente');
       console.log(data);
     };
 
     vm.updatecliente = function (id) {
-      $rootScope.$broadcast('id', id);
+      $rootScope.id = id;
       $state.go('actualizarCliente');
     }
 

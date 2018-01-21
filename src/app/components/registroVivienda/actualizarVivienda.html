@@ -40,8 +40,10 @@
           <div flex>
             <md-input-container md-no-float class="md-block">
               <label>Subsidio</label>
-              <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
-              <input ng-model="vm.vivienda.subsidio_id" type="text">
+              <md-icon md-svg-src="/assets/img/subsidio1.svg"></md-icon>
+              <md-select ng-model="vm.vivienda.subsidio_id">
+                <md-option ng-repeat="subsi in vm.subsidio" value="{{ subsi.id }}">{{ subsi.des_subsidio }}</md-option>
+              </md-select>
             </md-input-container>
           </div>
         </div>

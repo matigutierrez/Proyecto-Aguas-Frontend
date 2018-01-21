@@ -177,3 +177,8 @@ md-card{
   border-radius: 13px;
   width: 150px;
 }
+
+.btncomite {
+  width: 300px;
+  background-color: grey;
+}

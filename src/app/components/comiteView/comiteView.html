@@ -1,0 +1,58 @@
+<div layout-padding>
+  <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-sm="94" flex-offset-sm="3" flex-xs="94" flex-offset-xs="3" class="fond mar">
+    <div layout-padding>
+      <div layout="row" flex layout-xs="column">
+        <md-button class="md-icon-button md-raised" layout-fill ui-sref="comites" style="margin-bottom: -50px; margin-top: -5px; margin-left: -16px;">
+          <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>
+        </md-button>
+      </div>
+      <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center">
+        <center>
+          <h2>Comité</h2>
+          <h3>Nombre: {{ vm.nombre }}</h3>
+          <h3>Comuna: {{ vm.comuna_id }}</h3>
+        </center>
+      </div>
+      <div layout-xs="column" layout-xs="column" layout-lg="row" layout="row" layout-align="center center">
+        <div layout="column" layout-sm="column" layout-xs="column">
+          <div layout-md="column" layout-lg="row">
+            <div flex>
+              <md-button ui-sref="menuRegistros">
+                <md-card class="btncomite">
+                  <md-card-title>
+                    <md-card-title-text>
+                      <span class="md-headline">Registros</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                      <div class="md-media-md card-media">
+                        <center><img style="width: 80px" src="/assets/img/registros.png"></img></center>
+                      </div>
+                    </md-card-title-media>
+                  </md-card-title>
+                </md-card>
+              </md-button>
+            </div>
+            <div flex>
+              <md-button ui-sref="menuListas">
+                <md-card class="btncomite">
+                  <md-card-title>
+                    <md-card-title-text>
+                      <span class="md-headline">Búsqueda</span>
+                    </md-card-title-text>
+                    <md-card-title-media>
+                      <div class="md-media-md card-media">
+                        <center><img style="width: 80px" src="/assets/img/busquedas.png"></img></center>
+                      </div>
+                    </md-card-title-media>
+                  </md-card-title>
+                </md-card>
+              </md-button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <hr style="border:15px; background-color: #83CEF6; border-radius: 15px;">
+
+    </div>
+  </div>
+</div>

@@ -15,99 +15,148 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
     })
     .state('registro', {
       url: '/registro',
-      component: 'registro'
+      component: 'registro',
+      isPrivate: true
     })
     .state('registromedidor', {
       url: '/registromedidor',
-      component: 'registromedidor'
+      component: 'registromedidor',
+      isPrivate: true
     })
     .state('tabla', {
       url: '/tabla',
-      component: 'tabla'
+      component: 'tabla',
+      isPrivate: true
     })
     .state('cliente', {
       url: '/cliente',
-      component: 'cliente'
+      component: 'cliente',
+      isPrivate: true
     })
     .state('pdf', {
       url: '/pdf',
-      component: 'pdf'
+      component: 'pdf',
+      isPrivate: true
     })
     .state('medidores', {
       url: '/medidores',
-      component: 'medidores'
+      component: 'medidores',
+      isPrivate: true
     })
     .state('registroPagos', {
       url: '/registroPagos',
-      component: 'registroPagos'
+      component: 'registroPagos',
+      isPrivate: true
     })
     .state('registroMensual', {
       url: '/registroMensual',
-      component: 'registroMensual'
+      component: 'registroMensual',
+      isPrivate: true
     })
     .state('emisionCobranza', {
       url: '/emisionCobranza',
-      component: 'emisionCobranza'
+      component: 'emisionCobranza',
+      isPrivate: true
     })
     .state('historialCobranza', {
       url: '/historialCobranza',
-      component: 'historialCobranza'
+      component: 'historialCobranza',
+      isPrivate: true
     })
     .state('viviendas', {
       url: '/viviendas',
-      component: 'viviendas'
+      component: 'viviendas',
+      isPrivate: true
     })
     .state('menuRegistros', {
       url: '/menuRegistros',
-      component: 'menuRegistros'
+      component: 'menuRegistros',
+      isPrivate: true
     })
     .state('menuListas', {
       url: '/menuListas',
-      component: 'menuListas'
+      component: 'menuListas',
+      isPrivate: true
     })
     .state('registroVivienda', {
       url: '/registroVivienda',
-      component: 'registroVivienda'
+      component: 'registroVivienda',
+      isPrivate: true
     })
     .state('lecturaMensual', {
       url: '/lecturaMensual',
-      component: 'lecturaMensual'
+      component: 'lecturaMensual',
+      isPrivate: true
     })
     .state('boletasPendientes', {
       url: '/boletasPendientes',
-      component: 'boletasPendientes'
+      component: 'boletasPendientes',
+      isPrivate: true
     })
     .state('abonoBoleta', {
       url: '/abonoBoleta',
-      component: 'abonoBoleta'
+      component: 'abonoBoleta',
+      isPrivate: true
     })
     .state('boletasAbonadas', {
       url: '/boletasAbonadas',
-      component: 'boletasAbonadas'
+      component: 'boletasAbonadas',
+      isPrivate: true
     })
     .state('boletasEmitidas', {
       url: '/boletasEmitidas',
-      component: 'boletasEmitidas'
+      component: 'boletasEmitidas',
+      isPrivate: true
     })
     .state('actualizarMedidor', {
       url: '/actualizarMedidor',
-      component: 'actualizarMedidor'
+      component: 'actualizarMedidor',
+      isPrivate: true
     })
     .state('actualizarVivienda', {
       url: '/actualizarVivienda',
-      component: 'actualizarVivienda'
+      component: 'actualizarVivienda',
+      isPrivate: true
     })
     .state('actualizarCliente', {
       url: '/actualizarCliente',
-      component: 'actualizarCliente'
+      component: 'actualizarCliente',
+      isPrivate: true
     })
     .state('viviendaCliente', {
       url: '/viviendaCliente',
-      component: 'viviendaCliente'
+      component: 'viviendaCliente',
+      isPrivate: true
     })
     .state('asignarVivienda', {
       url: '/asignarVivienda',
-      component: 'asignarVivienda'
+      component: 'asignarVivienda',
+      isPrivate: true
+    })
+    .state('menuAdmin', {
+      url: '/menuAdmin',
+      component: 'menuAdmin',
+      isPrivate: true
+    })
+    .state('comites', {
+      url: '/comites',
+      component: 'comites'
+    })
+    .state('registroComite', {
+      url: '/registroComite',
+      component: 'registroComite'
+    })
+    .state('comiteView', {
+      url: '/comiteView',
+      component: 'comiteView'
+    })
+    .state('actualizarComite', {
+      url: '/actualizarComite',
+      component: 'actualizarComite'
+    })
+    .state('clienteComite', {
+      url: '/clienteComite',
+      component: 'clienteComite'
     });
 
   $httpProvider.interceptors.push('InterceptorApi');

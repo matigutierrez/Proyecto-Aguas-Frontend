@@ -30,7 +30,7 @@
     };
 
     vm.actualizarvivienda = function (id) {
-      $rootScope.$broadcast('id', id);
+      $rootScope.id = id;
       $state.go('actualizarVivienda');
     };
 

@@ -21,6 +21,14 @@
 
     UsuarioLogService.get().$promise.then(function (data) {
       vm.usuario = data;
+
+      console.log(data);
+
+      /*if (vm.usuario.superadmin == 1){
+        vm.rol = "Super Administrador";
+      }else if (vm.usuario.superadmin == 0) {
+        vm.rol = "Administrador Comité"
+      }*/
     });
 
     function buildToggler(componentId) {

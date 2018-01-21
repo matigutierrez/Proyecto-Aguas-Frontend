@@ -8,35 +8,57 @@
           </div>  
         </div>
       </div>
-      <div layout-xs="column">
-        <div flex>
-          <div layout-xs="column" class="datos">
-            <div flex>
-              <md-input-container class="md-icon-float md-block">
-                <label>Numero Medidor</label>
-                <md-icon md-svg-src="/assets/img/number.svg" class="name"></md-icon>
-                <input ng-model="vm.medidor.num_medidor" type="">
-              </md-input-container>
-            </div>
+      <div layout-xs="column" class="datos">
+        <div layout="row" layout-xs="column">
+          <div flex>
+            <md-input-container class="md-icon-float md-block">
+              <label>Numero Medidor</label>
+              <md-icon md-svg-src="/assets/img/number.svg" class="name"></md-icon>
+              <input ng-model="vm.medidor.num_medidor" type="">
+            </md-input-container>
           </div>
-          <div layout-xs="column" class="datos">
-            <div flex>
-              <md-input-container class="md-icon-float md-block">
-                <label>Marca Medidor</label>
-                <md-icon md-svg-src="/assets/img/brand.svg" class="name"></md-icon>
-                <input ng-model="vm.medidor.marca_medidor" type="text">
-              </md-input-container>
-            </div>
+          <div flex>
+            <md-input-container class="md-icon-float md-block">
+              <label>Marca Medidor</label>
+              <md-icon md-svg-src="/assets/img/brand.svg" class="name"></md-icon>
+              <input ng-model="vm.medidor.marca_medidor" type="text">
+            </md-input-container>
           </div>
-          <div layout-xs="column" class="datos">
-            <div flex>
-              <md-input-container class="md-icon-float md-block">
-                <label>Vivienda</label>
-                <md-icon md-svg-src="/assets/img/casa.svg" class="name"></md-icon>
-                <input ng-model="vm.medidor.vivienda_id" type="text">
-              </md-input-container>
-            </div>
+        </div>
+      </div>
+      <div layout-xs="column" class="datos">
+        <div layout="row" layout-xs="column">
+          <div flex>
+            <md-input-container class="md-icon-float md-block">
+              <label>Vivienda</label>
+              <md-icon md-svg-src="/assets/img/casa.svg" class="name"></md-icon>
+              <md-select ng-model="vm.medidor.vivienda_id">
+                <md-option ng-repeat="viviend in vm.vivienda" value="{{ viviend.id }}">{{ viviend.direccion }}</md-option>
+              </md-select>
+            </md-input-container>
           </div>
+          <div flex>
+            <md-input-container class="md-icon-float md-block">
+              <label>Comité</label>
+              <md-icon md-svg-src="/assets/img/comite.svg" class="name"></md-icon>
+              <md-select ng-model="vm.medidor.comite_id">
+                <md-option ng-repeat="comit in vm.comites | orderBy : 'nombre'" value="{{ comit.id }}">{{ comit.nombre }}</md-option>
+              </md-select>
+            </md-input-container>
+          </div> 
+        </div>
+      </div>
+       <div layout-xs="column">
+        <div layout="row" layout-xs="column">
+          <div flex="50" flex-xs="100">
+            <md-input-container class="md-icon-float md-block">
+              <label>Estado Medidor</label>
+              <md-icon md-svg-src="/assets/img/medidor.svg" class="name"></md-icon>
+              <md-select ng-model="vm.medidor.estado_medidor_id">
+                <md-option ng-repeat="estado in vm.estadoMedid" value="{{ estado.id }}">{{ estado.des_estado_medidor }}</md-option>
+              </md-select>
+            </md-input-container>
+          </div> 
         </div>
       </div>
       <div flex layout-xs="column">

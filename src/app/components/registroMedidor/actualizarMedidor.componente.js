@@ -9,15 +9,28 @@
     controllerAs: 'vm'
   });
 
-  actualizarMedidor.$inject = ['MedidorService', '$state', '$rootScope', '$scope'];
+  actualizarMedidor.$inject = ['MedidorService', 'EstadoMedidorService', 'ViviendaService', 'ComiteService', '$state', '$rootScope'];
 
   var medidorid = 0;
-  function actualizarMedidor(MedidorService, $state, $scope) {
+  function actualizarMedidor(MedidorService, EstadoMedidorService, ViviendaService, ComiteService, $state, $rootScope) {
     var vm = this;
 
-    $scope.$on('id', function ($event, data) {
-      medidorid = data;
+    vm.comites = [];
+    ComiteService.query().$promise.then(function (data) {
+      vm.comites = data;
     });
+
+    vm.vivienda = [];
+    ViviendaService.query().$promise.then(function (data) {
+      vm.vivienda = data;
+    });
+
+    vm.estadoMedid = [];
+    EstadoMedidorService.query().$promise.then(function (data) {
+      vm.estadoMedid = data;
+    });
+
+    medidorid = $rootScope.id;
 
     vm.actualizarmedidor = function (medidor) {
       MedidorService.update({id: medidorid}, medidor, function () {

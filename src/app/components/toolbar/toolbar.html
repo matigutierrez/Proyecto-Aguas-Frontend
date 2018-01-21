@@ -7,13 +7,13 @@
         <div layout-padding layout="column">
           <div>
             <h3 class="admin">{{ vm.usuario.nombre_usu }}</h3>
-            <h6 class="info">Administrador</h6>
+            <h6 class="info">{{ vm.usuario.rol}}</h6>
           </div>
         </div>
       </div>
     </md-toolbar>
     <div layout-padding>
-      <div layout="column">
+      <div layout="column" ng-if="vm.usuario.superadmin == 0">
         <div flex layout="column">
           <md-button class="texto" ui-sref="menuRegistros" ng-click="vm.toggleLeft()">
             <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Registros
@@ -21,54 +21,14 @@
         </div>
         <div flex layout="column">
           <md-button class="texto" ui-sref="menuListas" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/search.svg"></md-icon>Busqueda
+            <md-icon md-svg-src="/assets/img/search.svg"></md-icon>Búsqueda
           </md-button>
         </div>
-        <!--<div flex layout="column">
-          <md-button class="texto" ui-sref="registro" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Registro Clientes
-          </md-button>
-        </div>-->
-        <!--<div layout="column">
-          <md-button class="texto" ui-sref="registromedidor" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/usuarios.svg" ></md-icon>Registro Medidor
-          </md-button>
-        </div>-->
-        <!--<div layout="column">
-          <md-button class="texto" ui-sref="tabla" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Clientes
-          </md-button>
-        </div>-->
-        <!--<div layout="column">
-          <md-button class="texto" ui-sref="medidores" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Medidor
-          </md-button>
-        </div>-->
-        <!--<div layout="column">
-          <md-button class="texto" ui-sref="registroPagos" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Registro Pagos
-          </md-button>
-        </div>-->
-        <!--<div layout="column">
-          <md-button class="texto" ui-sref="registroMensual" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Registro Mensual
-          </md-button>
-        </div>-->
         <div layout="column">
           <md-button class="texto" ui-sref="emisionCobranza" ng-click="vm.toggleLeft()">
             <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Emisión Cobranza
           </md-button>
         </div>
-        <!--<div layout="column">
-          <md-button class="texto" ui-sref="viviendas" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Viviendas
-          </md-button>
-        </div>-->
-        <!--<div flex layout="column">
-          <md-button class="texto" ui-sref="cliente" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/usuarios.svg"></md-icon>Cliente
-          </md-button>
-        </div>-->
         <div flex layout="column" class="separar">
           <md-button class="sesion" ng-if="vm.isLogged" ng-click="vm.logout()">
             Cerrar Sesión
@@ -78,6 +38,19 @@
           <center>
             <img class="logo" src="/assets/img/intentodelogo.png">
           </center>
+        </div>
+      </div>
+
+      <div layout="column" ng-if="vm.usuario.superadmin == 1">
+        <div layout="column">
+          <md-button class="texto" ui-sref="menuAdmin" ng-click="vm.toggleLeft()">
+            <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Menú Principal
+          </md-button>
+        </div>
+        <div flex layout="column" class="separar">
+          <md-button class="sesion" ng-if="vm.isLogged" ng-click="vm.logout()">
+            Cerrar Sesión
+          </md-button>
         </div>
       </div>
     </div>

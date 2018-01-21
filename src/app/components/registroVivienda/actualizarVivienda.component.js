@@ -9,10 +9,10 @@
     controllerAs: 'vm'
   });
 
-  actualizarVivienda.$inject = ['RegionService', 'EstadoService', 'ComunaService', 'ViviendaService', '$state', '$rootScope', '$scope'];
+  actualizarVivienda.$inject = ['SubsidioService', 'EstadoService', 'ComunaService', 'ViviendaService', '$state', '$rootScope'];
 
   var viviendaid = 0;
-  function actualizarVivienda(RegionService, EstadoService, ComunaService, ViviendaService, $state, $scope) {
+  function actualizarVivienda(SubsidioService, EstadoService, ComunaService, ViviendaService, $state, $rootScope) {
     var vm = this;
 
     vm.comuna = [];
@@ -25,15 +25,12 @@
       vm.estado = data;
     });
 
-    vm.region = [];
-    RegionService.query().$promise.then(function (data) {
-      vm.region = data;
+    vm.subsidio = [];
+    SubsidioService.query().$promise.then(function (data) {
+      vm.subsidio = data;
     });
 
-    $scope.$on('id', function ($event, data) {
-      viviendaid = data;
-      console.log(data);
-    });
+    viviendaid = $rootScope.id;
 
     vm.actualizarvivienda = function (vivienda) {
       ViviendaService.update({id: viviendaid}, vivienda, function () {

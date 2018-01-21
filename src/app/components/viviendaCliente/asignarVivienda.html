@@ -11,7 +11,7 @@
           <div flex>
             <md-input-container class="md-icon-float md-block">
               <label>Cliente</label>
-              <md-icon md-svg-src="/assets/img/direccion.svg"></md-icon>
+              <md-icon md-svg-src="/assets/img/usuario.svg"></md-icon>
               <md-select ng-model="vm.viviendacliente.cliente_id">
                 <md-option ng-repeat="cli in vm.cliente | orderBy : 'nombre'" value="{{ cli.id }}">{{ cli.nombre }}</md-option>
               </md-select>

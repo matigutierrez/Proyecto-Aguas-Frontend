@@ -9,15 +9,13 @@
     controllerAs: 'vm'
   });
 
-  actualizarCliente.$inject = ['ClienteService', '$state', '$rootScope', '$scope'];
+  actualizarCliente.$inject = ['ClienteService', '$state', '$rootScope'];
 
   var clienteid = 0;
-  function actualizarCliente (ClienteService, $state, $scope) {
+  function actualizarCliente (ClienteService, $state, $rootScope) {
     var vm = this;
 
-    $scope.$on('id', function ($event, data) {
-      clienteid = data;
-    });
+    clienteid = $rootScope.id;
 
     vm.actualizarcliente = function (cliente) {
       ClienteService.update({id: clienteid}, cliente, function () {

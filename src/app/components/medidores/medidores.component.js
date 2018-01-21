@@ -30,7 +30,7 @@
     };
 
     vm.actualizarmedidor = function (id) {
-      $rootScope.$broadcast('id', id);
+      $rootScope.id = id;
       $state.go('actualizarMedidor');
     };
 

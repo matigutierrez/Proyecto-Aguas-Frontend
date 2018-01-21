@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  registroViviendaCtr.$inject = ['RegionService', 'EstadoService', 'ComunaService', 'ViviendaService', '$state'];
+  registroViviendaCtr.$inject = ['SubsidioService', 'EstadoService', 'ComunaService', 'ViviendaService', '$state'];
 
-  function registroViviendaCtr(RegionService, EstadoService, ComunaService, ViviendaService, $state) {
+  function registroViviendaCtr(SubsidioService, EstadoService, ComunaService, ViviendaService, $state) {
     var vm = this;
 
     vm.comuna = [];
@@ -24,9 +24,14 @@
       vm.estado = data;
     });
 
-    vm.region = [];
+    /*vm.region = [];
     RegionService.query().$promise.then(function (data) {
       vm.region = data;
+    });*/
+
+    vm.subsidio = [];
+    SubsidioService.query().$promise.then(function (data) {
+      vm.subsidio = data;
     });
 
     vm.crearvivienda = function (vivienda) {

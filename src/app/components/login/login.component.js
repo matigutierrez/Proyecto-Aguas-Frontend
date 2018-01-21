@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  loginCtrl.$inject = ['LoginService', 'CredentialsService', '$state', '$rootScope'];
+  loginCtrl.$inject = ['UsuarioLogService', 'LoginService', 'CredentialsService', '$state', '$rootScope'];
 
-  function loginCtrl(LoginService, CredentialsService, $state, $rootScope) {
+  function loginCtrl(UsuarioLogService, LoginService, CredentialsService, $state, $rootScope) {
     var vm = this;
     vm.loginError = false;
 
@@ -25,7 +25,20 @@
         CredentialsService.setSide(true);
         $rootScope.$emit('isLogin');
         $rootScope.$broadcast('side', message);
-        $state.go('menuRegistros');
+
+        UsuarioLogService.get().$promise.then(function (data) {
+          vm.usuario = data;
+
+          console.log(data);
+
+          if (vm.usuario.superadmin == 1){
+            $state.go('menuAdmin');
+          }else if (vm.usuario.superadmin == 0) {
+            $state.go('menuRegistros');
+          }
+        });
+
+        
       }, function () {
         vm.loginError = true;
       });
