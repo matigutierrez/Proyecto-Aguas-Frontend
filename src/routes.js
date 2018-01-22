@@ -140,23 +140,28 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
     })
     .state('comites', {
       url: '/comites',
-      component: 'comites'
+      component: 'comites',
+      isPrivate: true
     })
     .state('registroComite', {
       url: '/registroComite',
-      component: 'registroComite'
+      component: 'registroComite',
+      isPrivate: true
     })
     .state('comiteView', {
       url: '/comiteView',
-      component: 'comiteView'
+      component: 'comiteView',
+      isPrivate: true
     })
     .state('actualizarComite', {
       url: '/actualizarComite',
-      component: 'actualizarComite'
+      component: 'actualizarComite',
+      isPrivate: true
     })
     .state('clienteComite', {
       url: '/clienteComite',
-      component: 'clienteComite'
+      component: 'clienteComite',
+      isPrivate: true
     });
 
   $httpProvider.interceptors.push('InterceptorApi');

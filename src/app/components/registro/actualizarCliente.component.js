@@ -9,18 +9,27 @@
     controllerAs: 'vm'
   });
 
-  actualizarCliente.$inject = ['ClienteService', '$state', '$rootScope'];
+  actualizarCliente.$inject = ['UsuarioLogService', 'ClienteService', '$state', '$rootScope'];
 
   var clienteid = 0;
-  function actualizarCliente (ClienteService, $state, $rootScope) {
+  function actualizarCliente (UsuarioLogService, ClienteService, $state, $rootScope) {
     var vm = this;
+
+    UsuarioLogService.get().$promise.then(function (data) {
+      vm.usuario = data;
+    });
 
     clienteid = $rootScope.id;
 
     vm.actualizarcliente = function (cliente) {
       ClienteService.update({id: clienteid}, cliente, function () {
-        $state.go('tabla');
+        if (vm.usuario.superadmin == 1){
+          $state.go('comiteView');
+        }else if (vm.usuario.superadmin == 0) {
+          $state.go('tabla');
+        }
       }, function () {});
     };
+
   }
 })();

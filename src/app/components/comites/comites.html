@@ -4,20 +4,20 @@
       <div flex flex-xs="90" flex-offset-xs="5">
         <div layout-xs="column" layout-xs="column" layout="column" layout-align="center center" style="margin-top: -50px;">
           <center>
-            <h2>Buscar Comités</h2>
-            <h4>INGRESE NOMBRE DEL COMITÉ</h4>
+            <h2>Lista de Comités</h2>
+            <h4>INGRESE NOMBRE DEL COMITÉ Ó DE LA COMUNA</h4>
           </center>
         </div>  
         <div flex layout="row">
           <div flex="30" flex-offset="30" flex-xs="60" flex-offset-xs="10"> 
             <md-input-container>
               <input ng-model="vm.datocomite" type="text" placeholder="Buscar...">
-            <md-input-container>
+            </md-input-container>
           </div> 
           <div flex=10 flex-xs="20">
-              <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'light-blue-600'}" ng-click="vm.busqueda(vm.datocomite)">
-                  <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
-              </md-button>
+            <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'light-blue-600'}" ng-click="vm.busqueda(vm.datocomite)">
+                <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
+            </md-button>
           </div>
         </div>
       </div>

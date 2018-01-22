@@ -1,18 +1,26 @@
 <div layout-padding>
   <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-sm="94" flex-offset-sm="3" flex-xs="94" flex-offset-xs="3" class="fond mar">
     <div layout-padding>
-      <div layout="row" flex layout-xs="column">
+
+      <div layout="row" flex layout-xs="column" ng-if="vm.usuario.superadmin == 1">
+        <md-button class="md-icon-button md-raised" layout-fill ui-sref="comiteView" style="margin-bottom: -50px; margin-top: -5px; margin-left: -16px;">
+          <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>
+        </md-button>
+      </div>
+
+      <div layout="row" flex layout-xs="column" ng-if="vm.usuario.superadmin == 0">
         <md-button class="md-icon-button md-raised" layout-fill ui-sref="tabla" style="margin-bottom: -50px; margin-top: -5px; margin-left: -16px;">
           <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>
         </md-button>
       </div>
+
       <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center">
         <div>
           <h2>Perfil del Cliente</h2>
         </div>
       </div>
       <div layout="row" layout-xs="column">
-        <div flex="40" flex-xs="100" flex-sm="50" flex-md="50" layout="column" layout-xs="column" class="fond" style="background-color: #B0DFEE">
+        <div flex="50" flex-xs="100" flex-sm="50" flex-md="50" layout="column" layout-xs="column" class="fond" style="background-color: #B0DFEE">
           <div flex>
             <img style="display: block; margin: auto; margin-top: 6px; width: 200px;" src="/assets/img/perfil.png">
             <h3 style="text-align: center;" class="ima">{{ vm.nombre + ' ' + vm.apellido_pater + ' ' + vm.apellido_mater }}</h3>
@@ -23,23 +31,23 @@
             </div>
           </div>
         </div>
-        <div layout-align="center center" class="fond" style="background-color: #B0DFEE;">
+        <div flex="50" flex-xs="100" layout-align="center center" class="fond" style="background-color: #B0DFEE;">
           <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center">
             <h3>Info. Básica</h3>
           </div>
-          <div layout="row">
+          <div layout="row" class="perfil">
             <md-icon class="ima" md-svg-src="/assets/img/rut.svg"></md-icon>
             <p class="ima">{{ vm.rut_cliente }}</p>
           </div>
-          <div layout="row">
+          <div layout="row" class="perfil">
             <md-icon class="ima" md-svg-src="/assets/img/marca.svg"></md-icon>
             <p class="ima">{{ vm.residencia }}</p>
           </div>
-          <div layout="row">
+          <div layout="row" class="perfil">
             <md-icon class="ima" md-svg-src="/assets/img/telefono.svg"></md-icon>
             <p class="ima">+{{ vm.telefono }}</p>
           </div>
-          <div layout="row">
+          <div layout="row" class="perfil">
             <md-icon class="ima" md-svg-src="/assets/img/correo.svg"></md-icon>
             <p class="ima">{{ vm.email }}</p>
           </div>

@@ -1,10 +1,10 @@
 <div layout-padding>
   <div flex="100" flex-md="90" flex-offset-md="5" flex-sm="90" flex-offset-sm="5" flex-xs="90" flex-offset-xs="5" class="mar">
-    <!--<div layout="row" flex layout-xs="column">
+    <div layout="row" flex layout-xs="column" ng-if="vm.usuario.superadmin == 1">
       <md-button class="md-icon-button md-raised" layout-fill ui-sref="comiteView" style="margin-bottom: 10px;">
         <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>
       </md-button>
-    </div>-->
+    </div>
     <div layout-padding flex layout="column">
       <div layout-xs="column" layout-xs="column" layout-lg="row" layout="row" layout-align="center center">
         <div layout="column" layout-sm="column" layout-xs="column">
@@ -12,7 +12,7 @@
           <div layout-md="column" layout-lg="row">
             <div flex>
               <md-button ui-sref="registro">
-                <md-card>
+                <md-card class="md-whiteframe-8dp">
                   <md-card-title>
                     <md-card-title-text>
                       <span class="md-headline">Registro</span>
@@ -29,7 +29,7 @@
             </div>
             <div flex>
               <md-button ui-sref="registroVivienda">
-                <md-card>
+                <md-card class="md-whiteframe-8dp">
                   <md-card-title>
                     <md-card-title-text>
                       <span class="md-headline">Registro</span>
@@ -46,7 +46,7 @@
             </div> 
             <div flex>
               <md-button ui-sref="asignarVivienda">
-                <md-card>
+                <md-card class="md-whiteframe-8dp">
                   <md-card-title>
                     <md-card-title-text>
                       <span class="md-headline">Asignar</span>
@@ -66,7 +66,7 @@
           <div layout-md="column" layout-lg="row">
             <div flex>
               <md-button ui-sref="registromedidor">
-                <md-card>
+                <md-card class="md-whiteframe-8dp">
                   <md-card-title>
                     <md-card-title-text>
                       <span class="md-headline">Registro</span>
@@ -83,7 +83,7 @@
             </div>
             <div flex>
               <md-button ui-sref="registroMensual">
-                <md-card>
+                <md-card class="md-whiteframe-8dp">
                   <md-card-title>
                     <md-card-title-text>
                       <span class="md-headline">Registro</span>
@@ -100,7 +100,7 @@
             </div> 
             <div flex>
               <md-button ui-sref="registroPagos">
-                <md-card>
+                <md-card class="md-whiteframe-8dp">
                   <md-card-title>
                     <md-card-title-text>
                       <span class="md-headline">Registro</span>
@@ -120,7 +120,7 @@
           <div layout-md="column" layout-lg="row">
             <div flex>
               <md-button ui-sref="abonoBoleta">
-                <md-card>
+                <md-card class="md-whiteframe-8dp">
                   <md-card-title>
                     <md-card-title-text>
                       <span class="md-headline">Registro</span>

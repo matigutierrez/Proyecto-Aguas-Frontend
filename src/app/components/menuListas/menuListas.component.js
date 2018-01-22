@@ -9,5 +9,13 @@
     controllerAs: 'vm'
   });
 
-  function menuListasCtr() {}
+  menuListasCtr.$inject = ['UsuarioLogService'];
+
+  function menuListasCtr(UsuarioLogService) {
+  	var vm = this;
+
+  	UsuarioLogService.get().$promise.then(function (data) {
+      vm.usuario = data;
+    });
+  }
 })();

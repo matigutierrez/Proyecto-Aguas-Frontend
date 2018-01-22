@@ -18,9 +18,9 @@
 
     var comiteClientes = $resource(API + 'comite/clientes/:id', {id: '@id'});
 
-    comite.prototype.$clientes = function () {
-      return comiteClientes.get({id: this.id});
-    }
+    comite.prototype.clientes = function () {
+      return comiteClientes.query({id: this.id});
+    };
 
     return comite;
 

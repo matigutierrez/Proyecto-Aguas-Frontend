@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  comitesCtr.$inject = ['ComiteService', '$state', '$rootScope'];
+  comitesCtr.$inject = ['ComunaService', 'ComiteService', '$state', '$rootScope'];
 
-  function comitesCtr(ComiteService, $state, $rootScope) {
+  function comitesCtr(ComunaService, ComiteService, $state, $rootScope) {
     var vm = this;
     vm.comite = [];
 
@@ -19,10 +19,17 @@
       vm.comite = data;
     });
 
+    vm.comuna = [];
+    ComunaService.query().$promise.then(function (data) {
+      vm.comuna = data;
+    });
+
     vm.busqueda = function (dato) {
       var comites = [];
       for (var i = 0; i < vm.comite.length; i++) {
         if (vm.comite[i].nombre === dato) {
+          comites.push(vm.comite[i]);
+        }else if (vm.comite[i].comuna.des_comu === dato) {
           comites.push(vm.comite[i]);
         }
       }

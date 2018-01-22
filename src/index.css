@@ -4,6 +4,10 @@ html, body, ui-view,#root {
   font-family: 'Bree Serif';
   /*font-family: 'Open Sans', sans-serif;*/
   background-color: #83CEF6;
+
+  /*background-image: url('/assets/img/fondo.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;*/
 }
 
 body, h1, h2, h3 {
@@ -11,7 +15,7 @@ body, h1, h2, h3 {
 }
 
 .fond {
-  border: 1px solid #ccc;
+  border: 1px solid #404141;
   padding: 0.01em 16px;
   border-radius: 16px;
   background-color: white;
@@ -97,9 +101,18 @@ md-card{
   height: 120px;
   border-radius: 15px;
   border: 1px solid grey;
-  background-color: #FFDBAB;
-  /*background-color: #FEA44B;*/
+  background-color: #FFE488;
   /*background: linear-gradient(to left, #015167, #026986, #06A6D3, #039BE5);*/
+}
+
+.mdcardbutton{
+  width: 210px;
+  height: 100px;
+  background: linear-gradient(to left, #015167, #026986, #06A6D3, #039BE5);
+}
+
+.textocard {
+  margin-top: 5px;
 }
 
 .info {
@@ -178,7 +191,6 @@ md-card{
   width: 150px;
 }
 
-.btncomite {
-  width: 300px;
-  background-color: grey;
+.perfil {
+  margin-left: 35px;
 }

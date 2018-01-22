@@ -9,11 +9,11 @@
     controllerAs: 'vm'
   });
 
-  clienteCtr.$inject = ['ClienteService', '$rootScope', 'BoletaEmitidaService', 'MedidorService', 'ViviendaService', 'ObtenerClienteService', 'PdfService'];
+  clienteCtr.$inject = ['UsuarioLogService', 'ClienteService', '$rootScope', 'BoletaEmitidaService', 'MedidorService', 'ViviendaService', 'ObtenerClienteService', 'PdfService'];
 
   var datosCliente = {};
 
-  function clienteCtr(ClienteService, $rootScope, BoletaEmitidaService, MedidorService, ViviendaService, ObtenerClienteService, PdfService) {
+  function clienteCtr(UsuarioLogService, ClienteService, $rootScope, BoletaEmitidaService, MedidorService, ViviendaService, ObtenerClienteService, PdfService) {
     var vm = this;
 
     ClienteService.query().$promise.then(function (data) {
@@ -27,6 +27,11 @@
       vm.telefono = datosCliente.telefono;
       vm.email = datosCliente.email;
       vm.residencia = datosCliente.residencia;
+    });
+
+    UsuarioLogService.get().$promise.then(function (data) {
+      vm.usuario = data;
+      console.log(data);
     });
 
     vm.vivienda = [];
