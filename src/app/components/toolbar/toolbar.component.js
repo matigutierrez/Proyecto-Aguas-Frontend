@@ -38,6 +38,10 @@
 
     $rootScope.$on('isLogin', function () {
       vm.isLogged = true;
+
+      UsuarioLogService.get().$promise.then(function (data) {
+        vm.usuario = data;
+      });
     });
 
     $scope.$on('side', function ($event, message) {
