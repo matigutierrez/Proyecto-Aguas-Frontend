@@ -13,11 +13,8 @@
 
   function medidoresCtr(MedidorService, $state, $rootScope) {
     var vm = this;
-    vm.medidor = [];
-
-    MedidorService.query().$promise.then(function (data) {
-      vm.medidor = data;
-    });
+    
+    vm.medidor = $rootScope.datosComite.medidores();
 
     vm.busqueda = function (dato) {
       var medidores = [];

@@ -162,6 +162,11 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
       url: '/clienteComite',
       component: 'clienteComite',
       isPrivate: true
+    })
+    .state('registroAdmin', {
+      url: '/registroAdmin',
+      component: 'registroAdmin',
+      isPrivate: true
     });
 
   $httpProvider.interceptors.push('InterceptorApi');

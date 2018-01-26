@@ -35,18 +35,14 @@
         <table md-table md-row-select multiple md-progress="promise">
           <thead md-head md-order="query.order" md-on-reorder="getDesserts">
             <tr md-row>
-              <th md-column md-numeric>Código</th>
               <th md-column md-numeric>Cliente</th>
               <th md-column md-numeric>Vivienda</th>
-              <th md-column md-numeric>Fecha Adquisición</th>
             </tr>
           </thead>
           <tbody md-body>
             <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="viviend in vm.viviendacli">
-              <td md-cell>{{ viviend.id }}</td>
               <td md-cell>{{ viviend.cliente.nombre + ' ' + viviend.cliente.apellido_pater + ' ' + viviend.cliente.apellido_mater }}</td>
               <td md-cell>{{ viviend.vivienda.direccion}}</td>
-              <!--<td md-cell>{{ viviend.fecha_adquisicion }}</td>-->
             </tr>
           </tbody>
         </table>

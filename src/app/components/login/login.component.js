@@ -29,8 +29,6 @@
         UsuarioLogService.get().$promise.then(function (data) {
           vm.usuario = data;
 
-          console.log(data);
-
           if (vm.usuario.superadmin == 1){
             $state.go('menuAdmin');
           }else if (vm.usuario.superadmin == 0) {

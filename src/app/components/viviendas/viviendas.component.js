@@ -13,11 +13,8 @@
 
   function viviendasCtrl(ViviendaService, $state, $rootScope) {
     var vm = this;
-    vm.vivienda = [];
-
-    ViviendaService.query().$promise.then(function (data) {
-      vm.vivienda = data;
-    });
+    
+    vm.vivienda = $rootScope.datosComite.viviendas();
 
     vm.busqueda = function (dato) {
       var viviendas = [];
