@@ -1,0 +1,24 @@
+<div ng-controller="AutoCtrl as ctrl" layout="column" ng-cloak>
+  <md-content class="md-padding" style="width: 300px;">
+    <form ng-cloack>
+      <md-autocomplete
+          md-selected-item="vm.selectedItem"
+          md-search-text="vm.searchText"
+          md-items="item in vm.querySearch(vm.searchText)"
+          md-item-text="item.nombre "
+          md-min-length="0"
+          placeholder="Nombre del Comité"
+          md-autofocus>
+        <md-item-template>
+          <md-button >
+            <span ng-click="vm.vercomite($index)">{{item.nombre}}</span>
+          </md-button>
+        </md-item-template>
+        <md-not-found>
+          <!-- revisar md-item-text -->
+          <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.nombre}}</span>
+        </md-not-found>
+      </md-autocomplete>
+    </form>
+  </md-content>
+</div>

@@ -9,11 +9,11 @@
     controllerAs: 'vm'
   });
 
-  asignarViviendaCtr.$inject = ['ClienteService', 'ViviendaService', 'ViviendaClienteService', '$state'];
+  asignarViviendaCtr.$inject = ['ClienteService', 'ViviendaService', '$state', '$rootScope'];
 
-  function asignarViviendaCtr(ClienteService, ViviendaService, ViviendaClienteService, $state) {
+  function asignarViviendaCtr(ClienteService, ViviendaService, $state, $rootScope) {
     var vm = this;
- 
+
     vm.cliente = [];
     ClienteService.query().$promise.then(function (data) {
       vm.cliente = data;
@@ -24,18 +24,14 @@
       vm.vivienda = data;
     });
 
-    /*vm.viviendacli = [];
-    ViviendaClienteService.query().$promise.then(function (data) {
-      vm.viviendacli = data;
-    });*/
+    /*vm.cliente = $rootScope.datosComite.clientes();
+    vm.vivienda = $rootScope.datosComite.viviendas();*/
 
     vm.asignarvivienda = function (viviendacliente) {
-      var viviencli = {
-        cliente_id: parseInt(viviendacliente.cliente_id, 10),
-        vivienda_id: parseInt(viviendacliente.vivienda_id, 10)
-      };
+      console.log(viviendacliente);
+      var cliente = new ClienteService({id: viviendacliente.cliente_id});
+      cliente.addVivienda(viviendacliente.vivienda_id);
 
-      ViviendaClienteService.save(viviencli);
       $state.go('viviendaCliente');
     };
   }

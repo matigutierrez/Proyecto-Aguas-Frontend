@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  registroAdminCtr.$inject = ['ComiteService', 'ClienteService', 'UsuarioService', '$state'];
+  registroAdminCtr.$inject = ['ComiteService', 'ClienteService', 'UsuarioService', '$state', '$mdDialog'];
 
-  function registroAdminCtr(ComiteService, ClienteService, UsuarioService, $state) {
+  function registroAdminCtr(ComiteService, ClienteService, UsuarioService, $state, $mdDialog) {
     var vm = this;
 
     vm.cliente = [];
@@ -32,8 +32,20 @@
         comite_id: parseInt(usuario.comite_id, 10)
       };
 
-      UsuarioService.save(usu);
+      vm.showAlert(UsuarioService.save(usu), usuario);
+      //UsuarioService.save(usu);
       $state.go('comites');
+    };
+
+    vm.showAlert = function (ev, usuario) {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .clickOutsideToClose(true)
+          .title('¡Administrador Creado Satisfactoriamente!')
+          .textContent('Administrador: ' + usuario.nombre_usu)
+          .ok('Ok!')
+          .targetEvent(ev)
+      );
     };
   }
 })();

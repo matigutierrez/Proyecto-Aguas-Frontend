@@ -9,10 +9,10 @@
     controllerAs: 'vm'
   });
 
-  actualizarComite.$inject = ['ComiteService', 'ComunaService', '$state', '$rootScope'];
+  actualizarComite.$inject = ['ComiteService', 'ComunaService', '$state', '$rootScope', '$mdDialog'];
 
   var comiteid = 0;
-  function actualizarComite (ComiteService, ComunaService, $state, $rootScope) {
+  function actualizarComite(ComiteService, ComunaService, $state, $rootScope, $mdDialog) {
     var vm = this;
 
     vm.comuna = [];
@@ -23,9 +23,20 @@
     comiteid = $rootScope.id;
 
     vm.actualizarcomite = function (comite) {
-      ComiteService.update({id: comiteid}, comite, function () {
+      vm.showAlert(ComiteService.update({id: comiteid}, comite, function () {
         $state.go('comites');
-      }, function () {});
+      }, function () {}), comite);
+    };
+
+    vm.showAlert = function(ev, comite) {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .clickOutsideToClose(true)
+          .title('¡Actualización Exitosa!')
+          .textContent('Nuevo Nombre: ' + comite.nombre)
+          .ok('Ok!')
+          .targetEvent(ev)
+      );
     };
   }
 })();

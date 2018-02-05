@@ -29,14 +29,12 @@
         UsuarioLogService.get().$promise.then(function (data) {
           vm.usuario = data;
 
-          if (vm.usuario.superadmin == 1){
+          if (vm.usuario.superadmin === 1) {
             $state.go('menuAdmin');
-          }else if (vm.usuario.superadmin == 0) {
+          } else if (vm.usuario.superadmin === 0) {
             $state.go('menuRegistros');
           }
         });
-
-        
       }, function () {
         vm.loginError = true;
       });

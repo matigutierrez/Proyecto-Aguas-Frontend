@@ -13,7 +13,7 @@
 
   function tablaCtr(ClienteService, $state, $rootScope) {
     var vm = this;
-    
+
     vm.cliente = $rootScope.datosComite.clientes();
 
     vm.busqueda = function (dato) {
@@ -27,15 +27,15 @@
     };
 
     vm.vercliente = function (index) {
-      var data = vm.cliente[index];
-      $rootScope.datosCliente = data;
+      $rootScope.datosCliente = vm.cliente[index];
       $state.go('cliente');
     };
 
     vm.updatecliente = function (id) {
       $rootScope.id = id;
+      console.log(id);
       $state.go('actualizarCliente');
-    }
+    };
 
     vm.eliminarcliente = function (id) {
       ClienteService.delete({id: id});

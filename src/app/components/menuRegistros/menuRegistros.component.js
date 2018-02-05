@@ -12,9 +12,9 @@
   menuRegistroCtr.$inject = ['UsuarioLogService'];
 
   function menuRegistroCtr(UsuarioLogService) {
-  	var vm = this;
+    var vm = this;
 
-  	UsuarioLogService.get().$promise.then(function (data) {
+    UsuarioLogService.get().$promise.then(function (data) {
       vm.usuario = data;
     });
   }

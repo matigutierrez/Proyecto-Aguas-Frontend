@@ -41,7 +41,7 @@
       vm.isLogged = true;
       UsuarioLogService.get().$promise.then(function (data) {
         vm.usuario = data;
-        if (vm.usuario.comite_id){
+        if (vm.usuario.comite_id) {
           $rootScope.datosComite = ComiteService.get({id: vm.usuario.comite_id});
         }
       });
@@ -50,7 +50,7 @@
     if (vm.isLogged) {
       UsuarioLogService.get().$promise.then(function (data) {
         vm.usuario = data;
-        if (vm.usuario.comite_id){
+        if (vm.usuario.comite_id) {
           $rootScope.datosComite = ComiteService.get({id: vm.usuario.comite_id});
         }
       });

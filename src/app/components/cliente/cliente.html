@@ -3,7 +3,7 @@
     <div layout-padding>
 
       <div layout="row" flex layout-xs="column" ng-if="vm.usuario.superadmin == 1">
-        <md-button class="md-icon-button md-raised" layout-fill ui-sref="comiteView" style="margin-bottom: -50px; margin-top: -5px; margin-left: -16px;">
+        <md-button class="md-icon-button md-raised" layout-fill ui-sref="tabla" style="margin-bottom: -50px; margin-top: -5px; margin-left: -16px;">
           <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>
         </md-button>
       </div>
@@ -24,30 +24,30 @@
           <div flex>
             <img style="display: block; margin: auto; margin-top: 6px; width: 200px;" src="/assets/img/perfil.png">
             <h3 style="text-align: center;" class="ima">{{ vm.nombre + ' ' + vm.apellido_pater + ' ' + vm.apellido_mater }}</h3>
-            <div flex layout-xs="column">
+            <!--<div flex layout-xs="column">
               <div layout="row" layout-align="center center" layout-padding>
                 <md-button id="registro" ui-sref="#" layout-fill style="background-color: #FFDBAB; height: 50px; width: 170px; margin-top: -15px; border: 1px solid;"><md-icon style="margin-top: -9px;" md-svg-src="/assets/img/edit.svg"></md-icon>Editar Perfil</md-button>
               </div>
-            </div>
+            </div>-->
           </div>
         </div>
         <div flex="50" flex-xs="100" layout-align="center center" class="fond" style="background-color: #B0DFEE;">
           <div layout-xs="column" layout-xs="column" layout="row" layout-align="center center">
             <h3>Info. Básica</h3>
           </div>
-          <div layout="row" class="perfil">
+          <div layout="row" class="perfil" style="margin-top: -10px;">
             <md-icon class="ima" md-svg-src="/assets/img/rut.svg"></md-icon>
             <p class="ima">{{ vm.rut_cliente }}</p>
           </div>
-          <div layout="row" class="perfil">
+          <div layout="row" class="perfil" style="margin-top: -10px;">
             <md-icon class="ima" md-svg-src="/assets/img/marca.svg"></md-icon>
             <p class="ima">{{ vm.residencia }}</p>
           </div>
-          <div layout="row" class="perfil">
+          <div layout="row" class="perfil" style="margin-top: -10px;">
             <md-icon class="ima" md-svg-src="/assets/img/telefono.svg"></md-icon>
             <p class="ima">+{{ vm.telefono }}</p>
           </div>
-          <div layout="row" class="perfil">
+          <div layout="row" class="perfil" style="margin-top: -10px;">
             <md-icon class="ima" md-svg-src="/assets/img/correo.svg"></md-icon>
             <p class="ima">{{ vm.email }}</p>
           </div>
@@ -98,7 +98,6 @@
                       <th md-column md-numeric>Marca</th>
                       <th md-column md-numeric>Fecha Registro</th>
                       <th md-column md-numeric>Lectura Incial</th>
-                      <th md-column md-numeric>Vivienda</th>
                       <th md-column md-numeric>Estado</th>
                     </tr>
                   </thead>
@@ -109,7 +108,6 @@
                       <td md-cell>{{ medi.marca_medidor }}</td>
                       <td md-cell>{{ medi.fecha_registro }}</td>
                       <td md-cell>{{ medi.lectura_inicial }}</td>
-                      <td md-cell>{{ medi.vivienda.direccion }}</td>
                       <td md-cell>{{ medi.estado_medidor.des_estado_medidor }}</td>
                     </tr>
                   </tbody>

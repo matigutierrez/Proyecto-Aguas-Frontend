@@ -22,6 +22,7 @@
     vm.vivienda = [];
     ViviendaService.query().$promise.then(function (data) {
       vm.vivienda = data;
+      console.log(vm.vivienda);
     });
 
     vm.estadoMedid = [];

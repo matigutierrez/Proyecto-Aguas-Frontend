@@ -4,11 +4,11 @@
       <div flex flex-xs="90" flex-offset-xs="5">
         <div layout-xs="column" layout-xs="column" layout="column" layout-align="center center" style="margin-top: -50px;">
           <center>
-            <h2>Lista de Comités</h2>
-            <h4>INGRESE NOMBRE DEL COMITÉ Ó DE LA COMUNA</h4>
+            <h3>Lista de Comités</h3>
+            <!--<h5>INGRESE NOMBRE DEL COMITÉ Ó DE LA COMUNA</h5>-->
           </center>
         </div>  
-        <div flex layout="row">
+        <!--<div flex layout="row">
           <div flex="30" flex-offset="30" flex-xs="60" flex-offset-xs="10"> 
             <md-input-container>
               <input ng-model="vm.datocomite" type="text" placeholder="Buscar...">
@@ -19,13 +19,43 @@
                 <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
             </md-button>
           </div>
+        </div>-->
+
+         <!--Revisar-->
+        <div ng-controller="AutoCtrl as ctrl" layout="column" ng-cloak>
+          <md-content class="md-padding" style="width: 300px;">
+            <form ng-cloack>
+              <md-autocomplete
+                  md-selected-item="vm.selectedItem"
+                  md-search-text="vm.searchText"
+                  md-items="item in vm.querySearch(vm.searchText)"
+                  md-item-text="item.nombre "
+                  md-min-length="0"
+                  placeholder="Nombre del Comité"
+                  md-autofocus>
+                <md-item-template>
+                  <md-button >
+                    <span ng-click="vm.vercomite($index)">{{item.nombre}}</span>
+                  </md-button>
+                </md-item-template>
+                <md-not-found>
+                  <!-- revisar md-item-text -->
+                  <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.nombre}}</span>
+                </md-not-found>
+              </md-autocomplete>
+            </form>
+          </md-content>
         </div>
+
+
+        <!--Revisar-->
+        <div flex style="margin-bottom: 15px;">
+          <center>
+            <md-button id="registro" class="md-raised" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px; width: 200px;" ng-click="vm.autocompletar($event, vm.comite)">Buscar Comité</md-button>
+          </center>
+        </div>
+
       </div>
-    </div>
-    <div layout="row" flex layout-xs="column">
-      <md-button class="md-icon-button md-raised" layout-fill ui-sref="menuAdmin" style="margin-bottom: 10px;">
-        <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>
-      </md-button>
     </div>
     <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-xs="94" flex-offset-xs="3" class="fond" style="margin-bottom: 20px">
       <md-table-container>

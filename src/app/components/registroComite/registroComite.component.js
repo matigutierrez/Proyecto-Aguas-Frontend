@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  registroComiteCtrl.$inject = ['ComiteService', 'ComunaService', '$state', '$scope'];
+  registroComiteCtrl.$inject = ['ComiteService', 'ComunaService', '$state', '$mdDialog'];
 
-  function registroComiteCtrl (ComiteService, ComunaService, $state, $scope) {
+  function registroComiteCtrl(ComiteService, ComunaService, $state, $mdDialog) {
     var vm = this;
 
     vm.comuna = [];
@@ -24,9 +24,20 @@
         nombre: comite.nombre,
         comuna_id: parseInt(comite.comuna_id, 10)
       };
-
-      ComiteService.save(comit);
+      vm.showAlert(ComiteService.save(comit), comite);
+      //ComiteService.save(comit);
       $state.go('registroAdmin');
-    }
+    };
+
+    vm.showAlert = function(ev, comite) {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .clickOutsideToClose(true)
+          .title('¡Comité Creado Satisfactoriamente!')
+          .textContent('Nombre: ' + comite.nombre)
+          .ok('Ok!')
+          .targetEvent(ev)
+      );
+    };
   }
 })();

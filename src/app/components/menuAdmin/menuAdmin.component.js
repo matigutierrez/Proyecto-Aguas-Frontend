@@ -9,5 +9,5 @@
     controllerAs: 'vm'
   });
 
-  function menuAdminCtrl () {}
+  function menuAdminCtrl() {}
 })();

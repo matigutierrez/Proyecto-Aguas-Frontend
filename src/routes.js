@@ -167,6 +167,31 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
       url: '/registroAdmin',
       component: 'registroAdmin',
       isPrivate: true
+    })
+    .state('registroRapidoCliente', {
+      url: '/registroRapidoCliente',
+      component: 'registroRapidoCliente',
+      isPrivate: true
+    })
+    .state('registroRapidoVivienda', {
+      url: '/registroRapidoVivienda',
+      component: 'registroRapidoVivienda',
+      isPrivate: true
+    })
+    .state('registroRapidoMedidor', {
+      url: '/registroRapidoMedidor',
+      component: 'registroRapidoMedidor',
+      isPrivate: true
+    })
+    .state('registroRapidoAsignarVivienda', {
+      url: '/registroRapidoAsignarVivienda',
+      component: 'registroRapidoAsignarVivienda',
+      isPrivate: true
+    })
+    .state('allClients', {
+      url: '/allClients',
+      component: 'allClients',
+      isPrivate: true
     });
 
   $httpProvider.interceptors.push('InterceptorApi');

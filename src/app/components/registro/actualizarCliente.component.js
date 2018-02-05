@@ -9,10 +9,10 @@
     controllerAs: 'vm'
   });
 
-  actualizarCliente.$inject = ['UsuarioLogService', 'ClienteService', '$state', '$rootScope'];
+  actualizarCliente.$inject = ['UsuarioLogService', 'ClienteService', '$state', '$rootScope', '$mdDialog'];
 
   var clienteid = 0;
-  function actualizarCliente (UsuarioLogService, ClienteService, $state, $rootScope) {
+  function actualizarCliente(UsuarioLogService, ClienteService, $state, $rootScope, $mdDialog) {
     var vm = this;
 
     UsuarioLogService.get().$promise.then(function (data) {
@@ -22,14 +22,25 @@
     clienteid = $rootScope.id;
 
     vm.actualizarcliente = function (cliente) {
-      ClienteService.update({id: clienteid}, cliente, function () {
-        if (vm.usuario.superadmin == 1){
-          $state.go('comiteView');
-        }else if (vm.usuario.superadmin == 0) {
-          $state.go('tabla');
-        }
-      }, function () {});
+      vm.showAlert(
+        ClienteService.update({id: clienteid}, cliente, function () {
+          if (vm.usuario.superadmin === 1) {
+            $state.go('comiteView');
+          } else if (vm.usuario.superadmin === 0) {
+            $state.go('tabla');
+          }
+        }, function () {}), cliente);
     };
 
+    vm.showAlert = function (ev, cliente) {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .clickOutsideToClose(true)
+          .title('¡Cliente Actualizado Satisfactoriamente!')
+          .textContent('Nombre: ' + cliente.nombre + ' ' + cliente.apellido_pater + ' ' + cliente.apellido_mater)
+          .ok('Ok!')
+          .targetEvent(ev)
+      );
+    };
   }
 })();

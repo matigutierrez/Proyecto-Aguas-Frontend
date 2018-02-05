@@ -21,6 +21,10 @@ body, h1, h2, h3 {
   background-color: white;
 }
 
+.fondo {
+  border: 1px solid black;
+}
+
 .buttonancho {
   min-height: 20px;
 }
@@ -46,7 +50,7 @@ body, h1, h2, h3 {
 
 .texto {
   text-align: left;
-  font-size: 16px;
+  font-size: 13px;
 }
 
 .bor {
@@ -87,7 +91,7 @@ md-icon {
 
 md-sidenav{
   overflow: hidden;
-  position: fixed;
+  position: relative;
   top: 0; 
   width: 100%;
 }
@@ -97,8 +101,8 @@ md-sidenav{
 }
 
 md-card{
-  width: 260px;
-  height: 120px;
+  width: 220px;
+  height: 100px;
   border-radius: 15px;
   border: 1px solid grey;
   background-color: #FFE488;
@@ -133,8 +137,9 @@ md-card{
 }
 
 .md-headline {
-  font-size: 22px;
+  font-size: 18px;
   text-transform: capitalize;
+  margin-top: -5px;
 }
 
 .datos {
@@ -193,4 +198,8 @@ md-card{
 
 .perfil {
   margin-left: 35px;
+}
+
+label {
+  font-size: 15px;
 }

@@ -3,15 +3,15 @@
 
   angular
   .module('app')
-  .component('registro', {
-    templateUrl: 'app/components/registro/registro.html',
-    controller: registroCtr,
+  .component('registroRapidoCliente', {
+    templateUrl: 'app/components/registroRapido/registroRapidoCliente.html',
+    controller: registroRapidoCtr,
     controllerAs: 'vm'
   });
 
-  registroCtr.$inject = ['ClienteService', '$state', '$mdDialog'];
+  registroRapidoCtr.$inject = ['ClienteService', '$state', '$mdDialog'];
 
-  function registroCtr(ClienteService, $state, $mdDialog) {
+  function registroRapidoCtr(ClienteService, $state, $mdDialog) {
     var vm = this;
 
     vm.crearcliente = function (cliente) {
@@ -27,10 +27,10 @@
 
       vm.showAlert(ClienteService.save(client), cliente);
       //ClienteService.save(client);
-      $state.go('tabla');
+      $state.go('registroRapidoAsignarVivienda');
     };
 
-    vm.showAlert = function (ev, cliente) {
+    vm.showAlert = function(ev, cliente) {
       $mdDialog.show(
         $mdDialog.alert()
           .clickOutsideToClose(true)

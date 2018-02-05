@@ -13,7 +13,7 @@
 
   function medidoresCtr(MedidorService, $state, $rootScope) {
     var vm = this;
-    
+
     vm.medidor = $rootScope.datosComite.medidores();
 
     vm.busqueda = function (dato) {

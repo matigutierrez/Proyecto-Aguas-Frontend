@@ -24,11 +24,6 @@
       vm.estado = data;
     });
 
-    /*vm.region = [];
-    RegionService.query().$promise.then(function (data) {
-      vm.region = data;
-    });*/
-
     vm.subsidio = [];
     SubsidioService.query().$promise.then(function (data) {
       vm.subsidio = data;
@@ -39,7 +34,6 @@
         direccion: vivienda.direccion,
         estado_id: parseInt(vivienda.estado_id, 10),
         comuna_id: parseInt(vivienda.comuna_id, 10),
-        // region_id: parseInt(region.id),
         subsidio_id: parseInt(vivienda.subsidio_id, 10)
       };
 
