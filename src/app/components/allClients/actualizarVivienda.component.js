@@ -3,16 +3,16 @@
 
   angular
   .module('app')
-  .component('actualizarVivienda', {
-    templateUrl: 'app/components/registroVivienda/actualizarVivienda.html',
-    controller: actualizarVivienda,
+  .component('allClientsActualizarVivienda', {
+    templateUrl: 'app/components/allClients/allClientsActualizarVivienda.html',
+    controller: allClientsActualizarVivienda,
     controllerAs: 'vm'
   });
 
-  actualizarVivienda.$inject = ['SubsidioService', 'EstadoService', 'ComunaService', 'ViviendaService', '$state', '$rootScope'];
+  allClientsActualizarVivienda.$inject = ['SubsidioService', 'EstadoService', 'ComunaService', 'ViviendaService', '$state', '$rootScope', '$mdDialog'];
 
   var viviendaid = 0;
-  function actualizarVivienda(SubsidioService, EstadoService, ComunaService, ViviendaService, $state, $rootScope) {
+  function allClientsActualizarVivienda(SubsidioService, EstadoService, ComunaService, ViviendaService, $state, $rootScope, $mdDialog) {
     var vm = this;
 
     vm.comuna = [];
@@ -35,7 +35,7 @@
     vm.actualizarvivienda = function (vivienda) {
       vm.showAlert(
         ViviendaService.update({id: viviendaid}, vivienda, function () {
-          $state.go('viviendas');
+          $state.go('allClients');
         }, function () {}), vivienda);
     };
 

@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  abonoBoletaCtrl.$inject = ['AbonoService', '$state', '$rootScope'];
+  abonoBoletaCtrl.$inject = ['AbonoService', '$state', '$mdDialog'];
 
-  function abonoBoletaCtrl(AbonoService, $state) {
+  function abonoBoletaCtrl(AbonoService, $state, $mdDialog) {
     var vm = this;
 
     vm.registrarAbono = function (abono) {
@@ -21,8 +21,19 @@
         boleta_emitida_id: abono.boleta_emitida_id
       };
 
-      AbonoService.save(abonoBoleta);
+      vm.showAlert(AbonoService.save(abonoBoleta), abono);
       $state.go('boletasAbonadas');
+    };
+
+    vm.showAlert = function (ev, abono) {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .clickOutsideToClose(true)
+          .title('¡Abono Registrado Satisfactoriamente!')
+          .textContent('Monto Abonado: ' + abono.monto_abonado)
+          .ok('Ok!')
+          .targetEvent(ev)
+      );
     };
   }
 })();

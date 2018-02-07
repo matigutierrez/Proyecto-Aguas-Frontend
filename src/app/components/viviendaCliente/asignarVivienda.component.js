@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  asignarViviendaCtr.$inject = ['ClienteService', 'ViviendaService', '$state', '$rootScope'];
+  asignarViviendaCtr.$inject = ['ClienteService', 'ViviendaService', '$state', '$rootScope', '$mdDialog'];
 
-  function asignarViviendaCtr(ClienteService, ViviendaService, $state, $rootScope) {
+  function asignarViviendaCtr(ClienteService, ViviendaService, $state, $rootScope, $mdDialog) {
     var vm = this;
 
     vm.cliente = [];
@@ -24,15 +24,24 @@
       vm.vivienda = data;
     });
 
+    vm.viviendacliente = [];
     /*vm.cliente = $rootScope.datosComite.clientes();
     vm.vivienda = $rootScope.datosComite.viviendas();*/
 
     vm.asignarvivienda = function (viviendacliente) {
-      console.log(viviendacliente);
       var cliente = new ClienteService({id: viviendacliente.cliente_id});
-      cliente.addVivienda(viviendacliente.vivienda_id);
-
+      vm.showAlert(cliente.addVivienda(viviendacliente.vivienda_id));
       $state.go('viviendaCliente');
+    };
+
+    vm.showAlert = function(ev) {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .clickOutsideToClose(true)
+          .title('¡Asignación Exitosa!')
+          .ok('Ok!')
+          .targetEvent(ev)
+      );
     };
   }
 })();

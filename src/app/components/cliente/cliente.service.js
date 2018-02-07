@@ -26,19 +26,21 @@
 
     var clienteMedidores = $resource(API + 'cliente/:id/medidores', {id: '@id'});
     cliente.prototype.getmedidores = function () {
-      var medidores = clienteMedidores.query({id: this.id});
-      for (var i = 0; i < medidores.length; i++) {
-        medidores[i] = new MedidorService(medidores[i]);
-      }
+      var medidores = clienteMedidores.query({id: this.id}).$promise.then(function (data){
+        for (var i = 0; i < data.length; i++) {
+          medidores[i] = new MedidorService(data[i]);
+        }
+      });
       return medidores;
     };
 
     var clienteViviendas = $resource(API + 'cliente/:id/viviendas', {id: '@id'});
     cliente.prototype.getviviendas = function () {
-      var viviendas = clienteViviendas.query({id: this.id});
-      for (var i = 0; i < viviendas.length; i++) {
-        viviendas[i] = new ViviendaService(viviendas[i]);
-      }
+      var viviendas = clienteViviendas.query({id: this.id}).$promise.then(function (data){
+        for (var i = 0; i < data.length; i++) {
+          viviendas[i] = new ViviendaService(data[i]);
+        }
+      });
       return viviendas;
     };
 

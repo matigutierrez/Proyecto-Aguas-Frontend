@@ -30,10 +30,7 @@
 
     vm.asignarvivienda = function (viviendacliente) {
       var cliente = new ClienteService({id: viviendacliente.cliente_id});
-      //cliente.addVivienda(viviendacliente.vivienda_id);
-
       vm.showAlert(cliente.addVivienda(viviendacliente.vivienda_id));
-
       $state.go('tabla');
     };
 

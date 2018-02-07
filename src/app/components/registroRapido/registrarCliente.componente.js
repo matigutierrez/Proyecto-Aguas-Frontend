@@ -26,7 +26,6 @@
       };
 
       vm.showAlert(ClienteService.save(client), cliente);
-      //ClienteService.save(client);
       $state.go('registroRapidoAsignarVivienda');
     };
 

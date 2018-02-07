@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  medidoresCtr.$inject = ['MedidorService', '$state', '$rootScope'];
+  medidoresCtr.$inject = ['MedidorService', '$state', '$rootScope', '$mdDialog'];
 
-  function medidoresCtr(MedidorService, $state, $rootScope) {
+  function medidoresCtr(MedidorService, $state, $rootScope, $mdDialog) {
     var vm = this;
 
     vm.medidor = $rootScope.datosComite.medidores();
@@ -32,10 +32,36 @@
     };
 
     vm.eliminarmedidor = function (id) {
-      MedidorService.delete({id: id});
-      MedidorService.query().$promise.then(function (data) {
-        vm.medidor = data;
+      var confirm = $mdDialog.confirm()
+            .title('Está seguro que desea ELIMINAR este MEDIDOR ?')
+            .textContent('La acción no se podrá deshacer')
+            .ok('SI')
+            .cancel('NO');
+
+      $mdDialog.show(confirm).then(function () {
+        MedidorService.delete({id: id});
+        MedidorService.query().$promise.then(function (data) {
+          vm.medidor = data;
+        });
+        $state.go('medidores');
+
+        $mdDialog.show(
+          $mdDialog.alert()
+            .clickOutsideToClose(true)
+            .title('MEDIDOR ELIMINADO!')
+            .ok('Ok!')
+        );
+        MedidorService.query().$promise.then(function (data) {
+          vm.medidor = data;
+        });
+      }, function () {
+        console.log('CANCEL');
       });
+    };
+
+    vm.vermedidor = function (index) {
+      $rootScope.datosMedidor = vm.medidor[index];
+      $state.go('medidorRegistrosMensuales');
     };
   }
 })();

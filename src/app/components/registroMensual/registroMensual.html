@@ -9,36 +9,16 @@
           <div layout="row" layout-xs="column">
             <div flex>
               <md-input-container class="md-icon-float md-block">
-                <label>Número Medidor</label>
+                <label>Medidor</label>
                 <md-icon md-svg-src="/assets/img/number.svg"></md-icon>
-                <input ng-model="nroMedidor" type="number">
+                <input ng-model="vm.lecMensual.medidor_id" type="number">
               </md-input-container>
             </div>
             <div flex>
               <md-input-container md-no-float class="md-block">
-                <label>Marca Medidor</label>
-                <md-icon md-svg-src="/assets/img/brand.svg"></md-icon>
-                <input ng-model="mcaMedidor" type="text" disabled>
-              </md-input-container>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div layout-xs="column" class="datos">
-        <div flex>
-          <div layout="row" layout-xs="column">
-            <div flex>
-              <md-input-container md-no-float class="md-block">
-                <label>Dueño Medidor</label>
-                <md-icon md-svg-src="/assets/img/usuario.svg"></md-icon>
-                <input ng-model="dueMedidor" type="text" disabled>
-              </md-input-container>
-            </div>
-            <div flex>
-              <md-input-container md-no-float class="md-block">
-                <label>Domicilio</label>
+                <label>Vivienda</label>
                 <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
-                <input ng-model="domicilio" type="text" disabled>
+                <input ng-model="vm.lecMensual.vivienda_id" type="number">
               </md-input-container>
             </div>
           </div>
@@ -51,35 +31,16 @@
               <md-input-container md-no-float class="md-block">
                 <label>Año</label>
                 <md-icon md-svg-src="/assets/img/calendar.svg"></md-icon>
-                <input ng-model="anio" type="number">
+                <input ng-model="vm.lecMensual.year" type="number">
               </md-input-container>
             </div>
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>Mes</label>
                 <md-icon md-svg-src="/assets/img/mes.svg"></md-icon>
-                <md-select ng-model="mes">
-                  <md-option value="enero">Enero</md-option>
-                  <md-option value="febrero">Febrero</md-option>
-                  <md-option value="marzo">Marzo</md-option>
-                  <md-option value="abril">Abril</md-option>
-                  <md-option value="mayo">Mayo</md-option>
-                  <md-option value="junio">Junio</md-option>
-                  <md-option value="julio">Julio</md-option>
-                  <md-option value="agosto">Agosto</md-option>
-                  <md-option value="septiembre">Septiembre</md-option>
-                  <md-option value="octubre">Octubre</md-option>
-                  <md-option value="noviembre">Noviembre</md-option>
-                  <md-option value="diciembre">Diciembre</md-option>
+                <md-select ng-model="vm.lecMensual.mes_id">
+                  <md-option ng-repeat="mes in vm.mes | orderBy : 'id'" value="{{ mes.id }}">{{ mes.des_mes }}</md-option>
                 </md-select>
-              </md-input-container>
-            </div>
-            <div flex>
-              <md-input-container md-no-float class="md-block">
-                <label>Fecha Registro</label>
-                <div flex-gt-xs>
-                  <md-datepicker ng-model="ctrl.myDate" md-placeholder="Seleccione Día"></md-datepicker>
-                </div>
               </md-input-container>
             </div>
           </div>
@@ -92,14 +53,21 @@
               <md-input-container md-no-float class="md-block">
                 <label>Lectura Anterior</label>
                 <md-icon md-svg-src="/assets/img/lectura.svg"></md-icon>
-                <input ng-model="lecAnterior" type="number" disabled>
+                <input ng-model="vm.lecMensual.lectura_anterior" type="number" disabled>
               </md-input-container>
             </div>
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>Lectura Actual</label>
                 <md-icon md-svg-src="/assets/img/lectura.svg"></md-icon>
-                <input ng-model="lecActual" type="number">
+                <input ng-model="vm.lecMensual.lectura" type="number">
+              </md-input-container>
+            </div>
+            <div flex>
+              <md-input-container md-no-float class="md-block">
+                <label>Consumo</label>
+                <md-icon md-svg-src="/assets/img/lectura.svg"></md-icon>
+                <input ng-model="vm.lecMensual.consumo" type="number">
               </md-input-container>
             </div>
           </div>
@@ -112,14 +80,14 @@
               <md-input-container md-no-float class="md-block">
                 <label>Cargo Fijo</label>
                 <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
-                <input ng-model="carFijo" type="number">
+                <input ng-model="vm.lecMensual.cargo_fijo" type="number">
               </md-input-container>
             </div>
             <div flex>
               <md-input-container md-no-float class="md-block">
                 <label>Alcantarillado</label>
                 <md-icon md-svg-src="/assets/img/lectura.svg"></md-icon>
-                <input ng-model="alcantarillado" type="number">
+                <input ng-model="vm.lecMensual.alcantarillado" type="number">
               </md-input-container>
             </div>
           </div>
@@ -128,11 +96,18 @@
       <div layout-xs="column" class="datos">
         <div flex>
           <div layout="row" layout-xs="column">
-            <div flex="50" flex-xs="100">
+            <div flex>
               <md-input-container class="md-icon-float md-block">
                 <label>Valor a Pagar (CLP) $:</label>
                 <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
-                <input ng-model="valorPagar" type="number">
+                <input ng-model="vm.lecMensual.valor_pagar" type="number">
+              </md-input-container>
+            </div>
+            <div flex>
+              <md-input-container class="md-icon-float md-block">
+                <label>Saldo Pagado (CLP) $:</label>
+                <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
+                <input ng-model="vm.lecMensual.saldo_pagado" type="number">
               </md-input-container>
             </div>
           </div>
@@ -143,13 +118,10 @@
           <div layout="row" layout-xs="column">
             <div flex="50" flex-xs="100">
               <div layout="row" layout-align="center center" layout-padding>
-                <md-button id="registro" class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px; width: 100%;">Registrar Lectura</md-button>
+                <md-button id="registro" class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px; width: 100%;" ng-click="vm.registrolectura(vm.lecMensual)">Registrar Lectura</md-button>
               </div>
             </div>
             <div flex="50" flex-xs="100">
-              <!--<div layout="row" layout-align="end center" layout-padding>
-                <md-button class="md-raised" md-colors="{background: 'cyan-600'}" layout-fill ui-sref="menuRegistros" style="height: 45px; width: 150px; border-radius: 13px; font-size: 15px; line-height: 27px; margin-top: 4px;">Volver</md-button>
-              </div>-->
               <div layout="row" layout-align="end center" flex layout-xs="column">
                 <md-button class="md-icon-button md-raised" layout-fill ui-sref="menuRegistros" style="margin-top: 14px;">
                   <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>

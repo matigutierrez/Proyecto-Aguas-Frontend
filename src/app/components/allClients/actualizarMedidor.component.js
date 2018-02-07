@@ -3,16 +3,16 @@
 
   angular
   .module('app')
-  .component('actualizarMedidor', {
-    templateUrl: 'app/components/registroMedidor/actualizarMedidor.html',
-    controller: actualizarMedidor,
+  .component('allClientsActualizarMedidor', {
+    templateUrl: 'app/components/allClients/allClientsActualizarMedidor.html',
+    controller: allClientsActualizarMedidor,
     controllerAs: 'vm'
   });
 
-  actualizarMedidor.$inject = ['MedidorService', 'EstadoMedidorService', 'ViviendaService', 'ComiteService', '$state', '$rootScope'];
+  allClientsActualizarMedidor.$inject = ['MedidorService', 'EstadoMedidorService', 'ViviendaService', 'ComiteService', '$state', '$rootScope', '$mdDialog'];
 
   var medidorid = 0;
-  function actualizarMedidor(MedidorService, EstadoMedidorService, ViviendaService, ComiteService, $state, $rootScope) {
+  function allClientsActualizarMedidor(MedidorService, EstadoMedidorService, ViviendaService, ComiteService, $state, $rootScope, $mdDialog) {
     var vm = this;
 
     vm.comites = [];
@@ -35,7 +35,7 @@
     vm.actualizarmedidor = function (medidor) {
       vm.showAlert(
         MedidorService.update({id: medidorid}, medidor, function () {
-          $state.go('medidores');
+          $state.go('allClients');
         }, function () {}), medidor);
     };
 

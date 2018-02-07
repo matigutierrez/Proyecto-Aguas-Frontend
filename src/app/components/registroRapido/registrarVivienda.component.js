@@ -38,7 +38,6 @@
       };
 
       vm.showAlert(ViviendaService.save(viviend), vivienda);
-      //ViviendaService.save(viviend);
       $state.go('registroRapidoMedidor');
     };
 
@@ -46,7 +45,7 @@
       $mdDialog.show(
         $mdDialog.alert()
           .clickOutsideToClose(true)
-          .title('¡Vivienda Creada!')
+          .title('¡Vivienda Creada Satisfactoriamente!')
           .textContent('Dirección: ' + vivienda.direccion)
           .ok('Ok!')
           .targetEvent(ev)

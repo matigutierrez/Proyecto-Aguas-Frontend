@@ -192,6 +192,31 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
       url: '/allClients',
       component: 'allClients',
       isPrivate: true
+    })
+    .state('medidorRegistrosMensuales', {
+      url: '/medidorRegistrosMensuales',
+      component: 'medidorRegistrosMensuales',
+      isPrivate: true
+    })
+    .state('allClientsActualizarCliente', {
+      url: '/allClientsActualizarCliente',
+      component: 'allClientsActualizarCliente',
+      isPrivate: true
+    })
+    .state('allClientsActualizarVivienda', {
+      url: '/allClientsActualizarVivienda',
+      component: 'allClientsActualizarVivienda',
+      isPrivate: true
+    })
+    .state('allClientsActualizarMedidor', {
+      url: '/allClientsActualizarMedidor',
+      component: 'allClientsActualizarMedidor',
+      isPrivate: true
+    })
+    .state('actualizarRegistroMensual', {
+      url: '/actualizarRegistroMensual',
+      component: 'actualizarRegistroMensual',
+      isPrivate: true
     });
 
   $httpProvider.interceptors.push('InterceptorApi');

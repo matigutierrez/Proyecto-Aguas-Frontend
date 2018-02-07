@@ -9,19 +9,14 @@
     controllerAs: 'vm'
   });
 
-  boletasAbonadasCtrl.$inject = ['BoletaEmitidaService', 'AbonoService', '$state', '$rootScope'];
+  boletasAbonadasCtrl.$inject = ['AbonoService', '$state', '$mdDialog'];
 
-  function boletasAbonadasCtrl(BoletaEmitidaService, AbonoService) {
+  function boletasAbonadasCtrl(AbonoService, $state, $mdDialog) {
     var vm = this;
     vm.abonadas = [];
 
     AbonoService.query().$promise.then(function (data) {
       vm.abonadas = data;
-    });
-
-    vm.boletaEmitida = [];
-    BoletaEmitidaService.query().$promise.then(function (data) {
-      vm.boletaEmitida = data;
     });
 
     vm.busqueda = function (dato) {
@@ -35,9 +30,30 @@
     };
 
     vm.eliminarabono = function (id) {
-      BoletaEmitidaService.delete({id: id});
-      BoletaEmitidaService.query().$promise.then(function (data) {
-        vm.abonadas = data;
+      var confirm = $mdDialog.confirm()
+            .title('Está seguro que desea ELIMINAR el REGISTRO ?')
+            .textContent('La acción no se podrá deshacer')
+            .ok('SI')
+            .cancel('NO');
+
+      $mdDialog.show(confirm).then(function () {
+        AbonoService.delete({id: id});
+        AbonoService.query().$promise.then(function (data) {
+          vm.abonadas = data;
+        });
+        $state.go('boletasAbonadas');
+
+        $mdDialog.show(
+          $mdDialog.alert()
+            .clickOutsideToClose(true)
+            .title('REGISTRO ELIMINADO!')
+            .ok('Ok!')
+        );
+        AbonoService.query().$promise.then(function (data) {
+          vm.abonadas = data;
+        });
+      }, function () {
+        console.log('CANCEL');
       });
     };
   }

@@ -20,5 +20,6 @@
     vm.nombre = dataComit.nombre;
     vm.comuna_id = dataComit.comuna.des_comu;
     vm.datosCliente = dataComit.clientes();
+    
   }
 })();

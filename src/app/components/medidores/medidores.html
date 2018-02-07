@@ -43,6 +43,7 @@
               <th md-column md-numeric>Estado</th>
               <th md-column md-numeric></th>
               <th md-column md-numeric></th>
+              <th md-column md-numeric></th>
             </tr>
           </thead>
           <tbody md-body>
@@ -54,6 +55,11 @@
               <td md-cell>{{ medid.lectura_inicial }}</td>
               <td md-cell>{{ medid.vivienda.direccion }}</td>
               <td md-cell>{{ medid.estado_medidor.des_estado_medidor }}</td>
+              <td md-cell>
+                <md-button class="md-icon-button" ng-click="vm.vermedidor($index)" style="margin-right: -40px;">
+                  <md-icon  md-svg-icon="/assets/img/medidor.svg"></md-icon>
+                </md-button>
+              </td>
               <td md-cell>
                 <md-button class="md-icon-button" ng-click="vm.actualizarmedidor(medid.id)" style="margin-right: -40px;">
                   <md-icon  md-svg-icon="/assets/img/edituser.svg"></md-icon>

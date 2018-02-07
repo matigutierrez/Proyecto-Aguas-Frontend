@@ -37,8 +37,19 @@
         subsidio_id: parseInt(vivienda.subsidio_id, 10)
       };
 
-      ViviendaService.save(viviend);
+      vm.showAlert(ViviendaService.save(viviend), vivienda);
       $state.go('viviendas');
+    };
+
+    vm.showAlert = function (ev, vivienda) {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .clickOutsideToClose(true)
+          .title('¡Vivienda Creada Satisfactoriamente!')
+          .textContent('Dirección: ' + vivienda.direccion)
+          .ok('Ok!')
+          .targetEvent(ev)
+      );
     };
   }
 })();

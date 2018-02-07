@@ -26,10 +26,7 @@
       <md-button class="md-icon-button md-raised" layout-fill ui-sref="menuListas" style="margin-bottom: 10px;">
         <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>
       </md-button>
-    </div> 
-    <!--<div flex="20" layout="row" flex layout-xs="column">
-      <md-button class="md-raised volverListas" md-colors="{background: 'cyan-600'}" layout-fill ui-sref="menuListas">Volver</md-button>
-    </div>-->
+    </div>
     <div flex="94" flex-offset="3" flex-md="94" flex-offset-md="3" flex-xs="94" flex-offset-xs="3" class="fond" style="margin-bottom: 20px">
       <md-table-container>
         <table md-table md-row-select multiple md-progress="promise">
@@ -41,7 +38,6 @@
               <th md-column md-numeric>Monto a Pagar</th>
               <th md-column md-numeric>Fecha de Pago</th>
               <th md-column md-numeric></th>
-              <th md-column md-numeric></th>
             </tr>
           </thead>
           <tbody md-body>
@@ -52,12 +48,7 @@
               <td md-cell>{{ emi.monto_pagar }}</td>
               <td md-cell>{{ emi.fecha_pago }}</td>
               <td md-cell>
-                <md-button class="md-icon-button" style="margin-right: -40px;">
-                  <md-icon  md-svg-icon="/assets/img/edituser.svg"></md-icon>
-                </md-button>
-              </td>
-              <td md-cell>
-                <md-button class="md-icon-button" ng-click="vm.eliminarBoletaEmitida(abono.id)" style="margin-right: -25px;">
+                <md-button class="md-icon-button" ng-click="vm.eliminarBoletaEmitida(emi.id)" style="margin-right: -25px;">
                   <md-icon  md-svg-icon="/assets/img/deleteuser.svg"></md-icon>
                 </md-button>
               </td>
@@ -67,9 +58,6 @@
       </md-table-container>
       <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{desserts.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
     </div>
-    <!--<div flex="20" layout="row" flex layout-xs="column">
-      <md-button class="md-raised volverListas" md-colors="{background: 'cyan-600'}" layout-fill ui-sref="menuListas">Volver</md-button>
-    </div>-->
     <div layout="row" flex layout-xs="column">
       <md-button class="md-icon-button md-raised" layout-fill ui-sref="menuListas" style="margin-bottom: 10px; margin-top: -13px;">
         <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>

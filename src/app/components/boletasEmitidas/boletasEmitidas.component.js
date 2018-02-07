@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  boletasEmitidasCtrl.$inject = ['BoletaEmitidaService', '$state', '$rootScope'];
+  boletasEmitidasCtrl.$inject = ['BoletaEmitidaService', '$state', '$mdDialog'];
 
-  function boletasEmitidasCtrl(BoletaEmitidaService) {
+  function boletasEmitidasCtrl(BoletaEmitidaService, $state, $mdDialog) {
     var vm = this;
     vm.emitidas = [];
 
@@ -30,9 +30,30 @@
     };
 
     vm.eliminarBoletaEmitida = function (id) {
-      BoletaEmitidaService.delete({id: id});
-      BoletaEmitidaService.query().$promise.then(function (data) {
-        vm.emitidas = data;
+      var confirm = $mdDialog.confirm()
+            .title('Está seguro que desea ELIMINAR este REGISTRO ?')
+            .textContent('La acción no se podrá deshacer')
+            .ok('SI')
+            .cancel('NO');
+
+      $mdDialog.show(confirm).then(function () {
+        BoletaEmitidaService.delete({id: id});
+        BoletaEmitidaService.query().$promise.then(function (data) {
+          vm.emitidas = data;
+        });
+        $state.go('boletasEmitidas');
+
+        $mdDialog.show(
+          $mdDialog.alert()
+            .clickOutsideToClose(true)
+            .title('REGISTRO ELIMINADO!')
+            .ok('Ok!')
+        );
+        BoletaEmitidaService.query().$promise.then(function (data) {
+          vm.emitidas = data;
+        });
+      }, function () {
+        console.log('CANCEL');
       });
     };
   }

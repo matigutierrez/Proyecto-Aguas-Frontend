@@ -40,7 +40,6 @@
       };
 
       vm.showAlert(MedidorService.save(medid), medidor);
-      //MedidorService.save(medid);
       $state.go('registroRapidoCliente');
     };
 

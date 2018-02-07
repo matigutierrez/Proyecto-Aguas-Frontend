@@ -5,9 +5,9 @@
   .module('app')
   .service('ComiteService', comiteService);
 
-  comiteService.$inject = ['$resource', 'API', 'ClienteService', 'MedidorService', 'ViviendaService'];
+  comiteService.$inject = ['$resource', 'API', 'ClienteService', 'MedidorService', 'ViviendaService', 'LecturaMensualService'];
 
-  function comiteService($resource, API, ClienteService, MedidorService, ViviendaService) {
+  function comiteService($resource, API, ClienteService, MedidorService, ViviendaService, LecturaMensualService) {
     var comite = $resource(API + 'comite/:id', {id: '@id'},
       {
         update: {
@@ -67,6 +67,22 @@
         }
       });
       return viviendaCliente;
+    };
+
+    var medidorRegistrosMensuales = $resource(API + 'medidor/:id/registrosmensuales', {id: '@id'});
+    comite.prototype.registrosmensuales = function () {
+      var registrosmensuales = [];
+      comiteMedidores.query({id: this.id}).$promise.then(function (data) {
+        for (var i = 0; i < data.length; i++) {
+          var medidor = new MedidorService(data[i]);
+          medidorRegistrosMensuales.query({id: medidor.id}).$promise.then(function (dataRegistrosMensuales) {
+            for (var j = 0; j < dataRegistrosMensuales.length; j++) {
+              registrosmensuales.push(new LecturaMensualService(dataRegistrosMensuales[j]));
+            }
+          });
+        }
+      });
+      return registrosmensuales;
     };
 
     return comite;

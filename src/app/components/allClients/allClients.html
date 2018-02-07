@@ -26,7 +26,7 @@
                       <md-input-container>
                     </div> 
                     <div flex=10 flex-xs="20">
-                        <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'light-blue-600'}" ng-click="vm.busqueda(vm.datocliente)">
+                        <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'light-blue-600'}" ng-click="vm.busquedaCliente(vm.datocliente)">
                             <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
                         </md-button>
                     </div>
@@ -46,9 +46,8 @@
                         <th md-column md-numeric>Telefono</th>
                         <th md-column md-numeric>Email</th>
                         <th md-column md-numeric>Residencia</th>
-                        <!--<th md-column md-numeric></th>
                         <th md-column md-numeric></th>
-                        <th md-column md-numeric></th>-->
+                        <th md-column md-numeric></th>
                       </tr>
                     </thead>
                     <tbody md-body>
@@ -60,11 +59,6 @@
                         <td md-cell>{{ client.telefono }}</td>
                         <td md-cell>{{ client.email }}</td>
                         <td md-cell>{{ client.residencia }}</td>
-                        <!--<td md-cell>
-                          <md-button class="md-icon-button" ng-click="vm.vercliente($index)" style="margin-right: -40px;">
-                            <md-icon  md-svg-icon="/assets/img/profile1.svg"></md-icon>
-                          </md-button>
-                        </td>
                         <td md-cell>
                           <md-button class="md-icon-button" ng-click="vm.updatecliente(client.id)" style="margin-right: -40px;">
                             <md-icon  md-svg-icon="/assets/img/edituser.svg"></md-icon>
@@ -74,7 +68,7 @@
                           <md-button class="md-icon-button" ng-click="vm.eliminarcliente(client.id)" style="margin-right: -25px;">
                             <md-icon  md-svg-icon="/assets/img/deleteuser.svg"></md-icon>
                           </md-button>
-                        </td>-->
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -104,7 +98,7 @@
                       <md-input-container>
                     </div> 
                     <div flex=10 flex-xs="20">
-                        <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'light-blue-600'}" ng-click="vm.busqueda(vm.datovivienda)">
+                        <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'light-blue-600'}" ng-click="vm.busquedaVivienda(vm.datovivienda)">
                             <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
                         </md-button>
                     </div>
@@ -122,8 +116,8 @@
                         <th md-column md-numeric>Fecha Ingreso</th>
                         <th md-column md-numeric>Ubicación</th>
                         <th md-column md-numeric>Estado</th>
-                        <!--<th md-column md-numeric></th>
-                        <th md-column md-numeric></th>-->
+                        <th md-column md-numeric></th>
+                        <th md-column md-numeric></th>
                       </tr>
                     </thead>
                     <tbody md-body>
@@ -134,7 +128,7 @@
                         <td md-cell>{{ viviend.fecha_ingreso }}</td>
                         <td md-cell>{{ viviend.comuna.des_comu }}</td>
                         <td md-cell>{{ viviend.estado.des_estado }}</td>
-                        <!--<td md-cell>
+                        <td md-cell>
                           <md-button class="md-icon-button" ng-click="vm.actualizarvivienda(viviend.id)" style="margin-right: -40px;">
                             <md-icon  md-svg-icon="/assets/img/edituser.svg"></md-icon>
                           </md-button>
@@ -143,7 +137,7 @@
                           <md-button class="md-icon-button" ng-click="vm.eliminarvivienda(viviend.id)" style="margin-right: -25px;">
                             <md-icon  md-svg-icon="/assets/img/deleteuser.svg"></md-icon>
                           </md-button>
-                        </td>-->
+                        </td>
                       </tr>
                     </tbody>
                   </table>
@@ -172,7 +166,7 @@
                       <md-input-container>
                     </div> 
                     <div flex=10 flex-xs="20">
-                      <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'light-blue-600'}" ng-click="vm.busqueda(vm.datomedidor)">
+                      <md-button class="md-fab md-primary" aria-label="Use Android" md-colors="{background: 'light-blue-600'}" ng-click="vm.busquedaMedidor(vm.datomedidor)">
                           <md-icon md-svg-src="/assets/img/busqueda.svg"></md-icon>
                       </md-button>
                     </div>
@@ -191,8 +185,8 @@
                         <th md-column md-numeric>Lectura Inicial</th>
                         <th md-column md-numeric>Vivienda</th>
                         <th md-column md-numeric>Estado</th>
-                        <!--<th md-column md-numeric></th>
-                        <th md-column md-numeric></th>-->
+                        <th md-column md-numeric></th>
+                        <th md-column md-numeric></th>
                       </tr>
                     </thead>
                     <tbody md-body>
@@ -204,7 +198,7 @@
                         <td md-cell>{{ medid.lectura_inicial }}</td>
                         <td md-cell>{{ medid.vivienda.direccion }}</td>
                         <td md-cell>{{ medid.estado_medidor.des_estado_medidor }}</td>
-                        <!--<td md-cell>
+                        <td md-cell>
                           <md-button class="md-icon-button" ng-click="vm.actualizarmedidor(medid.id)" style="margin-right: -40px;">
                             <md-icon  md-svg-icon="/assets/img/edituser.svg"></md-icon>
                           </md-button>
@@ -213,7 +207,7 @@
                           <md-button class="md-icon-button" ng-click="vm.eliminarmedidor(medid.id)" style="margin-right: -25px;">
                             <md-icon  md-svg-icon="/assets/img/deleteuser.svg"></md-icon>
                           </md-button>
-                        </td>-->
+                        </td>
                       </tr>
                     </tbody>
                   </table>
