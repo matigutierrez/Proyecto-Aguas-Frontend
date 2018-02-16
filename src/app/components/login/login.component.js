@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  loginCtrl.$inject = ['UsuarioLogService', 'LoginService', 'CredentialsService', '$state', '$rootScope'];
+  loginCtrl.$inject = ['UsuarioLogService', 'LoginService', 'CredentialsService', '$state', '$rootScope', '$mdDialog'];
 
-  function loginCtrl(UsuarioLogService, LoginService, CredentialsService, $state, $rootScope) {
+  function loginCtrl(UsuarioLogService, LoginService, CredentialsService, $state, $rootScope, $mdDialog) {
     var vm = this;
     vm.loginError = false;
 
@@ -33,6 +33,14 @@
             $state.go('menuAdmin');
           } else if (vm.usuario.superadmin === 0) {
             $state.go('menuRegistros');
+            var confirm = $mdDialog.confirm()
+                  .title('¡¡¡AVISO IMPORTANTE!!!')
+                  .textContent('ANTES DE COMENZAR A TRABAJAR, DEBE FIJAR LOS PARAMETROS DEL SISTEMA')
+                  .ok('ESTABLECER PARAMETROS');
+
+            $mdDialog.show(confirm).then(function () {
+              $state.go('parametros');
+            });
           }
         });
       }, function () {

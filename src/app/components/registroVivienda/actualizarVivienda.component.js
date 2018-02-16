@@ -9,10 +9,10 @@
     controllerAs: 'vm'
   });
 
-  actualizarVivienda.$inject = ['SubsidioService', 'EstadoService', 'ComunaService', 'ViviendaService', '$state', '$rootScope'];
+  actualizarVivienda.$inject = ['EstadoService', 'ComunaService', 'ViviendaService', '$state', '$rootScope'];
 
   var viviendaid = 0;
-  function actualizarVivienda(SubsidioService, EstadoService, ComunaService, ViviendaService, $state, $rootScope) {
+  function actualizarVivienda(EstadoService, ComunaService, ViviendaService, $state, $rootScope) {
     var vm = this;
 
     vm.comuna = [];
@@ -23,11 +23,6 @@
     vm.estado = [];
     EstadoService.query().$promise.then(function (data) {
       vm.estado = data;
-    });
-
-    vm.subsidio = [];
-    SubsidioService.query().$promise.then(function (data) {
-      vm.subsidio = data;
     });
 
     viviendaid = $rootScope.id;

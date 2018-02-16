@@ -3,16 +3,21 @@
 
   angular
   .module('app')
-  .component('registroRapidoMedidor', {
-    templateUrl: 'app/components/registroRapido/registroRapidoMedidor.html',
-    controller: registroRapidoCtr,
+  .component('registroMedidorSuperAdmin', {
+    templateUrl: 'app/components/registroMedidor/registroMedidorSuperAdmin.html',
+    controller: registroMedidorSuperAdminCtr,
     controllerAs: 'vm'
   });
 
-  registroRapidoCtr.$inject = ['MedidorService', 'EstadoMedidorService', 'ViviendaService', 'ComiteService', '$state', '$mdDialog'];
+  registroMedidorSuperAdminCtr.$inject = ['MedidorService', 'EstadoMedidorService', 'ViviendaService', 'ComiteService', '$state', '$mdDialog', '$rootScope'];
 
-  function registroRapidoCtr(MedidorService, EstadoMedidorService, ViviendaService, ComiteService, $state, $mdDialog) {
+  var dataComit = {};
+
+  function registroMedidorSuperAdminCtr(MedidorService, EstadoMedidorService, ViviendaService, ComiteService, $state, $mdDialog, $rootScope) {
     var vm = this;
+
+    dataComit = $rootScope.datosComite;
+    console.log(dataComit);
 
     vm.comites = [];
     ComiteService.query().$promise.then(function (data) {
@@ -36,19 +41,19 @@
         lectura_inicial: 0,
         vivienda_id: parseInt(medidor.vivienda_id, 10),
         estado_medidor_id: parseInt(medidor.estado_medidor_id, 10),
-        comite_id: parseInt(medidor.comite_id, 10)
+        comite_id: dataComit.comite_id
       };
 
       vm.showAlert(MedidorService.save(medid), medidor);
-      $state.go('registroRapidoCliente');
+      $state.go('medidores');
     };
 
-    vm.showAlert = function(ev, medidor) {
+    vm.showAlert = function (ev, medidor) {
       $mdDialog.show(
         $mdDialog.alert()
           .clickOutsideToClose(true)
           .title('¡Medidor Creado Satisfactoriamente!')
-          .textContent('Número: ' + medidor.num_medidor, 'Marca: ' + medidor.marca_medidor)
+          .textContent('Nro: ' + medidor.num_medidor + ', Marca: ' + medidor.marca_medidor)
           .ok('Ok!')
           .targetEvent(ev)
       );

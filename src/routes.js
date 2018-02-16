@@ -168,26 +168,6 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
       component: 'registroAdmin',
       isPrivate: true
     })
-    .state('registroRapidoCliente', {
-      url: '/registroRapidoCliente',
-      component: 'registroRapidoCliente',
-      isPrivate: true
-    })
-    .state('registroRapidoVivienda', {
-      url: '/registroRapidoVivienda',
-      component: 'registroRapidoVivienda',
-      isPrivate: true
-    })
-    .state('registroRapidoMedidor', {
-      url: '/registroRapidoMedidor',
-      component: 'registroRapidoMedidor',
-      isPrivate: true
-    })
-    .state('registroRapidoAsignarVivienda', {
-      url: '/registroRapidoAsignarVivienda',
-      component: 'registroRapidoAsignarVivienda',
-      isPrivate: true
-    })
     .state('allClients', {
       url: '/allClients',
       component: 'allClients',
@@ -216,6 +196,31 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
     .state('actualizarRegistroMensual', {
       url: '/actualizarRegistroMensual',
       component: 'actualizarRegistroMensual',
+      isPrivate: true
+    })
+    .state('registroRapido', {
+      url: '/registroRapido',
+      component: 'registroRapido',
+      isPrivate: true
+    })
+    .state('registroRapidoSuperAdmin', {
+      url: '/registroRapidoSuperAdmin',
+      component: 'registroRapidoSuperAdmin',
+      isPrivate: true
+    })
+    .state('registroMedidorSuperAdmin', {
+      url: '/registroMedidorSuperAdmin',
+      component: 'registroMedidorSuperAdmin',
+      isPrivate: true
+    })
+    .state('parametros', {
+      url: '/parametros',
+      component: 'parametros',
+      isPrivate: true
+    })
+    .state('actualizarParametros', {
+      url: '/actualizarParametros',
+      component: 'actualizarParametros',
       isPrivate: true
     });
 

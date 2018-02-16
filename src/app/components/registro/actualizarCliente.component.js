@@ -9,14 +9,19 @@
     controllerAs: 'vm'
   });
 
-  actualizarCliente.$inject = ['UsuarioLogService', 'ClienteService', '$state', '$rootScope', '$mdDialog'];
+  actualizarCliente.$inject = ['SubsidioService', 'UsuarioLogService', 'ClienteService', '$state', '$rootScope', '$mdDialog'];
 
   var clienteid = 0;
-  function actualizarCliente(UsuarioLogService, ClienteService, $state, $rootScope, $mdDialog) {
+  function actualizarCliente(SubsidioService, UsuarioLogService, ClienteService, $state, $rootScope, $mdDialog) {
     var vm = this;
 
     UsuarioLogService.get().$promise.then(function (data) {
       vm.usuario = data;
+    });
+
+    vm.subsidio = [];
+    SubsidioService.query().$promise.then(function (data) {
+      vm.subsidio = data;
     });
 
     clienteid = $rootScope.id;

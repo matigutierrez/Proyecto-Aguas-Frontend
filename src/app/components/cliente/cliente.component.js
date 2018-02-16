@@ -23,7 +23,6 @@
     vm.apellido_mater = datosCliente.apellido_mater;
     vm.telefono = datosCliente.telefono;
     vm.email = datosCliente.email;
-    vm.residencia = datosCliente.residencia;
 
     UsuarioLogService.get().$promise.then(function (data) {
       vm.usuario = data;

@@ -7,7 +7,7 @@
     templateUrl: 'app/components/comites/comites.html',
     controller: comitesCtr,
     controllerAs: 'vm'
-  }).controller('AutoCtrl', function AutoCtrl(){});
+  }).controller('AutoCtrl', function AutoCtrl() {});
 
   comitesCtr.$inject = ['ComunaService', 'ComiteService', '$state', '$rootScope', '$mdDialog'];
 
@@ -82,16 +82,9 @@
       }, function () {
         console.log('CANCEL');
       });
-
-      /*ComiteService.delete({id: id});
-      ComiteService.query().$promise.then(function (data) {
-        vm.comite = data;
-      });*/
     };
 
-
-
-    vm.autocompletar = function(ev, comite) {
+    vm.autocompletar = function (ev, comite) {
       $mdDialog.show({
         controller: AutoCtrl,
         controllerAs: 'vm',
@@ -102,31 +95,28 @@
         fullscreen: vm.customFullscreen, // Only for -xs, -sm breakpoints.
         locals: {
           comite: comite
-        },
+        }
       });
     };
   }
 
-
-  function AutoCtrl (ComiteService, comite) {
+  function AutoCtrl(ComiteService, comite) {
     var vm = this;
 
     vm.comite = comite;
-    vm.querySearch   = querySearch;
+    vm.querySearch = querySearch;
 
-    function querySearch (query) {
-      var results = query ? vm.comite.filter( createFilterFor(query) ) : vm.comite;
+    function querySearch(query) {
+      var results = query ? vm.comite.filter(createFilterFor(query)) : vm.comite;
       return results;
     }
 
     function createFilterFor(query) {
       var lowercaseQuery = query;
-      console.log(lowercaseQuery);
 
       return function filterFn(comu) {
         return (comu.nombre.indexOf(lowercaseQuery) === 0);
       };
-
     }
   }
 })();

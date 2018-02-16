@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  viviendaClienteCtrl.$inject = ['ClienteService', 'ViviendaClienteService', '$state', '$rootScope'];
+  viviendaClienteCtrl.$inject = ['ClienteService', '$rootScope'];
 
-  function viviendaClienteCtrl(ClienteService, ViviendaClienteService, $state, $rootScope) {
+  function viviendaClienteCtrl(ClienteService, $rootScope) {
     var vm = this;
     vm.viviendacli = $rootScope.datosComite.viviendaCliente();
 

@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  tablaCtr.$inject = ['ClienteService', 'ViviendaService', 'MedidorService', '$state', '$rootScope', '$mdDialog'];
+  tablaCtr.$inject = ['UsuarioLogService', 'ClienteService', 'ViviendaService', 'MedidorService', '$state', '$rootScope', '$mdDialog'];
 
-  function tablaCtr(ClienteService, ViviendaService, MedidorService, $state, $rootScope, $mdDialog) {
+  function tablaCtr(UsuarioLogService, ClienteService, ViviendaService, MedidorService, $state, $rootScope, $mdDialog) {
     var vm = this;
 
     vm.cliente = [];
@@ -27,6 +27,11 @@
     vm.medidor = [];
     MedidorService.query().$promise.then(function (data) {
       vm.medidor = data;
+    });
+
+    vm.usuario = [];
+    UsuarioLogService.get().$promise.then(function (data) {
+      vm.usuario = data;
     });
 
     vm.busquedaCliente = function (dato) {
@@ -94,7 +99,6 @@
 
     vm.actualizarvivienda = function (id) {
       $rootScope.id = id;
-      console.log(id);
       $state.go('allClientsActualizarVivienda');
     };
 

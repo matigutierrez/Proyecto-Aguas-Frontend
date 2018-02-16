@@ -2,16 +2,25 @@ html, body, ui-view,#root {
   margin: 0;
   height: 100%;
   font-family: 'Bree Serif';
-  /*font-family: 'Open Sans', sans-serif;*/
-  background-color: #83CEF6;
-
-  /*background-image: url('/assets/img/fondo.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;*/
 }
 
 body, h1, h2, h3 {
   font-weight: 300;
+}
+
+.sidenav {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+}
+
+.toolbar{
+  position: fixed;
+  top: 0;
 }
 
 .fond {
@@ -82,20 +91,6 @@ md-icon {
   background-color:#e5e5e5;
 }
 
-.toolbar{
-  overflow: hidden;
-  position: fixed;
-  top: 0; 
-  width: 100%;
-}
-
-md-sidenav{
-  overflow: hidden;
-  position: relative;
-  top: 0; 
-  width: 100%;
-}
-
 .mar {
   margin-top: 70px
 }
@@ -106,7 +101,6 @@ md-card{
   border-radius: 15px;
   border: 1px solid grey;
   background-color: #FFE488;
-  /*background: linear-gradient(to left, #015167, #026986, #06A6D3, #039BE5);*/
 }
 
 .mdcardbutton{
@@ -174,11 +168,6 @@ md-card{
 
 .icon1 {
   margin-right: 0px;
-}
-
-.logo {
-  width: 150px;
-  margin-bottom: -340px;
 }
 
 .volverRegistros {

@@ -9,10 +9,10 @@
     controllerAs: 'vm'
   });
 
-  allClientsActualizarVivienda.$inject = ['SubsidioService', 'EstadoService', 'ComunaService', 'ViviendaService', '$state', '$rootScope', '$mdDialog'];
+  allClientsActualizarVivienda.$inject = ['EstadoService', 'ComunaService', 'ViviendaService', '$state', '$rootScope', '$mdDialog'];
 
   var viviendaid = 0;
-  function allClientsActualizarVivienda(SubsidioService, EstadoService, ComunaService, ViviendaService, $state, $rootScope, $mdDialog) {
+  function allClientsActualizarVivienda(EstadoService, ComunaService, ViviendaService, $state, $rootScope, $mdDialog) {
     var vm = this;
 
     vm.comuna = [];
@@ -23,11 +23,6 @@
     vm.estado = [];
     EstadoService.query().$promise.then(function (data) {
       vm.estado = data;
-    });
-
-    vm.subsidio = [];
-    SubsidioService.query().$promise.then(function (data) {
-      vm.subsidio = data;
     });
 
     viviendaid = $rootScope.id;

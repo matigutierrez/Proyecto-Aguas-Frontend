@@ -9,15 +9,10 @@
     controllerAs: 'vm'
   });
 
-  registromedidor.$inject = ['MedidorService', 'EstadoMedidorService', 'ViviendaService', 'ComiteService', '$state', '$mdDialog'];
+  registromedidor.$inject = ['UsuarioLogService' ,'MedidorService', 'EstadoMedidorService', 'ViviendaService', '$state', '$mdDialog'];
 
-  function registromedidor(MedidorService, EstadoMedidorService, ViviendaService, ComiteService, $state, $mdDialog) {
+  function registromedidor(UsuarioLogService, MedidorService, EstadoMedidorService, ViviendaService, $state, $mdDialog) {
     var vm = this;
-
-    vm.comites = [];
-    ComiteService.query().$promise.then(function (data) {
-      vm.comites = data;
-    });
 
     vm.vivienda = [];
     ViviendaService.query().$promise.then(function (data) {
@@ -29,6 +24,11 @@
       vm.estadoMedid = data;
     });
 
+    vm.usuario = [];
+    UsuarioLogService.get().$promise.then(function (data) {
+      vm.usuario = data;
+    });
+
     vm.crearmedidor = function (medidor) {
       var medid = {
         num_medidor: medidor.num_medidor,
@@ -36,10 +36,10 @@
         lectura_inicial: 0,
         vivienda_id: parseInt(medidor.vivienda_id, 10),
         estado_medidor_id: parseInt(medidor.estado_medidor_id, 10),
-        comite_id: parseInt(medidor.comite_id, 10)
+        comite_id: vm.usuario.comite_id
       };
 
-      vm.showALert(MedidorService.save(medid), medidor);
+      vm.showAlert(MedidorService.save(medid), medidor);
       $state.go('medidores');
     };
 

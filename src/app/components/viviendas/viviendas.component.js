@@ -40,9 +40,7 @@
 
       $mdDialog.show(confirm).then(function () {
         ViviendaService.delete({id: id});
-        ViviendaService.query().$promise.then(function (data) {
-          vm.vivienda = data;
-        });
+        vm.vivienda = $rootScope.datosComite.viviendas();
         $state.go('viviendas');
 
         $mdDialog.show(
@@ -51,9 +49,7 @@
             .title('VIVIENDA ELIMINADA!')
             .ok('Ok!')
         );
-        ViviendaService.query().$promise.then(function (data) {
-          vm.vivienda = data;
-        });
+        vm.vivienda = $rootScope.datosComite.viviendas();
       }, function () {
         console.log('CANCEL');
       });

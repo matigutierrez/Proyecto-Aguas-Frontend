@@ -9,16 +9,11 @@
     controllerAs: 'vm'
   });
 
-  actualizarMedidor.$inject = ['MedidorService', 'EstadoMedidorService', 'ViviendaService', 'ComiteService', '$state', '$rootScope'];
+  actualizarMedidor.$inject = ['MedidorService', 'EstadoMedidorService', 'ViviendaService', 'ComiteService', '$state', '$rootScope', '$mdDialog'];
 
   var medidorid = 0;
-  function actualizarMedidor(MedidorService, EstadoMedidorService, ViviendaService, ComiteService, $state, $rootScope) {
+  function actualizarMedidor(MedidorService, EstadoMedidorService, ViviendaService, ComiteService, $state, $rootScope, $mdDialog) {
     var vm = this;
-
-    vm.comites = [];
-    ComiteService.query().$promise.then(function (data) {
-      vm.comites = data;
-    });
 
     vm.vivienda = [];
     ViviendaService.query().$promise.then(function (data) {

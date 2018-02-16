@@ -40,9 +40,7 @@
 
       $mdDialog.show(confirm).then(function () {
         MedidorService.delete({id: id});
-        MedidorService.query().$promise.then(function (data) {
-          vm.medidor = data;
-        });
+        vm.medidor = $rootScope.datosComite.medidores();
         $state.go('medidores');
 
         $mdDialog.show(
@@ -51,9 +49,7 @@
             .title('MEDIDOR ELIMINADO!')
             .ok('Ok!')
         );
-        MedidorService.query().$promise.then(function (data) {
-          vm.medidor = data;
-        });
+        vm.medidor = $rootScope.datosComite.medidores();
       }, function () {
         console.log('CANCEL');
       });

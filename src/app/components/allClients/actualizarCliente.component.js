@@ -9,14 +9,19 @@
     controllerAs: 'vm'
   });
 
-  allClientsActualizarCliente.$inject = ['UsuarioLogService', 'ClienteService', '$state', '$rootScope', '$mdDialog'];
+  allClientsActualizarCliente.$inject = ['SubsidioService', 'UsuarioLogService', 'ClienteService', '$state', '$rootScope', '$mdDialog'];
 
   var clienteid = 0;
-  function allClientsActualizarCliente(UsuarioLogService, ClienteService, $state, $rootScope, $mdDialog) {
+  function allClientsActualizarCliente(SubsidioService, UsuarioLogService, ClienteService, $state, $rootScope, $mdDialog) {
     var vm = this;
 
     UsuarioLogService.get().$promise.then(function (data) {
       vm.usuario = data;
+    });
+
+    vm.subsidio = [];
+    SubsidioService.query().$promise.then(function (data) {
+      vm.subsidio = data;
     });
 
     clienteid = $rootScope.id;

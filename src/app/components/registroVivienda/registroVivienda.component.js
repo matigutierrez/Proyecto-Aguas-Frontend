@@ -9,9 +9,9 @@
     controllerAs: 'vm'
   });
 
-  registroViviendaCtr.$inject = ['SubsidioService', 'EstadoService', 'ComunaService', 'ViviendaService', '$state'];
+  registroViviendaCtr.$inject = ['EstadoService', 'ComunaService', 'ViviendaService', '$state', '$mdDialog'];
 
-  function registroViviendaCtr(SubsidioService, EstadoService, ComunaService, ViviendaService, $state) {
+  function registroViviendaCtr(EstadoService, ComunaService, ViviendaService, $state, $mdDialog) {
     var vm = this;
 
     vm.comuna = [];
@@ -24,17 +24,11 @@
       vm.estado = data;
     });
 
-    vm.subsidio = [];
-    SubsidioService.query().$promise.then(function (data) {
-      vm.subsidio = data;
-    });
-
     vm.crearvivienda = function (vivienda) {
       var viviend = {
         direccion: vivienda.direccion,
         estado_id: parseInt(vivienda.estado_id, 10),
-        comuna_id: parseInt(vivienda.comuna_id, 10),
-        subsidio_id: parseInt(vivienda.subsidio_id, 10)
+        comuna_id: parseInt(vivienda.comuna_id, 10)
       };
 
       vm.showAlert(ViviendaService.save(viviend), vivienda);

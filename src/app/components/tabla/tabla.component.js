@@ -47,10 +47,8 @@
 
       $mdDialog.show(confirm).then(function () {
         ClienteService.delete({id: id});
-        ClienteService.query().$promise.then(function (data) {
-          vm.cliente = data;
-        });
-        $state.go('allClients');
+        vm.cliente = $rootScope.datosComite.clientes();
+        $state.go('tabla');
 
         $mdDialog.show(
           $mdDialog.alert()
@@ -58,9 +56,7 @@
             .title('Cliente ELIMINADO!')
             .ok('Ok!')
         );
-        ClienteService.query().$promise.then(function (data) {
-          vm.cliente = data;
-        });
+        vm.cliente = $rootScope.datosComite.clientes();
       }, function () {
         console.log('CANCEL');
       });

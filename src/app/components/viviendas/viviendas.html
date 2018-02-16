@@ -37,7 +37,6 @@
             <tr md-row>
               <th md-column md-numeric>Codigo</th>
               <th md-column md-numeric>Dirección</th>
-              <th md-column md-numeric>Subsidio</th>
               <th md-column md-numeric>Fecha Ingreso</th>
               <th md-column md-numeric>Ubicación</th>
               <th md-column md-numeric>Estado</th>
@@ -49,7 +48,6 @@
             <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="viviend in vm.vivienda">
               <td md-cell>{{ viviend.id }}</td>
               <td md-cell>{{ viviend.direccion }}</td>
-              <td md-cell>{{ viviend.subsidio.des_subsidio }}</td>
               <td md-cell>{{ viviend.fecha_ingreso }}</td>
               <td md-cell>{{ viviend.comuna.des_comu }}</td>
               <td md-cell>{{ viviend.estado.des_estado }}</td>

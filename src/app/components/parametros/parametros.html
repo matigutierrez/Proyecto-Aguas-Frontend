@@ -1,0 +1,65 @@
+<div layout-padding>
+  <div flex="60" flex-offset="20" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="fond mar">
+    <div layout-padding flex layout="column">
+
+      <div layout="row" flex layout-xs="column">
+        <md-button class="md-icon-button md-raised" layout-fill ui-sref="menuRegistros" style="margin-bottom: -10px; margin-left: -15px;">
+          <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>
+        </md-button>
+      </div>
+      <div flex flex-xs="90" flex-offset-xs="5">
+        <div layout-xs="column" layout-xs="column" layout="column" layout-align="center center" style="margin-top: -50px;">
+          <center>
+            <h2>Parametros Actuales</h2>
+            <p>Antes de comenzar a trabajar, debe asegurarse que los parametros están correctos, sin esta revisión el sistema No Funcionará</p>
+          </center>
+        </div>  
+      </div>
+      
+      <div layout="row" layout-xs="column" style="margin-bottom: 40px;">
+        <div flex="100" flex-xs="100" flex-sm="100" flex-md="100" layout="column" layout-xs="column" class="fond" style="background-color: #74C56E">
+          <center><h3>Parametros</h3></center>
+          <div layout="row" style="margin-top: -20px; margin-left: 25px;">
+            <h4>Valor Metro:</h4>
+            <h4 style="margin-left: 122px;">{{ vm.parametros.valor_metro }}</h4>
+          </div>
+          <div layout="row" style="margin-top: -30px; margin-left: 25px;">
+            <h4>Valor Máximo Descuento:</h4>
+            <h4 style="margin-left: 30px;">{{ vm.parametros.valor_maximo_descuento }}</h4>
+          </div>
+          <div layout="row" style="margin-top: -30px; margin-left: 25px;">
+            <h4>Valor Sobre Consumo:</h4>
+            <h4 style="margin-left: 55px;">{{ vm.parametros.valor_sobre_consumo }}</h4>
+          </div>
+          <div layout="row" style="margin-top: -30px; margin-left: 25px;">
+            <h4>Metros Sobre Consumo:</h4>
+            <h4 style="margin-left: 45px;">{{ vm.parametros.metros_sobre_consumo }}</h4>
+          </div>
+          <div layout="row" style="margin-top: -30px; margin-left: 25px;">
+            <h4>Cargo Fijo:</h4>
+            <h4 style="margin-left: 136px;">{{ vm.parametros.cargo_fijo }}</h4>
+          </div>
+          <div layout="row" style="margin-top: -30px; margin-left: 25px;">
+            <h4>Alcantarillado:</h4>
+            <h4 style="margin-left: 104px;">{{ vm.parametros.alcantarillado }}</h4>
+          </div>
+          <div layout="row" style="margin-top: -30px; margin-left: 25px;">
+            <h4>Multa Reunión:</h4>
+            <h4 style="margin-left: 104px;">{{ vm.parametros.multa_reunion }}</h4>
+          </div>
+          <div layout="row" style="margin-top: -30px; margin-left: 25px;">
+            <h4>Multa Corte:</h4>
+            <h4 style="margin-left: 125px;">{{ vm.parametros.multa_corte }}</h4>
+          </div>
+          <div layout="row" style="margin-top: -30px; margin-left: 25px;">
+            <h4>Multa Adulteración:</h4>
+            <h4 style="margin-left: 70px;">{{ vm.parametros.multa_adulteracion }}</h4>
+          </div>
+        </div>
+      </div>
+      <div layout="row" layout-align="center center" flex layout-xs="column" class="datos">
+        <md-button id="registro" class="md-raised" md-colors="{background: 'light-green-500'}" layout-fill style="min-height: 50px; margin-bottom: 10px; width: 230px;" ng-click="vm.updateParameters(vm.parametros.id)">Modificar Parametros</md-button>
+      </div>
+    </div> 
+  </div>
+</div>

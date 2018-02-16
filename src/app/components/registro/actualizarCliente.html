@@ -61,14 +61,16 @@
         </div>
       </div>
       <div layout-xs="column" class="datos">
-        <div flex>
+        <div flex="50" flex-xs="100">
           <md-input-container md-no-float class="md-block">
-            <label>Residencia</label>
+            <label>Subsidio</label>
             <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
-            <input ng-model="vm.cliente.residencia" type="text">
+            <md-select ng-model="vm.cliente.subsidio_id">
+              <md-option ng-repeat="subsi in vm.subsidio" value="{{ subsi.id }}">{{ subsi.des_subsidio }}</md-option>
+            </md-select>
           </md-input-container>
         </div>
-      </div>
+      </div><br>
       <div layout="row" layout-align="center center" flex layout-xs="column" class="datos">
         <md-button id="registro" class="md-raised" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;" ng-click="vm.actualizarcliente(vm.cliente)">Actualizar Cliente</md-button>
       </div>

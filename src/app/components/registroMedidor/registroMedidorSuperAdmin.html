@@ -1,4 +1,4 @@
-<div layout-padding>
+div layout-padding>
   <div flex="60" flex-offset="20" flex-md="60" flex-offset-md="20" flex-sm="70" flex-offset-sm="15" flex-xs="90" flex-offset-xs="5" class="fond mar">
     <div layout-padding>
       <div layout-xs="column">
@@ -39,33 +39,20 @@
           </div>
           <div flex>
             <md-input-container class="md-icon-float md-block">
-              <label>Comité</label>
-              <md-icon md-svg-src="/assets/img/comite.svg" class="name"></md-icon>
-              <md-select ng-model="vm.medidor.comite_id">
-                <md-option ng-repeat="comit in vm.comites | orderBy : 'nombre'" value="{{ comit.id }}">{{ comit.nombre }}</md-option>
-              </md-select>
-            </md-input-container>
-          </div> 
-        </div>
-      </div>
-       <div layout-xs="column">
-        <div layout="row" layout-xs="column">
-          <div flex="50">
-            <md-input-container class="md-icon-float md-block">
               <label>Estado Medidor</label>
               <md-icon md-svg-src="/assets/img/medidor.svg" class="name"></md-icon>
               <md-select ng-model="vm.medidor.estado_medidor_id">
                 <md-option ng-repeat="estado in vm.estadoMedid" value="{{ estado.id }}">{{ estado.des_estado_medidor }}</md-option>
               </md-select>
             </md-input-container>
-          </div> 
+          </div>
         </div>
       </div>
       <div flex layout-xs="column">
         <div layout="row" layout-align="center center" layout-padding>
-          <md-button id="registro" class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;" ng-click="vm.crearmedidor(vm.medidor)">Siguiente</md-button>
+          <md-button id="registro" class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;" ng-click="vm.crearmedidor(vm.medidor)">Registrar Medidor</md-button>
         </div>
-      </div>
+      </div> 
       <div layout="row" layout-align="end center" flex layout-xs="column">
         <md-button class="md-icon-button md-raised" layout-fill ui-sref="menuRegistros">
           <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>

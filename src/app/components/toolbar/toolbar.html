@@ -1,83 +1,93 @@
-<div layout="row" style="height: 100%;">
-  <md-sidenav flex-lg="20" flex-md="20" flex-sm="20" flex-order-sm flex-xs flex-order-gt-xs ng-if="vm.vista"
-    class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="8">
-    <md-toolbar class="md-theme-indigo table"  md-colors="{background: 'light-blue-600'}">
-      <div layout="row" layout-align="center center">
-        <img src="/assets/img/Administrador.png" class="imag"></img>
-        <div layout-padding layout="column">
-          <div>
-            <h4 class="admin">{{ vm.usuario.nombre_usu }}</h4>
-            <h6 class="info">{{ vm.usuario.rol}}</h6>
+<div layout="column" style="height:100%;" class="sidenav">
+  <section layout="row" flex="">
+
+    <md-sidenav flex-lg="20" flex-md="20" flex-sm="20" flex-order-sm flex-xs flex-order-gt-xs ng-if="vm.vista" class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" md-whiteframe="4">
+      <md-toolbar class="md-theme-indigo table"  md-colors="{background: 'light-blue-600'}">
+        <div layout="row" layout-align="center center">
+          <img src="/assets/img/Administrador.png" class="imag"></img>
+          <div layout-padding layout="column">
+            <div>
+              <h4 class="admin">{{ vm.usuario.nombre_usu }}</h4>
+              <h6 class="info">{{ vm.usuario.rol}}</h6>
+            </div>
           </div>
         </div>
-      </div>
-    </md-toolbar>
-    <div layout-padding>
-      <div layout="column" ng-if="vm.usuario.superadmin == 0">
-        <div flex layout="column">
-          <md-button class="texto" ui-sref="menuRegistros" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Registros
-          </md-button>
-        </div>
-        <div flex layout="column">
-          <md-button class="texto" ui-sref="menuListas" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/search.svg"></md-icon>Búsqueda
-          </md-button>
-        </div>
-        <div layout="column">
-          <md-button class="texto" ui-sref="emisionCobranza" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Emisión Cobranza
-          </md-button>
-        </div>
-        <div flex layout="column" class="separar">
-          <md-button class="sesion" ng-if="vm.isLogged" ng-click="vm.logout()">
-            Cerrar Sesión
-          </md-button>
-        </div>
-        <div layout="column">
-          <center>
-            <img class="logo" src="/assets/img/intentodelogo.png">
-          </center>
-        </div>
-      </div>
+      </md-toolbar>
+      <md-content layout-padding="">
+        <div layout-padding>
+          <div layout="column" ng-if="vm.usuario.superadmin == 0">
+            <div flex layout="column">
+              <md-button class="texto" ui-sref="menuRegistros" ng-click="vm.toggleLeft()">
+                <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Registros
+              </md-button>
+            </div>
+            <div flex layout="column">
+              <md-button class="texto" ui-sref="menuListas" ng-click="vm.toggleLeft()">
+                <md-icon md-svg-src="/assets/img/search.svg"></md-icon>Búsqueda
+              </md-button>
+            </div>
+            <div layout="column">
+              <md-button class="texto" ui-sref="emisionCobranza" ng-click="vm.toggleLeft()">
+                <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Emisión Cobranza
+              </md-button>
+            </div>
+            <div layout="column" class="separar">
+              <md-button class="texto" ui-sref="allClients" ng-click="vm.toggleLeft()">
+                <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Otros Registros
+              </md-button>
+            </div>
+            <div layout="column" class="separar">
+              <md-button class="texto" ui-sref="parametros" ng-click="vm.toggleLeft()">
+                <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Parametros
+              </md-button>
+            </div>
+            <div flex layout="column" class="separar">
+              <md-button class="sesion" ng-if="vm.isLogged" ng-click="vm.logout()">
+                Cerrar Sesión
+              </md-button>
+            </div>
+          </div>
 
-      <div layout="column" ng-if="vm.usuario.superadmin == 1">
-        <div layout="column">
-          <md-button class="texto" ui-sref="menuAdmin" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Comités
-          </md-button>
+          <div layout="column" ng-if="vm.usuario.superadmin == 1">
+            <div layout="column">
+              <md-button class="texto" ui-sref="menuAdmin" ng-click="vm.toggleLeft()">
+                <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Comités
+              </md-button>
+            </div>
+            <div layout="column">
+              <md-button class="texto" ui-sref="allClients" ng-click="vm.toggleLeft()">
+                <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Otros Registros
+              </md-button>
+            </div>
+            <div flex layout="column" class="separar">
+              <md-button class="sesion" ng-if="vm.isLogged" ng-click="vm.logout()">
+                Cerrar Sesión
+              </md-button>
+            </div>
+          </div>
         </div>
-        <div layout="column">
-          <md-button class="texto" ui-sref="allClients" ng-click="vm.toggleLeft()">
-            <md-icon md-svg-src="/assets/img/registros.svg"></md-icon>Otros Registros
-          </md-button>
-        </div>
-        <div flex layout="column" class="separar">
-          <md-button class="sesion" ng-if="vm.isLogged" ng-click="vm.logout()">
-            Cerrar Sesión
-          </md-button>
-        </div>
-        <div layout="column">
-          <center>
-            <img class="logo" src="/assets/img/intentodelogo.png">
-          </center>
-        </div>
+      </md-content>
+    </md-sidenav>
+
+    <md-content flex style="background-color: #83CEF6;">
+      <div layout="column">
+        <md-toolbar class="md-hue-2 toolbar" md-colors="{background: 'light-blue-700'}" layout="row">
+          <div class="md-toolbar-tools">
+            <md-button hide show-xs class="md-icon-button" ng-click="vm.toggleLeft()">
+              <md-icon md-svg-icon="/assets/img/menu.svg"></md-icon>
+            </md-button>
+            <h2 flex md-truncate>Agua Potable Rural</h2>
+            <h5 flex md-truncate style="margin-right: -90px;" ng-if="vm.usuario.superadmin == 0">{{ vm.usuario.comite.nombre }}</h5>
+            <md-button class="sesion" ng-if="!vm.isLogged" ui-sref="login">
+              Iniciar Sesión
+            </md-button>
+          </div>
+        </md-toolbar>
       </div>
-    </div>
-  </md-sidenav>
-  <div layout="column" flex flex-xs="100" flex-md="100" flex-sm="100">
-    <md-toolbar class="md-hue-2 toolbar" md-colors="{background: 'light-blue-700'}" layout="row">
-      <div class="md-toolbar-tools">
-        <md-button hide show-xs class="md-icon-button" ng-click="vm.toggleLeft()">
-          <md-icon md-svg-icon="/assets/img/menu.svg"></md-icon>
-        </md-button>
-        <h2 flex md-truncate>Agua Potable Rural</h2>
-        <h5 flex md-truncate style="margin-right: -90px;" ng-if="vm.usuario.superadmin == 0">{{ vm.usuario.comite.nombre }}</h5>
-        <md-button class="sesion" ng-if="!vm.isLogged" ui-sref="login">
-          Iniciar Sesión
-        </md-button>
+      <div flex>
+        <ui-view></ui-view>
       </div>
-    </md-toolbar>
-    <ui-view></ui-view>
-  </div>
+    </md-content>
+
+  </section>
 </div>
