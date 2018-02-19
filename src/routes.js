@@ -203,16 +203,6 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
       component: 'registroRapido',
       isPrivate: true
     })
-    .state('registroRapidoSuperAdmin', {
-      url: '/registroRapidoSuperAdmin',
-      component: 'registroRapidoSuperAdmin',
-      isPrivate: true
-    })
-    .state('registroMedidorSuperAdmin', {
-      url: '/registroMedidorSuperAdmin',
-      component: 'registroMedidorSuperAdmin',
-      isPrivate: true
-    })
     .state('parametros', {
       url: '/parametros',
       component: 'parametros',
@@ -227,7 +217,8 @@ function routesConfig($stateProvider, $urlRouterProvider, $locationProvider, $ht
   $httpProvider.interceptors.push('InterceptorApi');
 }
 
-function middlewareConfig($state, CredentialsService, $transitions) {
+function middlewareConfig($state, CredentialsService, $transitions, UsuarioLogService) {
+  var vm = this;
   // Funcion cada vez que se intenta acceder a una ruta
   $transitions.onStart({}, function (trans) {
     var isPrivate = trans.$to().isPrivate;
@@ -239,7 +230,15 @@ function middlewareConfig($state, CredentialsService, $transitions) {
 
     // Compruebo que quiera entrar a el login cuando ya esta logeado
     if (to === 'login' && CredentialsService.isLogged()) {
-      $state.go('app');
+      UsuarioLogService.get().$promise.then(function (data) {
+        vm.usuario = data;
+
+        if (vm.usuario.superadmin === 1) {
+          $state.go('menuAdmin');
+        } else if (vm.usuario.superadmin === 0) {
+          $state.go('menuRegistros');
+        }
+      });
     }
   });
 }

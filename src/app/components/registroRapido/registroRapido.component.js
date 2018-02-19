@@ -9,9 +9,11 @@
     controllerAs: 'vm'
   });
 
-  registroRapidoCtr.$inject = ['UsuarioLogService', 'SubsidioService', 'EstadoService', 'ComunaService', 'EstadoMedidorService', 'ViviendaService', 'MedidorService', 'ClienteService', 'ComiteService', '$state', '$mdDialog'];
+  registroRapidoCtr.$inject = ['UsuarioLogService', 'SubsidioService', 'EstadoService', 'ComunaService', 'EstadoMedidorService', 'ViviendaService', 'MedidorService', 'ClienteService', 'ComiteService', '$state', '$mdDialog', '$rootScope'];
 
-  function registroRapidoCtr(UsuarioLogService, SubsidioService, EstadoService, ComunaService, EstadoMedidorService, ViviendaService, MedidorService, ClienteService, ComiteService, $state, $mdDialog) {
+  var dataComit = {};
+
+  function registroRapidoCtr(UsuarioLogService, SubsidioService, EstadoService, ComunaService, EstadoMedidorService, ViviendaService, MedidorService, ClienteService, ComiteService, $state, $mdDialog, $rootScope) {
     var vm = this;
 
     vm.comuna = [];
@@ -49,6 +51,9 @@
       var clienteCreado = false;
       var viviendaCreada = false;
       var medidorCreado = false;
+
+      dataComit = $rootScope.datosComite;
+      console.log(dataComit);
 
       var viviend = {
         direccion: vivienda.direccion,
@@ -89,16 +94,29 @@
           var clientId = new ClienteService({id: ultimoCliente.id});
           clientId.addVivienda(ultimaVivienda.id);
 
-          var medid = {
+          if (vm.usuario.superadmin == 1) {
+            var medid = {
             num_medidor: medidor.num_medidor,
-            marca_medidor: medidor.marca_medidor,
-            lectura_inicial: 0,
-            vivienda_id: ultimaVivienda.id,
-            estado_medidor_id: parseInt(medidor.estado_medidor_id, 10),
-            comite_id: vm.usuario.comite_id
-          };
-          MedidorService.save(medid);
-          medidorCreado = true;
+              marca_medidor: medidor.marca_medidor,
+              lectura_inicial: 0,
+              vivienda_id: ultimaVivienda.id,
+              estado_medidor_id: parseInt(medidor.estado_medidor_id, 10),
+              comite_id: dataComit.id
+            };
+            MedidorService.save(medid);
+            medidorCreado = true;
+          } else if (vm.usuario.superadmin == 0) {
+            var medid = {
+              num_medidor: medidor.num_medidor,
+              marca_medidor: medidor.marca_medidor,
+              lectura_inicial: 0,
+              vivienda_id: ultimaVivienda.id,
+              estado_medidor_id: parseInt(medidor.estado_medidor_id, 10),
+              comite_id: vm.usuario.comite_id
+            };
+            MedidorService.save(medid);
+            medidorCreado = true;
+          }
 
           if(clienteCreado == true && viviendaCreada == true && medidorCreado == true){
             $mdDialog.show(

@@ -8,29 +8,8 @@
     <div layout-padding flex layout="column" style="margin-top: -40px;">
       <div layout-xs="column" layout-xs="column" layout-lg="row" layout="row" layout-align="center center">
         <div layout="column" layout-sm="column" layout-xs="column">
-        
-          <div layout-md="column" layout-lg="row" ng-if="vm.usuario.superadmin == 1">
-            <div flex>
-              <md-button ui-sref="registroRapidoSuperAdmin">
-                <md-card class="md-whiteframe-8dp">
-                  <md-card-title>
-                    <md-card-title-text>
-                      <span class="md-headline">Registro</span>
-                      <span class="md-headline">Rápido</span>
-                    </md-card-title-text>
-                    <md-card-title-media>
-                      <div class="md-media-md card-media">
-                        <center><img style="width: 60px" src="/assets/img/fast.png"></img></center>
-                      </div>
-                    </md-card-title-media>
-                  </md-card-title>
-                </md-card>
-              </md-button>
-            </div>
-          </div>
-          <br>
 
-          <div layout-md="column" layout-lg="row" ng-if="vm.usuario.superadmin == 0">
+          <div layout-md="column" layout-lg="row">
             <div flex>
               <md-button ui-sref="registroRapido">
                 <md-card class="md-whiteframe-8dp">
@@ -52,7 +31,7 @@
           <br>
 
           <div layout-md="column" layout-lg="row">
-            <div flex ng-if="vm.usuario.superadmin == 1 || vm.usuario.superadmin == 0">
+            <div flex>
               <md-button ui-sref="registro">
                 <md-card class="md-whiteframe-8dp">
                   <md-card-title>
@@ -69,7 +48,7 @@
                 </md-card>
               </md-button>
             </div>
-            <div flex ng-if="vm.usuario.superadmin == 1 || vm.usuario.superadmin == 0">
+            <div flex>
               <md-button ui-sref="registroVivienda">
                 <md-card class="md-whiteframe-8dp">
                   <md-card-title>
@@ -86,7 +65,7 @@
                 </md-card>
               </md-button>
             </div> 
-            <div flex ng-if="vm.usuario.superadmin == 1 || vm.usuario.superadmin == 0">
+            <div flex>
               <md-button ui-sref="asignarVivienda">
                 <md-card class="md-whiteframe-8dp">
                   <md-card-title>
@@ -106,25 +85,8 @@
           </div>
 
           <div layout-md="column" layout-lg="row">
-            <div flex ng-if="vm.usuario.superadmin == 1">
-              <md-button ui-sref="registroMedidorSuperAdmin">
-                <md-card class="md-whiteframe-8dp">
-                  <md-card-title>
-                    <md-card-title-text>
-                      <span class="md-headline">Registrar</span>
-                      <span class="md-headline">Medidor</span>
-                    </md-card-title-text>
-                    <md-card-title-media>
-                      <div class="md-media-md card-media">
-                        <center><img style="width: 60px" src="/assets/img/medidor.svg"></img></center>
-                      </div>
-                    </md-card-title-media>
-                  </md-card-title>
-                </md-card>
-              </md-button>
-            </div>
 
-            <div flex ng-if="vm.usuario.superadmin == 0">
+            <div flex>
               <md-button ui-sref="registromedidor">
                 <md-card class="md-whiteframe-8dp">
                   <md-card-title>
@@ -142,7 +104,7 @@
               </md-button>
             </div>
 
-            <div flex ng-if="vm.usuario.superadmin == 1 || vm.usuario.superadmin == 0">
+            <div flex>
               <md-button ui-sref="registroMensual">
                 <md-card class="md-whiteframe-8dp">
                   <md-card-title>
@@ -159,7 +121,7 @@
                 </md-card>
               </md-button>
             </div> 
-            <div flex ng-if="vm.usuario.superadmin == 1 || vm.usuario.superadmin == 0">
+            <div flex>
               <md-button ui-sref="registroPagos">
                 <md-card class="md-whiteframe-8dp">
                   <md-card-title>
@@ -179,7 +141,7 @@
           </div>
 
           <div layout-md="column" layout-lg="row">
-            <div flex ng-if="vm.usuario.superadmin == 1 || vm.usuario.superadmin == 0">
+            <div flex>
               <md-button ui-sref="abonoBoleta">
                 <md-card class="md-whiteframe-8dp">
                   <md-card-title>
