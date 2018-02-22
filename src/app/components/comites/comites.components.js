@@ -7,7 +7,7 @@
     templateUrl: 'app/components/comites/comites.html',
     controller: comitesCtr,
     controllerAs: 'vm'
-  }).controller('AutoCtrl', function AutoCtrl() {});
+  });
 
   comitesCtr.$inject = ['ComunaService', 'ComiteService', '$state', '$rootScope', '$mdDialog'];
 
@@ -83,40 +83,5 @@
         console.log('CANCEL');
       });
     };
-
-    vm.autocompletar = function (ev, comite) {
-      $mdDialog.show({
-        controller: AutoCtrl,
-        controllerAs: 'vm',
-        templateUrl: 'app/components/comites/autocompletar.dialog.html',
-        parent: angular.element(document.body),
-        targetEvent: ev,
-        clickOutsideToClose: true,
-        fullscreen: vm.customFullscreen, // Only for -xs, -sm breakpoints.
-        locals: {
-          comite: comite
-        }
-      });
-    };
-  }
-
-  function AutoCtrl(ComiteService, comite) {
-    var vm = this;
-
-    vm.comite = comite;
-    vm.querySearch = querySearch;
-
-    function querySearch(query) {
-      var results = query ? vm.comite.filter(createFilterFor(query)) : vm.comite;
-      return results;
-    }
-
-    function createFilterFor(query) {
-      var lowercaseQuery = query;
-
-      return function filterFn(comu) {
-        return (comu.nombre.indexOf(lowercaseQuery) === 0);
-      };
-    }
   }
 })();

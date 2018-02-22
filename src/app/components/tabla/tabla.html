@@ -45,7 +45,7 @@
             </tr>
           </thead>
           <tbody md-body>
-            <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="client in vm.cliente">
+            <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="client in vm.cliente | filter:vm.datocliente">
               <td md-cell>{{ client.id }}</td>
               <td md-cell>{{ client.rut_cliente }}</td>
               <td md-cell>{{ client.nombre }}</td>

@@ -96,7 +96,7 @@
 
           if (vm.usuario.superadmin == 1) {
             var medid = {
-            num_medidor: medidor.num_medidor,
+              num_medidor: medidor.num_medidor,
               marca_medidor: medidor.marca_medidor,
               lectura_inicial: 0,
               vivienda_id: ultimaVivienda.id,

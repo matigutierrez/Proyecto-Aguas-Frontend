@@ -51,7 +51,7 @@
                       </tr>
                     </thead>
                     <tbody md-body>
-                      <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="client in vm.cliente">
+                      <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="client in vm.cliente | filter:vm.datocliente">
                         <td md-cell>{{ client.id }}</td>
                         <td md-cell>{{ client.rut_cliente }}</td>
                         <td md-cell>{{ client.nombre }}</td>
@@ -120,7 +120,7 @@
                       </tr>
                     </thead>
                     <tbody md-body>
-                      <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="viviend in vm.vivienda">
+                      <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="viviend in vm.vivienda | filter:vm.datovivienda">
                         <td md-cell>{{ viviend.id }}</td>
                         <td md-cell>{{ viviend.direccion }}</td>
                         <td md-cell>{{ viviend.fecha_ingreso }}</td>
@@ -188,7 +188,7 @@
                       </tr>
                     </thead>
                     <tbody md-body>
-                      <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="medid in vm.medidor">
+                      <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="medid in vm.medidor | filter:vm.datomedidor">
                         <td md-cell>{{ medid.id }}</td>
                         <td md-cell>{{ medid.num_medidor }}</td>
                         <td md-cell>{{ medid.marca_medidor }}</td>

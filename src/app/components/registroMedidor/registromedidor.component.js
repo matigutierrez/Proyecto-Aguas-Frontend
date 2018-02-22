@@ -17,7 +17,6 @@
     var vm = this;
 
     dataComit = $rootScope.datosComite;
-    console.log($rootScope.datosComite.comite_id);
 
     vm.vivienda = [];
     ViviendaService.query().$promise.then(function (data) {

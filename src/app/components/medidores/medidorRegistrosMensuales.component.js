@@ -9,11 +9,11 @@
     controllerAs: 'vm'
   });
 
-  medidorRegistrosMensualesCtrl.$inject = ['$rootScope'];
+  medidorRegistrosMensualesCtrl.$inject = ['$rootScope', '$state'];
 
   var datosMedidor = {};
 
-  function medidorRegistrosMensualesCtrl($rootScope) {
+  function medidorRegistrosMensualesCtrl($rootScope, $state) {
     var vm = this;
 
     datosMedidor = $rootScope.datosMedidor;
@@ -22,6 +22,10 @@
     vm.fecha_registro = datosMedidor.fecha_registro;
 
     vm.lecturaMensual = datosMedidor.registrosmensuales();
+
+    vm.goToRegistro = function () {
+      $state.go('registroMensual');
+    };
 
   }
 })();

@@ -40,7 +40,7 @@
             </tr>
           </thead>
           <tbody md-body>
-            <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="lectura in vm.lecturaMensual">
+            <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="lectura in vm.lecturaMensual | filter:vm.datolectura">
               <td md-cell>{{ lectura.fecha_registro_consumo }}</td>
               <td md-cell>{{ lectura.lectura + ' | ' + lectura.lectura_anterior}}</td>
               <td md-cell>{{ lectura.saldo_pagado }}</td>

@@ -47,7 +47,7 @@
             </tr>
           </thead>
           <tbody md-body>
-            <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="medid in vm.medidor">
+            <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="medid in vm.medidor | filter:vm.datomedidor">
               <td md-cell>{{ medid.id }}</td>
               <td md-cell>{{ medid.num_medidor }}</td>
               <td md-cell>{{ medid.marca_medidor }}</td>

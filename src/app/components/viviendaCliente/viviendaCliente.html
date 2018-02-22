@@ -37,7 +37,7 @@
             </tr>
           </thead>
           <tbody md-body>
-            <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="viviend in vm.viviendacli">
+            <tr md-row md-select="dessert" md-select-id="name" md-auto-select class="tabla" ng-repeat="viviend in vm.viviendacli | filter:vm.datocliente">
               <td md-cell>{{ viviend.cliente.nombre + ' ' + viviend.cliente.apellido_pater + ' ' + viviend.cliente.apellido_mater }}</td>
               <td md-cell>{{ viviend.vivienda.direccion}}</td>
             </tr>
