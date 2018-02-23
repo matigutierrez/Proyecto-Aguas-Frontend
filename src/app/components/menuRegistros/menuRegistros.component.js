@@ -26,7 +26,7 @@
       $mdDialog.show(
         $mdDialog.alert()
           .clickOutsideToClose(true)
-          .title('Para ingresar los datos de Lectura Mensual,\n SELECCIONE EL MEDIDOR QUE CORRESPONDA.')
+          .title('Para ingresar los datos de Lectura Mensual, SELECCIONE EL MEDIDOR QUE CORRESPONDA.')
           .textContent('Click en el icono de medidor')
           .ok('Ok!')
           .targetEvent(ev)
