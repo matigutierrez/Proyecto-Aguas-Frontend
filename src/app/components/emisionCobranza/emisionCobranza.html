@@ -6,263 +6,265 @@
           <h2>Emisión de Cobranza</h2>
         </div>
       </div>
-      <div ng-cloak>
-        <md-content>
-          <md-tabs md-dynamic-height md-border-bottom>
-            <md-tab label="Por Número de Medidor">
-              <md-content class="md-padding">
-                <div layout-xs="column">
-                  <div layout="row" layout-xs="column">
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Número Medidor</label>
-                        <md-icon md-svg-src="/assets/img/number.svg" class="name"></md-icon>
-                        <input ng-model="nroMedidorA" type="number">
-                      </md-input-container>
-                    </div>
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Medidor 1</label>
-                        <md-icon md-svg-src="/assets/img/medidor.svg" class="name"></md-icon>
-                        <md-select ng-model="nroMedidor1">
-                          <md-option value="00000001">00000001</md-option>
-                          <md-option value="00004501">00004501</md-option>
-                        </md-select>
-                      </md-input-container>
-                    </div>
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Marca Medidor</label>
-                        <md-icon md-svg-src="/assets/img/brand.svg" class="name"></md-icon>
-                        <md-select ng-model="nroMedidor2">
-                          <md-option value="marca1">marca1</md-option>
-                          <md-option value="marca2">marca2</md-option>
-                        </md-select>
-                      </md-input-container>
-                    </div>
-                  </div>
-                </div>
-                <div layout-xs="column" class="datos">
-                  <div layout="row" layout-xs="column">
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Digito</label>
-                        <md-icon md-svg-src="/assets/img/number.svg" class="name"></md-icon>
-                        <md-select ng-model="nroMedidor2">
-                          <md-option value="nose">nose</md-option>
-                          <md-option value="nose1">nose1</md-option>
-                        </md-select>
-                      </md-input-container>
-                    </div>
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Dueño</label>
-                        <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
-                        <input ng-model="duenio" type="text">
-                      </md-input-container>
-                    </div>
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Domicilio Medidor</label>
-                        <md-icon md-svg-src="/assets/img/casa.svg" class="name"></md-icon>
-                        <input ng-model="domMedidor" type="text">
-                      </md-input-container>
-                    </div>
-                  </div>
-                </div>
-                <div layout-xs="column" class="datos">
-                  <div layout="row" layout-xs="column">
-                    <div flex="33" flex-xs="100" flex-sm="100">
-                      <md-input-container md-no-float class="md-block">
-                        <label>Porcentaje Subsidio %</label>
-                        <md-icon md-svg-src="/assets/img/subsidio.svg" class="name"></md-icon>
-                        <input ng-model="subsidio" type="number">
-                      </md-input-container>
-                    </div>
-                  </div>
-                </div>
-                <div layout-xs="column" class="datos">
-                  <div layout="row" layout-xs="column">
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <md-checkbox class="md-warn md-align-top-left">
-                          Activar Multa
-                        </md-checkbox>
-                      </md-input-container>
-                    </div>
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Multa por Reunión</label>
-                        <md-icon md-svg-src="/assets/img/saldo.svg" class="name"></md-icon>
-                        <input ng-model="multaRe" type="number">
-                      </md-input-container>
-                    </div>
-                  </div>
-                </div>
-                <div layout-xs="column" class="datos">
-                  <div layout="row" layout-xs="column">
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <md-checkbox class="md-warn md-align-top-left">
-                          Activar Multa
-                        </md-checkbox>
-                      </md-input-container>  
-                    </div>
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Multa por Corte y Reposición</label>
-                        <md-icon md-svg-src="/assets/img/saldo.svg" class="name"></md-icon>
-                        <input ng-model="multaCor" type="number">
-                      </md-input-container>
-                    </div>
-                  </div>
-                </div>
-                <div layout-xs="column" class="datos">
-                  <div layout="row" layout-xs="column">
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <md-checkbox class="md-warn md-align-top-left">
-                          Activar Multa
-                        </md-checkbox>
-                      </md-input-container>
-                    </div> 
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Multa por Adulteración</label>
-                        <md-icon md-svg-src="/assets/img/saldo.svg" class="name"></md-icon>
-                        <input ng-model="multaAdul" type="number">
-                      </md-input-container>
-                    </div>
-                  </div>
-                </div>
-                <div flex layout-xs="column" class="datos">
-                  <div layout="row" layout-align="center center" layout-padding>
-                    <md-button id="registro" class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;">Ingresar Datos</md-button>
-                  </div>
-                </div>
-              
-                <div flex layout-xs="column">
-                  <div layout="row" layout-align="center center" layout-padding>
-                    <md-button id="registro" md-colors="{background: 'LightBlue-800'}" ui-sref="historialCobranza" layout-fill style="min-height: 50px;">Historial Cobranza</md-button>
-                  </div>
-                </div>
-              </md-content>
-            </md-tab>
 
-            <md-tab label="Por Socio">
-              <md-content class="md-padding">
-                <div layout-xs="column">
-                  <div layout="row" layout-xs="column">
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Nombre Socio</label>
-                        <md-icon md-svg-src="/assets/img/usuario.svg" class="name"></md-icon>
-                        <md-select ng-model="nomSocio">
-                          <md-option value="Daniel Coronado">Daniel Coronado</md-option>
-                          <md-option value="Matias Gutierrez">Matias Gutierrez</md-option>
-                          <md-option value="Alonso Hermosilla">Alonso Hermosilla</md-option>
-                        </md-select>
-                      </md-input-container>
-                    </div>
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Medidor 2</label>
-                        <md-icon md-svg-src="/assets/img/medidor.svg" class="name"></md-icon>
-                        <md-select ng-model="nroMedidor2">
-                          <md-option value="00000001">00000001</md-option>
-                          <md-option value="00004501">00004501</md-option>
-                        </md-select>
-                      </md-input-container>
-                    </div>
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Domicilio Medidor</label>
-                        <md-icon md-svg-src="/assets/img/casa.svg" class="name"></md-icon>
-                        <input ng-model="domMedidor" type="text">
-                      </md-input-container>
-                    </div>
-                  </div>
-                </div>
-                <div layout-xs="column" class="datos">
-                  <div layout="row" layout-xs="column">
-                    <div flex="33" flex-xs="100" flex-sm="100">
-                      <md-input-container md-no-float class="md-block">
-                        <label>Porcentaje Subsidio %</label>
-                        <md-icon md-svg-src="/assets/img/subsidio.svg" class="name"></md-icon>
-                        <input ng-model="subsidio" type="number">
-                      </md-input-container>
-                    </div>
-                  </div>
-                </div>
-                <div layout-xs="column" class="datos">
-                  <div layout="row" layout-xs="column">
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <md-checkbox class="md-warn md-align-top-left">
-                          Activar Multa
-                        </md-checkbox>
-                      </md-input-container>
-                    </div>
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Multa por Reunión</label>
-                        <md-icon md-svg-src="/assets/img/saldo.svg" class="name"></md-icon>
-                        <input ng-model="multaRe" type="number">
-                      </md-input-container>
-                    </div>
-                  </div>
-                </div>
-                <div layout-xs="column" class="datos">
-                  <div layout="row" layout-xs="column">
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <md-checkbox class="md-warn md-align-top-left">
-                          Activar Multa
-                        </md-checkbox>
-                      </md-input-container>  
-                    </div>
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Multa por Corte y Reposición</label>
-                        <md-icon md-svg-src="/assets/img/saldo.svg" class="name"></md-icon>
-                        <input ng-model="multaCor" type="number">
-                      </md-input-container>
-                    </div>
-                  </div>
-                </div>
-                <div layout-xs="column" class="datos">
-                  <div layout="row" layout-xs="column">
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <md-checkbox class="md-warn md-align-top-left">
-                          Activar Multa
-                        </md-checkbox>
-                      </md-input-container>
-                    </div> 
-                    <div flex>
-                      <md-input-container md-no-float class="md-block">
-                        <label>Multa por Adulteración</label>
-                        <md-icon md-svg-src="/assets/img/saldo.svg" class="name"></md-icon>
-                        <input ng-model="multaAdul" type="number">
-                      </md-input-container>
-                    </div>
-                  </div>
-                </div>
-                <div flex layout-xs="column" class="datos">
-                  <div layout="row" layout-align="center center" layout-padding>
-                    <md-button id="registro" class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;">Ingresar Datos</md-button>
-                  </div>
-                </div>
-              
-                <div flex layout-xs="column">
-                  <div layout="row" layout-align="center center" layout-padding>
-                    <md-button id="registro" md-colors="{background: 'LightBlue-800'}" ui-sref="historialCobranza" layout-fill style="min-height: 50px;">Historial Cobranza</md-button>
-                  </div>
-                </div>
-              </md-content>
-            </md-tab>
-          </md-tabs>
+      <div layout-gt-sm="row">
+        <md-content flex layout-gt-sm="column" style="border-radius: 20px; border: 1px solid grey;" layout-padding>
+          
+          <div style="margin-top: -30px;">
+            <h3>Datos del Cliente</h3>
+          </div>
+          <div layout="column" layout-xs="column">
+            <md-input-container class="md-icon-float md-block" style="margin-top: -5px;">
+              <label>Nombre</label>
+              <md-icon md-svg-src="/assets/img/number.svg"></md-icon>
+              <input ng-model="vm.dataMedidor.num_medidor" value="vm.dataMedidor.id" disabled>
+            </md-input-container>
+          
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Domicilio</label>
+              <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
+              <input ng-model="vm.dataMedidor.vivienda.direccion" value="vm.dataMedidor.vivienda_id" disabled>
+            </md-input-container>
+         
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Medidor</label>
+              <md-icon md-svg-src="/assets/img/calendar.svg"></md-icon>
+              <input ng-model="vm.dataMedidor.vivienda.direccion" value="vm.dataMedidor.vivienda_id" disabled>
+            </md-input-container>
+          </div>
+
+          <div style="margin-top: -30px;">
+            <h3>Datos de Lectura</h3>
+          </div>
+          <div layout="column" layout-xs="column">
+            <md-input-container md-no-float class="md-block" style="margin-top: -5px;">
+              <label>Lectura Anterior (m3)</label>
+              <md-icon md-svg-src="/assets/img/lectura.svg"></md-icon>
+              <input ng-model="vm.lecturaMensual.lectura" type="number" disabled>
+            </md-input-container>
+        
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Lectura Actual (m3)</label>
+              <md-icon md-svg-src="/assets/img/lectura.svg"></md-icon>
+              <input ng-model="vm.lecMensual.lectura" type="number">
+            </md-input-container>
+     
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Consumo (m3)</label>
+              <md-icon md-svg-src="/assets/img/lectura.svg"></md-icon>
+              <input ng-model="vm.consumo" type="number" disabled>
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Cargo Fijo $/socio</label>
+              <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
+              <input ng-model="vm.parametros.cargo_fijo" type="number" disabled>
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Alcantarillado $/m3</label>
+              <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
+              <input ng-model="vm.parametros.alcantarillado" type="number" disabled>
+            </md-input-container>
+          </div>
         </md-content>
+
+        <div flex="5" hide-xs hide-sm>
+          <!-- Spacer //-->
+        </div><br>
+
+        <md-content flex layout-gt-sm="column" style="border-radius: 20px; border: 1px solid grey;" layout-padding>
+          <div layout="column" layout-xs="column">
+            <div style="margin-top: -30px;">
+              <h3>Boleta</h3>
+            </div>
+            <md-input-container md-no-float class="md-block" style="margin-top: 10px;">
+              <label>Nro de Boleta</label>
+              <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
+              <input ng-model="vm.parametros.alcantarillado" type="number" disabled>
+            </md-input-container>
+          </div>
+
+          <div style="margin-top: -30px;">
+            <h3>Cobros por Multa</h3>
+          </div>
+          <div layout="column" layout-xs="column">
+            <div layout="row">
+              <div flex="10"><md-checkbox ng-model="data.cb1"></md-checkbox></div>
+              <div flex="90">
+                <md-input-container class="md-icon-float md-block" style="margin-top: -10px;">
+                  <label>Multa Reunión</label>
+                  <md-icon md-svg-src="/assets/img/number.svg"></md-icon>
+                  <input ng-model="vm.dataMedidor.num_medidor" value="vm.dataMedidor.id">
+                </md-input-container>
+              </div>
+            </div>
+            <div layout="row">
+              <div flex="10"><md-checkbox ng-model="data.cb2"></md-checkbox></div>
+              <div flex="90">
+                <md-input-container md-no-float class="md-block" style="margin-top: -10px;">
+                  <label>Multa Corte</label>
+                  <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
+                  <input ng-model="vm.dataMedidor.vivienda.direccion" value="vm.dataMedidor.vivienda_id">
+                </md-input-container>
+              </div>
+            </div>
+            <div layout="row">
+              <div flex="10"><md-checkbox ng-model="data.cb3"></md-checkbox></div>
+              <div flex="90">
+                <md-input-container md-no-float class="md-block" style="margin-top: -10px;">
+                  <label>Multa Adulteración</label>
+                  <md-icon md-svg-src="/assets/img/calendar.svg"></md-icon>
+                  <input ng-model="vm.dataMedidor.vivienda.direccion" value="vm.dataMedidor.vivienda_id">
+                </md-input-container>
+              </div>
+            </div>
+          </div>
+          <div layout="column" layout-xs="column">
+            <div style="margin-top: -30px;">
+              <h3>Saldos</h3>
+            </div>
+            <md-input-container md-no-float class="md-block" style="margin-top: 0px; width: 224px; margin-bottom: 40px;">
+              <label>Subsidio $</label>
+              <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
+              <md-select ng-model="vm.cliente.subsidio_id">
+                <md-option ng-repeat="subsi in vm.subsidio" value="{{ subsi.id }}">{{ subsi.des_subsidio }}</md-option>
+              </md-select>
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Saldo $</label>
+              <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
+              <input ng-model="vm.parametros.alcantarillado" type="number" disabled>
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Monto a Pagar $</label>
+              <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
+              <input ng-model="vm.parametros.alcantarillado" type="number" disabled>
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Total Abono $</label>
+              <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
+              <input ng-model="vm.parametros.alcantarillado" type="number" disabled>
+            </md-input-container>
+          </div>
+
+          
+        </md-content>
+
+
+        
+      </div><br>
+
+      <!--<div layout-gt-sm="row">
+        
+        <md-content flex layout-gt-sm="column" style="border-radius: 20px; border: 1px solid grey;">
+          <div layout="column" layout-xs="column" layout-align="center center">
+            <div layout-align="center center">
+              <center>
+                <h3>Datos del Cliente</h3><br>
+              </center>
+            </div>
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Nombre Cliente</label>
+              <md-icon md-svg-src="/assets/img/usuario.svg"></md-icon>
+              <input ng-model="vm.cliente.nombre" type="text">
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Domicilio</label>
+              <md-icon md-svg-src="/assets/img/telefono.svg"></md-icon>
+              <input ng-model="vm.cliente" type="text">
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Medidor</label>
+              <md-icon md-svg-src="/assets/img/telefono.svg"></md-icon>
+              <input ng-model="vm.cliente" type="text">
+            </md-input-container>
+
+            <div layout-align="center center">
+              <center>
+                <h3>Datos de Lectura</h3><br>
+              </center>
+            </div>
+            <md-input-container class="md-icon-float md-block" style="margin-top: -20px;">
+              <label>Lectura Actual</label>
+              <md-icon md-svg-src="/assets/img/direccion.svg"></md-icon>
+              <input ng-model="vm.cliente" type="">
+            </md-input-container>
+          
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Lectura Anterior</label>
+              <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
+              <input ng-model="vm.cliente" type="">
+            </md-input-container>
+        
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Consumo</label>
+              <md-icon md-svg-src="/assets/img/comuna.svg"></md-icon>
+              <input ng-model="vm.cliente" type="">
+            </md-input-container>
+          </div>
+        </md-content><br>
+
+        <div flex="5" hide-xs hide-sm>
+        </div>
+
+        <md-content flex layout-gt-sm="column" style="border-radius: 20px; border: 1px solid grey;">
+          <div layout="column" layout-xs="column" layout-align="center center">
+            <div layout-align="center center">
+              <center>
+                <h3>Valores ($)</h3>
+              </center>
+            </div>
+
+            <md-input-container md-no-float class="md-block" style="margin-top: 0px; width: 224px; margin-bottom: 40px;">
+              <label>Subsidio</label>
+              <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
+              <md-select ng-model="vm.cliente.subsidio_id">
+                <md-option ng-repeat="subsi in vm.subsidio" value="{{ subsi.id }}">{{ subsi.des_subsidio }}</md-option>
+              </md-select>
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Cargo Fijo</label>
+              <md-icon md-svg-src="/assets/img/comuna.svg"></md-icon>
+              <input ng-model="vm.cliente" type="">
+            </md-input-container>
+
+            <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
+              <label>Alcantarillado</label>
+              <md-icon md-svg-src="/assets/img/comuna.svg"></md-icon>
+              <input ng-model="vm.cliente" type="">
+            </md-input-container>
+
+
+          </div>
+
+        </md-content><br>
+      </div>-->
+
+      <div>
+        <div flex layout-xs="column" class="datos">
+          <div layout="row" layout-align="center center" layout-padding>
+            <md-button id="registro" class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;">Ingresar Datos</md-button>
+          </div>
+        </div>
+      
+        <div flex layout-xs="column">
+          <div layout="row" layout-align="center center" layout-padding>
+            <md-button id="registro" md-colors="{background: 'LightBlue-800'}" ui-sref="historialCobranza" layout-fill style="min-height: 50px;">Historial Cobranza</md-button>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div layout="row" flex layout-xs="column">
+        <md-button class="md-icon-button md-raised" layout-fill ui-sref="medidorRegistrosMensuales" style="margin-bottom: 10px; margin-top: -13px;">
+          <md-icon  md-svg-icon="/assets/img/back3.svg"></md-icon>
+        </md-button>
       </div>
     </div>
   </div>

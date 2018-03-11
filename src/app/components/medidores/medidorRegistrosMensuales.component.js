@@ -23,8 +23,12 @@
 
     vm.lecturaMensual = datosMedidor.registrosmensuales();
 
-    vm.goToRegistro = function () {
+    vm.goToRegistroMensual = function () {
       $state.go('registroMensual');
+    };
+
+    vm.goToEmitirBoleta = function () {
+      $state.go('emisionCobranza');
     };
 
   }
