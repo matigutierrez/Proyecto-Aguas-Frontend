@@ -62,7 +62,8 @@
               <md-input-container md-no-float class="md-block">
                 <label>Lectura Actual (m3)</label>
                 <md-icon md-svg-src="/assets/img/lectura.svg"></md-icon>
-                <input ng-model="vm.lecMensual.lectura" type="number">
+                <!--agregar min value (ajax)-->
+                <input ng-model="vm.lecMensual.lectura" type="number" min="vm.lecturaMensual.lectura">
               </md-input-container>
             </div>
           </div>

@@ -5,9 +5,16 @@
   .module('app')
   .service('ClienteService', clienteService);
 
-  clienteService.$inject = ['$resource', 'API', 'MedidorService', 'ViviendaService'];
+  clienteService.$inject = ['$resource', 'API', 'ViviendaService', '$injector'];
 
-  function clienteService($resource, API, MedidorService, ViviendaService) {
+  function clienteService($resource, API, ViviendaService, $injector) {
+    //var MedidorService = angular.injector(['ng', 'app']).get('MedidorService');
+    //var MedidorService = $injector.get('MedidorService');
+
+    function MedidorService() {
+      return $injector.get('MedidorService');
+    }
+
     var cliente = $resource(API + 'cliente/:id', {id: '@id'}, {
       update: {
         method: 'PUT'

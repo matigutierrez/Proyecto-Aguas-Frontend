@@ -21,6 +21,7 @@
 
     vm.parametros = [];
     vm.parametros = $rootScope.datosComite.parametros();
+    //console.log(vm.parametros);
 
     vm.anios = ('2018 2017 2016 2015 2014 2013 2012 2011 2010 2009 2008 2007 2006 2005 2004 2003 2002 2001 2000').split(' ').map(function(anio) {
         return {abbrev: anio};
@@ -31,7 +32,12 @@
 
     vm.lecturas = [];
     vm.lecturas = vm.dataMedidor.registrosmensuales();
-    console.log(vm.lecturas);
+    //console.log(vm.lecturas);
+
+    vm.clienteMedidor = vm.dataMedidor.clienteMedidor().then(function (data){
+      console.log(data[0].nombre);
+    });
+    
 
     vm.dataMedidor.ultimoRegistro().$promise.then(function (data){
       vm.lecturaMensual = data;
@@ -52,6 +58,8 @@
         var metrosSobreConsumo = parseInt(vm.parametros.metros_sobre_consumo);
         var valorSobreConsumo = parseInt(vm.parametros.valor_sobre_consumo);
 
+
+        //dejar como valor unico
         var valorAlcantarillado = (parseInt(vm.parametros.alcantarillado) * vm.consumo);
 
         if (vm.consumo > metrosSobreConsumo) {
@@ -61,6 +69,7 @@
           var valorTotalSobreConsumo = (sobreConsumo * valorSobreConsumo);
           console.log(valorTotalSobreConsumo);
 
+          //consumo y sobre consumo cobrar aparte
           vm.valorPagar = (valor_consumo + parseInt(vm.parametros.cargo_fijo) + valorAlcantarillado + valorTotalSobreConsumo);
           console.log(vm.valorPagar);
         } else if (vm.consumo <= metrosSobreConsumo) {

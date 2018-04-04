@@ -5,9 +5,16 @@
   .module('app')
   .service('MedidorService', medidorService);
 
-  medidorService.$inject = ['$resource', 'API', 'ViviendaService', 'LecturaMensualService'];
+  medidorService.$inject = ['$resource', 'API', 'ViviendaService', 'LecturaMensualService', '$injector'];
 
-  function medidorService($resource, API, ViviendaService, LecturaMensualService) {
+  function medidorService($resource, API, ViviendaService, LecturaMensualService, $injector) {
+    //var ClienteService = angular.injector(['ng', 'app']).get('ClienteService');
+    //var ClienteService = $injector.get('ClienteService');
+
+    function ClienteService() {
+      return $injector.get('ClienteService');
+    }
+
     var medidor = $resource(API + 'medidor/:id', {id: '@id'}, {
       update: {
         method: 'PUT'
@@ -33,6 +40,20 @@
     var medidorUltimoRegistro = $resource(API + 'medidor/:id/ultimoregistro', {id: '@id'});
     medidor.prototype.ultimoRegistro = function () {
       return new LecturaMensualService(medidorUltimoRegistro.get({id: this.id}));
+    };
+
+
+    var clienteMedidor = $resource(API + 'medidor/:id/clientemedidor', {id: '@id'});
+    medidor.prototype.clienteMedidor = function () {
+      return clienteMedidor.query({id: this.id}).$promise.then(function (data) {
+        for (var i = 0; i < data.length; i++) {
+          data[i] = new ($injector.get('ClienteService'))(data[i]);
+          console.log(data[i]);
+        }
+        return data;
+      });
+
+      //return clienteMedidor.query({id: this.id});
     };
 
     return medidor;
