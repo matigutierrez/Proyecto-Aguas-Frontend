@@ -14,14 +14,14 @@
             <md-input-container class="md-icon-float md-block">
               <label>Numero Medidor</label>
               <md-icon md-svg-src="/assets/img/number.svg" class="name"></md-icon>
-              <input ng-model="vm.medidor.num_medidor" type="">
+              <input ng-model="vm.medid.num_medidor" type="">
             </md-input-container>
           </div>
           <div flex>
             <md-input-container class="md-icon-float md-block">
               <label>Marca Medidor</label>
               <md-icon md-svg-src="/assets/img/brand.svg" class="name"></md-icon>
-              <input ng-model="vm.medidor.marca_medidor" type="text">
+              <input ng-model="vm.medid.marca_medidor" type="text">
             </md-input-container>
           </div>
         </div>
@@ -32,7 +32,7 @@
             <md-input-container class="md-icon-float md-block">
               <label>Vivienda</label>
               <md-icon md-svg-src="/assets/img/casa.svg" class="name"></md-icon>
-              <md-select ng-model="vm.medidor.vivienda_id">
+              <md-select ng-model="vm.medid.vivienda_id">
                 <md-option ng-repeat="viviend in vm.vivienda" value="{{ viviend.id }}">{{ viviend.direccion }}</md-option>
               </md-select>
             </md-input-container>
@@ -41,7 +41,7 @@
             <md-input-container class="md-icon-float md-block">
               <label>Estado Medidor</label>
               <md-icon md-svg-src="/assets/img/medidor.svg" class="name"></md-icon>
-              <md-select ng-model="vm.medidor.estado_medidor_id">
+              <md-select ng-model="vm.medid.estado_medidor_id">
                 <md-option ng-repeat="estado in vm.estadoMedid" value="{{ estado.id }}">{{ estado.des_estado_medidor }}</md-option>
               </md-select>
             </md-input-container>
@@ -50,7 +50,7 @@
       </div>
       <div flex layout-xs="column">
         <div layout="row" layout-align="center center" layout-padding>
-          <md-button id="registro" class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;" ng-click="vm.actualizarmedidor(vm.medidor)">Actualizar Medidor</md-button>
+          <md-button id="registro" class="md-raised marg" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;" ng-click="vm.actualizarmedidor(vm.medid)">Actualizar Medidor</md-button>
         </div>
       </div>
       <div layout="row" layout-align="end center" flex layout-xs="column">

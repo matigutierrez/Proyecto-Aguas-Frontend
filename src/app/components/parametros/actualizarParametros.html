@@ -12,7 +12,7 @@
             <md-input-container flex class="md-icon-float md-block" style="margin-top: -20px;">
               <label>Valor Metro</label>
               <md-icon md-svg-src="/assets/img/settings.svg"></md-icon>
-              <input ng-model="vm.params.valor_metro" type="number">
+              <input ng-model="vm.parametros.valor_metro" type="number">
             </md-input-container>
             <div flex="5" hide-xs hide-sm>
               <!-- Spacer //-->
@@ -20,14 +20,14 @@
             <md-input-container flex md-no-float class="md-block" style="margin-top: -20px;">
               <label>Valor Máximo Descuento</label>
               <md-icon md-svg-src="/assets/img/settings.svg"></md-icon>
-              <input ng-model="vm.params.valor_maximo_descuento" type="number">
+              <input ng-model="vm.parametros.valor_maximo_descuento" type="number">
             </md-input-container>
           </div>
           <div layout="row" layout-xs="column">
             <md-input-container flex md-no-float class="md-block" style="margin-top: -20px;">
               <label>Valor Sobre Consumo</label>
               <md-icon md-svg-src="/assets/img/settings.svg"></md-icon>
-              <input ng-model="vm.params.valor_sobre_consumo" type="number">
+              <input ng-model="vm.parametros.valor_sobre_consumo" type="number">
             </md-input-container>
             <div flex="5" hide-xs hide-sm>
               <!-- Spacer //-->
@@ -35,14 +35,14 @@
             <md-input-container flex md-no-float class="md-block" style="margin-top: -20px;">
               <label>Metros Sobre Consumo</label>
               <md-icon md-svg-src="/assets/img/settings.svg"></md-icon>
-              <input ng-model="vm.params.metros_sobre_consumo" type="number">
+              <input ng-model="vm.parametros.metros_sobre_consumo" type="number">
             </md-input-container>
           </div>
           <div layout="row" layout-xs="column">
             <md-input-container flex md-no-float class="md-block" style="margin-top: -20px;">
               <label>Cargo Fijo</label>
               <md-icon md-svg-src="/assets/img/settings.svg"></md-icon>
-              <input ng-model="vm.params.cargo_fijo" type="number">
+              <input ng-model="vm.parametros.cargo_fijo" type="number">
             </md-input-container>
             <div flex="5" hide-xs hide-sm>
               <!-- Spacer //-->
@@ -50,14 +50,14 @@
             <md-input-container flex md-no-float class="md-block" style="margin-top: -20px;">
               <label>Alcantarillado</label>
               <md-icon md-svg-src="/assets/img/settings.svg"></md-icon>
-              <input ng-model="vm.params.alcantarillado" type="number">
+              <input ng-model="vm.parametros.alcantarillado" type="number">
             </md-input-container>
           </div>
           <div layout="row" layout-xs="column">
             <md-input-container flex md-no-float class="md-block" style="margin-top: -20px;">
               <label>Multa Reunión</label>
               <md-icon md-svg-src="/assets/img/settings.svg"></md-icon>
-              <input ng-model="vm.params.multa_reunion" type="number">
+              <input ng-model="vm.parametros.multa_reunion" type="number">
             </md-input-container>
             <div flex="5" hide-xs hide-sm>
               <!-- Spacer //-->
@@ -65,17 +65,17 @@
             <md-input-container flex md-no-float class="md-block" style="margin-top: -20px;">
               <label>Multa Corte</label>
               <md-icon md-svg-src="/assets/img/settings.svg"></md-icon>
-              <input ng-model="vm.params.multa_corte" type="number">
+              <input ng-model="vm.parametros.multa_corte" type="number">
             </md-input-container>
           </div>
           <md-input-container flex="50" md-no-float class="md-block" style="margin-top: -20px;">
             <label>Multa Adulteración</label>
             <md-icon md-svg-src="/assets/img/settings.svg"></md-icon>
-            <input ng-model="vm.params.multa_adulteracion" type="number">
+            <input ng-model="vm.parametros.multa_adulteracion" type="number">
           </md-input-container>
         </div><br>
         <div layout="row" layout-align="center center" flex layout-xs="column" class="datos">
-          <md-button id="registro" class="md-raised" md-colors="{background: 'light-green-500'}" layout-fill style="min-height: 50px; margin-bottom: 10px; width: 230px;" ng-click="vm.actualizarParametros(vm.params)">Actualizar Parametros</md-button>
+          <md-button id="registro" class="md-raised" md-colors="{background: 'light-green-500'}" layout-fill style="min-height: 50px; margin-bottom: 10px; width: 230px;" ng-click="vm.actualizarParametros(vm.parametros)">Actualizar Parametros</md-button>
         </div>
         <div layout="row" layout-align="end center" flex layout-xs="column">
           <md-button class="md-icon-button md-raised" layout-fill ui-sref="parametros" style="margin-bottom: 10px;">

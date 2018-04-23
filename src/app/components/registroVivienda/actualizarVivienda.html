@@ -12,14 +12,14 @@
             <md-input-container class="md-icon-float md-block">
               <label>Dirección</label>
               <md-icon md-svg-src="/assets/img/direccion.svg"></md-icon>
-              <input ng-model="vm.vivienda.direccion" type="">
+              <input ng-model="vm.viviend.direccion" type="">
             </md-input-container>
           </div>
           <div flex>
             <md-input-container md-no-float class="md-block">
               <label>Estado Vivienda</label>
               <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
-              <md-select ng-model="vm.vivienda.estado_id">
+              <md-select ng-model="vm.viviend.estado_id">
                 <md-option ng-repeat="est in vm.estado" value="{{ est.id }}">{{ est.des_estado }}</md-option>
               </md-select>
             </md-input-container>
@@ -31,7 +31,7 @@
           <md-input-container md-no-float class="md-block">
             <label>Comuna</label>
             <md-icon md-svg-src="/assets/img/comuna.svg"></md-icon>
-            <md-select ng-model="vm.vivienda.comuna_id">
+            <md-select ng-model="vm.viviend.comuna_id">
               <md-option ng-repeat="comu in vm.comuna | orderBy : 'id'" value="{{ comu.id }}">{{ comu.des_comu }}</md-option>
             </md-select>
           </md-input-container>
@@ -39,7 +39,7 @@
       </div>
       
       <div layout="row" layout-align="center center" flex layout-xs="column">
-        <md-button id="registro" class="md-raised" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;" ng-click="vm.actualizarvivienda(vm.vivienda)">Actualizar Vivienda</md-button>
+        <md-button id="registro" class="md-raised" md-colors="{background: 'LightBlue-900'}" layout-fill style="min-height: 50px;" ng-click="vm.actualizarvivienda(vm.viviend)">Actualizar Vivienda</md-button>
       </div>
       <div layout="row" layout-align="end center" flex layout-xs="column">
         <md-button class="md-icon-button md-raised" layout-fill ui-sref="viviendas">

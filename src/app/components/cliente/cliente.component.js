@@ -9,11 +9,11 @@
     controllerAs: 'vm'
   });
 
-  clienteCtr.$inject = ['UsuarioLogService', '$rootScope', 'BoletaEmitidaService', 'MedidorService', 'ViviendaService', 'PdfService'];
+  clienteCtr.$inject = ['UsuarioLogService', '$rootScope', 'BoletaEmitidaService', 'MedidorService', 'ViviendaService', 'PdfService', 'SubsidioService'];
 
   var datosCliente = {};
 
-  function clienteCtr(UsuarioLogService, $rootScope, BoletaEmitidaService, MedidorService, ViviendaService, PdfService) {
+  function clienteCtr(UsuarioLogService, $rootScope, BoletaEmitidaService, MedidorService, ViviendaService, PdfService, SubsidioService) {
     var vm = this;
 
     datosCliente = $rootScope.datosCliente;
@@ -24,11 +24,27 @@
     vm.telefono = datosCliente.telefono;
     vm.email = datosCliente.email;
 
+    vm.subsidio_id = datosCliente.subsidio_id;
+
+    vm.subs = [];
+    SubsidioService.query().$promise.then(function (data){
+      for (var i = 0; i < data.length; i++) {
+        vm.subs = data[i];
+        if (vm.subsidio_id == vm.subs.id) {
+          vm.subsidio = vm.subs.des_subsidio;
+        }
+      }
+    });
+
     UsuarioLogService.get().$promise.then(function (data) {
       vm.usuario = data;
     });
 
-    vm.medidor = datosCliente.getmedidores();
+    datosCliente.getmedidores().then(
+      function (data) {
+        vm.medidor = data;
+      }
+    );
     vm.vivienda = datosCliente.getviviendas();
 
     vm.boleta = [];

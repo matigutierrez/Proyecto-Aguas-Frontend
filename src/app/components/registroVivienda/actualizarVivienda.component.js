@@ -9,10 +9,10 @@
     controllerAs: 'vm'
   });
 
-  actualizarVivienda.$inject = ['EstadoService', 'ComunaService', 'ViviendaService', '$state', '$rootScope'];
+  actualizarVivienda.$inject = ['EstadoService', 'ComunaService', 'ViviendaService', '$state', '$rootScope', '$mdDialog'];
 
   var viviendaid = 0;
-  function actualizarVivienda(EstadoService, ComunaService, ViviendaService, $state, $rootScope) {
+  function actualizarVivienda(EstadoService, ComunaService, ViviendaService, $state, $rootScope, $mdDialog) {
     var vm = this;
 
     vm.comuna = [];
@@ -26,6 +26,8 @@
     });
 
     viviendaid = $rootScope.id;
+
+    vm.viviend = $rootScope.dataVivienda;
 
     vm.actualizarvivienda = function (vivienda) {
       vm.showAlert(

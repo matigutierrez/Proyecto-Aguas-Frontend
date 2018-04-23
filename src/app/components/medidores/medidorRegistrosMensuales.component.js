@@ -27,7 +27,8 @@
       $state.go('registroMensual');
     };
 
-    vm.goToEmitirBoleta = function () {
+    vm.goToEmitirBoleta = function (index) {
+      $rootScope.datosLectura = vm.lecturaMensual[index];
       $state.go('emisionCobranza');
     };
 

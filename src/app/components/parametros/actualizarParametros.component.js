@@ -23,5 +23,7 @@
         $state.go('parametros');
       }, function () {});
     }
+
+    vm.parametros = $rootScope.datosComite.parametros();
   }
 })();

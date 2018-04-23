@@ -18,10 +18,10 @@
       vm.usuario = data;
     });
 
-    vm.goToMedidores = function () {
+    vm.goToMedidoresRegistroMensual = function () {
       vm.showAlert($state.go('medidores'));
     };
-
+      
     vm.showAlert = function (ev) {
       $mdDialog.show(
         $mdDialog.alert()
@@ -32,5 +32,21 @@
           .targetEvent(ev)
       );
     };
+
+
+    vm.goToMedidoresEmitirBoleta = function () {
+      vm.showAlert2($state.go('medidores'));
+    };
+
+    vm.showAlert2 = function (ev) {
+      $mdDialog.show(
+        $mdDialog.alert()
+          .clickOutsideToClose(true)
+          .title('Para EMITIR BOLETA, SELECCIONE EL MEDIDOR QUE CORRESPONDA, luego ubique el registro.')
+          .textContent('Click en el icono de medidor')
+          .ok('Ok!')
+          .targetEvent(ev)
+      );
+    }
   }
 })();

@@ -11,10 +11,6 @@
     //var MedidorService = angular.injector(['ng', 'app']).get('MedidorService');
     //var MedidorService = $injector.get('MedidorService');
 
-    function MedidorService() {
-      return $injector.get('MedidorService');
-    }
-
     var cliente = $resource(API + 'cliente/:id', {id: '@id'}, {
       update: {
         method: 'PUT'
@@ -33,12 +29,12 @@
 
     var clienteMedidores = $resource(API + 'cliente/:id/medidores', {id: '@id'});
     cliente.prototype.getmedidores = function () {
-      var medidores = clienteMedidores.query({id: this.id}).$promise.then(function (data) {
+      return clienteMedidores.query({id: this.id}).$promise.then(function (data) {
         for (var i = 0; i < data.length; i++) {
-          medidores[i] = new MedidorService(data[i]);
+          data[i] = new ($injector.get('MedidorService'))(data[i]);
         }
+        return data;
       });
-      return medidores;
     };
 
     var clienteViviendas = $resource(API + 'cliente/:id/viviendas', {id: '@id'});

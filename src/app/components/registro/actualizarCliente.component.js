@@ -26,6 +26,8 @@
 
     clienteid = $rootScope.id;
 
+    vm.client = $rootScope.dataCliente;
+
     vm.actualizarcliente = function (cliente) {
       vm.showAlert(
         ClienteService.update({id: clienteid}, cliente, function () {

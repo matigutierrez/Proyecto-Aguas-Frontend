@@ -26,8 +26,9 @@
       vm.vivienda = viviendas;
     };
 
-    vm.actualizarvivienda = function (id) {
+    vm.actualizarvivienda = function (id, index) {
       $rootScope.id = id;
+      $rootScope.dataVivienda = vm.vivienda[index];
       $state.go('actualizarVivienda');
     };
 

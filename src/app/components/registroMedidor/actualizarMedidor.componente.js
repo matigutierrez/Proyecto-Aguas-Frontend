@@ -27,6 +27,8 @@
 
     medidorid = $rootScope.id;
 
+    vm.medid = $rootScope.dataMedidor;
+
     vm.actualizarmedidor = function (medidor) {
       vm.showAlert(
         MedidorService.update({id: medidorid}, medidor, function () {

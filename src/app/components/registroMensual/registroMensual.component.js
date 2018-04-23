@@ -21,68 +21,95 @@
 
     vm.parametros = [];
     vm.parametros = $rootScope.datosComite.parametros();
-    //console.log(vm.parametros);
 
     vm.anios = ('2018 2017 2016 2015 2014 2013 2012 2011 2010 2009 2008 2007 2006 2005 2004 2003 2002 2001 2000').split(' ').map(function(anio) {
         return {abbrev: anio};
     });
 
-    vm.dataMedidor = [];
     vm.dataMedidor = $rootScope.datosMedidor;
 
     vm.lecturas = [];
     vm.lecturas = vm.dataMedidor.registrosmensuales();
-    //console.log(vm.lecturas);
-
-    vm.clienteMedidor = vm.dataMedidor.clienteMedidor().then(function (data){
-      console.log(data[0].nombre);
-    });
-    
 
     vm.dataMedidor.ultimoRegistro().$promise.then(function (data){
       vm.lecturaMensual = data;
 
-      if (vm.lecturas.length == 0 ){
-        var lecturaAnterior = 0;
+      if (vm.lecturaMensual.lectura_anterior == undefined ){
+        vm.lecturaMensual.lectura_anterior = 0;
       } else {
-        var lecturaAnterior = parseInt(vm.lecturaMensual.lectura);
+        vm.lecturaMensual.lectura_anterior = parseInt(vm.lecturaMensual.lectura);
       }
 
       vm.calcular = function (lecMensual) {
-        vm.consumo = (parseInt(lecMensual.lectura) - lecturaAnterior);
-        console.log(vm.consumo);
-
-        var valor_consumo = (parseInt(vm.parametros.valor_metro) * vm.consumo);
-        console.log(valor_consumo);
+        if (lecMensual.lectura < vm.lecturaMensual.lectura_anterior) {
+          vm.showAlert2(lecMensual.lectura < vm.lecturaMensual.lectura_anterior);
+          //alert("La lectura actual debe ser siempre mayor o igual a la lectura anterior");
+        } else if (lecMensual.lectura > vm.lecturaMensual.lectura_anterior) {
+          vm.consumo = (parseInt(lecMensual.lectura) - vm.lecturaMensual.lectura_anterior);
+          console.log("CONSUMO" + vm.consumo);
+        } else if (lecMensual.lectura == vm.lecturaMensual.lectura_anterior) {
+          vm.consumo = (parseInt(lecMensual.lectura) - vm.lecturaMensual.lectura_anterior);
+        }
 
         var metrosSobreConsumo = parseInt(vm.parametros.metros_sobre_consumo);
         var valorSobreConsumo = parseInt(vm.parametros.valor_sobre_consumo);
 
-
         //dejar como valor unico
-        var valorAlcantarillado = (parseInt(vm.parametros.alcantarillado) * vm.consumo);
+        //var valorAlcantarillado = (parseInt(vm.parametros.alcantarillado) * vm.consumo);
+        var valorAlcantarillado = vm.parametros.alcantarillado;
 
         if (vm.consumo > metrosSobreConsumo) {
           var sobreConsumo = (vm.consumo - metrosSobreConsumo);
-          console.log(sobreConsumo);
+          console.log("SOBRE CONSUMO " + sobreConsumo);
+          var diferenciaConsumo_SobreConsumo = (vm.consumo - sobreConsumo);
+          console.log("DIFERENCIA CONSUMO SOBRECONSUMO " + diferenciaConsumo_SobreConsumo);
 
           var valorTotalSobreConsumo = (sobreConsumo * valorSobreConsumo);
-          console.log(valorTotalSobreConsumo);
+          console.log("VALOR TOTAL SOBRECONSUMO " + valorTotalSobreConsumo);
 
-          //consumo y sobre consumo cobrar aparte
-          vm.valorPagar = (valor_consumo + parseInt(vm.parametros.cargo_fijo) + valorAlcantarillado + valorTotalSobreConsumo);
-          console.log(vm.valorPagar);
+          var valor_consumo = (diferenciaConsumo_SobreConsumo * parseInt(vm.parametros.valor_metro));
+          console.log("VALOR CONSUMO " + valor_consumo);
+
+          vm.valorPagar = valorTotalSobreConsumo + valor_consumo + parseInt(vm.parametros.cargo_fijo) + valorAlcantarillado;
+          console.log("VALOR A PAGAR CON SOBRECONSUMO " + vm.valorPagar);
+
         } else if (vm.consumo <= metrosSobreConsumo) {
-          vm.valorPagar = (valor_consumo + parseInt(vm.parametros.cargo_fijo) + valorAlcantarillado);
-          console.log(vm.valorPagar);
+          var valor_consumo_normal = (vm.consumo * parseInt(vm.parametros.valor_metro));
+          console.log("VALOR CONSUMO NORMAL " + valor_consumo_normal);
+
+          vm.valorPagar = (valor_consumo_normal + parseInt(vm.parametros.cargo_fijo) + valorAlcantarillado);
+          console.log("VALOR A PAGAR NORMAL " + vm.valorPagar);
         }
+
+        if (vm.lecturaMensual.saldo_pagado == undefined){
+          vm.lecturaMensual.saldo_pagado = 0;
+          vm.saldoAnterior = vm.lecturaMensual.saldo_pagado + vm.valorPagar;
+        } else {
+          vm.saldoAnterior = vm.lecturaMensual.saldo_pagado + vm.valorPagar;
+        }
+        
+        if (vm.lecturaMensual.lectura == undefined ){
+          vm.lecturaMensual.lectura = 0;
+        } else {
+          vm.lecturaMensual.lectura = parseInt(vm.lecturaMensual.lectura);
+        }
+      };
+
+      vm.showAlert2 = function (ev) {
+        $mdDialog.show(
+          $mdDialog.alert()
+            .clickOutsideToClose(true)
+            .title('LECTURA ACTUAL DEBE SER MAYOR O IGUAL QUE LA LECTURA ANTERIOR')
+            .ok('Ok!')
+            .targetEvent(ev)
+        );
       };
 
       vm.registrolectura = function (lecMensual) {
         var lecturamen = {
           year: parseInt(lecMensual.year, 10),
           lectura: parseInt(lecMensual.lectura, 10),
-          saldo_pagado: parseInt(lecMensual.saldo_pagado, 10),
+          saldo_pagado: parseInt(vm.saldoAnterior, 10),
           consumo: parseInt(vm.consumo, 10),
           valor_pagar: parseFloat(vm.valorPagar, 10),
           lectura_anterior: parseInt(vm.lecturaMensual.lectura, 10),

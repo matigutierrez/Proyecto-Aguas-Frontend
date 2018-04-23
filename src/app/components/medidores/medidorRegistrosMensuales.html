@@ -26,9 +26,9 @@
           <div flex>
             <md-button id="registro" class="md-raised marg" md-colors="{background: 'light-green-700'}" layout-fill style="min-height: 50px; width: 200px; margin-bottom: 20px;" ng-click="vm.goToRegistroMensual()">Registrar Lectura</md-button>
           </div>
-          <div flex>
+          <!--<div flex>
             <md-button id="registro" class="md-raised marg" md-colors="{background: 'orange-A200'}" layout-fill style="min-height: 50px; width: 200px; margin-bottom: 20px;" ng-click="vm.goToEmitirBoleta()">Emitir Boleta</md-button>
-          </div>
+          </div>-->
         </div>
       </center>
       <br>
@@ -41,7 +41,7 @@
               <th md-column md-numeric>Código</th>
               <th md-column md-numeric>Fecha Registro</th>
               <th md-column md-numeric>Lectura/Lec. Ant.</th>
-              <th md-column md-numeric>Saldo Pagado</th>
+              <th md-column md-numeric>Saldo Anterior</th><!--Saldo Pagado-->
               <th md-column md-numeric>Consumo</th>
               <th md-column md-numeric>Valor a Pagar</th>
               <th md-column md-numeric>Vivienda</th>
@@ -60,9 +60,7 @@
               <td md-cell>{{ lectura.vivienda.direccion}}</td>
               <td md-cell>{{ lectura.medidor.num_medidor }}</td>
               <td md-cell>
-                <md-button class="md-icon-button">
-                  <md-icon  md-svg-icon="/assets/img/edituser.svg"></md-icon>
-                </md-button>
+                <md-button id="registro" class="md-raised marg" md-colors="{background: 'orange-A200'}" layout-fill style="height: 35px; width: 100px; font-size: 12px; margin-bottom: 5px; margin-top: 5px;" ng-click="vm.goToEmitirBoleta($index)">Emitir Boleta</md-button>
               </td>
             </tr>
           </tbody>

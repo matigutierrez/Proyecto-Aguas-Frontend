@@ -26,8 +26,9 @@
       vm.medidor = medidores;
     };
 
-    vm.actualizarmedidor = function (id) {
+    vm.actualizarmedidor = function (id, index) {
       $rootScope.id = id;
+      $rootScope.dataMedidor = vm.medidor[index];
       $state.go('actualizarMedidor');
     };
 
