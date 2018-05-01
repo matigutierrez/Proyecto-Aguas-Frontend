@@ -81,13 +81,13 @@
           console.log("VALOR A PAGAR NORMAL " + vm.valorPagar);
         }
 
-        if (vm.lecturaMensual.saldo_pagado == undefined){
+        if (vm.lecturaMensual.saldo_pagado == undefined || vm.lecturaMensual.saldo_pagado == null){
           vm.lecturaMensual.saldo_pagado = 0;
-          vm.saldoAnterior = vm.lecturaMensual.saldo_pagado + vm.valorPagar;
+          vm.saldoAnterior = vm.lecturaMensual.saldo_pagado;
         } else {
           vm.saldoAnterior = vm.lecturaMensual.saldo_pagado + vm.valorPagar;
         }
-        
+
         if (vm.lecturaMensual.lectura == undefined ){
           vm.lecturaMensual.lectura = 0;
         } else {

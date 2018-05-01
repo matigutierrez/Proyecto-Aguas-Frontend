@@ -56,7 +56,7 @@
               <label>Subsidio</label>
               <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
               <md-select ng-model="vm.cliente.subsidio_id">
-                <md-option ng-repeat="subsi in vm.subsidio" value="{{ subsi.id }}">{{ subsi.des_subsidio }}</md-option>
+                <md-option ng-repeat="subsi in vm.subsidio" value="{{ subsi.id }}">{{ subsi.subsidio_porcentaje }} %</md-option>
               </md-select>
             </md-input-container>
        

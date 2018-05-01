@@ -159,7 +159,8 @@
 
               <md-input-container md-no-float class="md-block" style="margin-top: -15px; margin-left: -13px;">
                 <label>Fecha de Pago</label>
-                <md-datepicker ng-model="vm.date" md-placeholder="Seleccione Día"></md-datepicker>
+                <md-datepicker date="true" mdc-datetime-picker type="text" id="date" placeholder="Date"
+                ng-model="a" format="YYYY-MM-DD" readonly="readonly"></md-datepicker>
               </md-input-container>
               
             </div>

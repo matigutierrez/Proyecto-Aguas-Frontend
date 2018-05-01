@@ -32,7 +32,7 @@
   	  	for (var i = 0; i < data.length; i++) {
   	  		vm.subsidio = data[i];
           if (vm.subsidioCliente == vm.subsidio.id) {
-            vm.valorSubsidio = vm.subsidio.des_subsidio;
+            vm.valorSubsidio = vm.subsidio.subsidio_porcentaje;
           }
   	  	}
   	  });
@@ -51,13 +51,18 @@
     vm.total = 0;
 
 
-    vm.date = new Date();
-    var day = vm.date.getDate();
-    var monthIndex = vm.date.getMonth()+1;
-    var year = vm.date.getFullYear();
+    //var date = new Date();
+    /*var day = date.getDate();
+    var monthIndex = date.getMonth()+1;
+    var year = date.getFullYear();
 
-    var fecha = year + '-' + monthIndex + '-' + day;
+    var fecha = year + '-' + monthIndex + '-' + day;*/
 
+    var a = new Date();
+    var day = a.getDate();
+    var monthIndex = a.getMonth()+1;
+    var year = a.getFullYear();
+     var fecha = year + '-' + monthIndex + '-' + day;
 
     vm.emitirCobranza = function (dataLectura) {
       var boleta = {
@@ -71,7 +76,7 @@
         consumo: parseInt(vm.dataLectura.consumo, 10),
         subsidio: vm.valorSubsidio,
         total: parseInt(vm.total, 10),
-        fecha_pago: vm.date,
+        fecha_pago: fecha,
         cargo_fijo: parseInt(vm.parametros.cargo_fijo, 10),
         alcantarillado: parseInt(vm.parametros.alcantarillado, 10),
         multa_reunion: parseInt(vm.nroBoleta, 10),

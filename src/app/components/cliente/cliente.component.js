@@ -31,7 +31,7 @@
       for (var i = 0; i < data.length; i++) {
         vm.subs = data[i];
         if (vm.subsidio_id == vm.subs.id) {
-          vm.subsidio = vm.subs.des_subsidio;
+          vm.subsidio = vm.subs.subsidio_porcentaje;
         }
       }
     });
