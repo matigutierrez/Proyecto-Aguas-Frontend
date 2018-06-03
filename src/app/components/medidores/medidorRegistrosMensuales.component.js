@@ -31,6 +31,5 @@
       $rootScope.datosLectura = vm.lecturaMensual[index];
       $state.go('emisionCobranza');
     };
-
   }
 })();

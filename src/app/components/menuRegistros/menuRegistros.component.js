@@ -21,7 +21,7 @@
     vm.goToMedidoresRegistroMensual = function () {
       vm.showAlert($state.go('medidores'));
     };
-      
+
     vm.showAlert = function (ev) {
       $mdDialog.show(
         $mdDialog.alert()
@@ -32,7 +32,6 @@
           .targetEvent(ev)
       );
     };
-
 
     vm.goToMedidoresEmitirBoleta = function () {
       vm.showAlert2($state.go('medidores'));
@@ -47,6 +46,6 @@
           .ok('Ok!')
           .targetEvent(ev)
       );
-    }
+    };
   }
 })();

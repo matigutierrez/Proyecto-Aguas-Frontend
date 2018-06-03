@@ -46,14 +46,13 @@
       vm.usuario = data;
     });
 
-    vm.guardar = function (cliente, vivienda, medidor){
+    vm.guardar = function (cliente, vivienda, medidor) {
 
       var clienteCreado = false;
       var viviendaCreada = false;
       var medidorCreado = false;
 
       dataComit = $rootScope.datosComite;
-      console.log(dataComit);
 
       var viviend = {
         direccion: vivienda.direccion,
@@ -79,22 +78,18 @@
       vm.viviendaid = [];
       ViviendaService.query().$promise.then(function (data) {
         vm.viviendaid = data;
-        console.log(vm.viviendaid);
 
         vm.clienteid = [];
         ClienteService.query().$promise.then(function (data) {
           vm.clienteid = data;
-          console.log(vm.clienteid);
 
           var ultimoCliente = vm.clienteid[vm.clienteid.length - 1];
-          console.log(ultimoCliente);
           var ultimaVivienda = vm.viviendaid[vm.viviendaid.length - 1];
-          console.log(ultimaVivienda);
           
           var clientId = new ClienteService({id: ultimoCliente.id});
           clientId.addVivienda(ultimaVivienda.id);
 
-          if (vm.usuario.superadmin == 1) {
+          if (vm.usuario.superadmin === 1) {
             var medid = {
               num_medidor: medidor.num_medidor,
               marca_medidor: medidor.marca_medidor,
@@ -105,7 +100,7 @@
             };
             MedidorService.save(medid);
             medidorCreado = true;
-          } else if (vm.usuario.superadmin == 0) {
+          } else if (vm.usuario.superadmin === 0) {
             var medid = {
               num_medidor: medidor.num_medidor,
               marca_medidor: medidor.marca_medidor,
@@ -118,7 +113,7 @@
             medidorCreado = true;
           }
 
-          if(clienteCreado == true && viviendaCreada == true && medidorCreado == true){
+          if(clienteCreado === true && viviendaCreada === true && medidorCreado === true){
             $mdDialog.show(
               $mdDialog.alert()
                   .title('¡Registro Creado Satisfactoriamente!')
@@ -126,9 +121,9 @@
                   .ok('Ok!')
             );
 
-            if (vm.usuario.superadmin == 1){
+            if (vm.usuario.superadmin === 1){
               $state.go('allClients');
-            } else if (vm.usuario.superadmin == 0) {
+            } else if (vm.usuario.superadmin === 0) {
               $state.go('tabla');
             }
 
@@ -139,9 +134,9 @@
                 .title('**ERROR AL REGISTRAR, INTENTE NUEVAMENTE**')
                 .ok('Ok!')
             );
-            if (vm.usuario.superadmin == 1){
+            if (vm.usuario.superadmin === 1){
               $state.go('menuAdmin');
-            } else if (vm.usuario.superadmin == 0) {
+            } else if (vm.usuario.superadmin === 0) {
               $state.go('menuRegistros');
             }
             

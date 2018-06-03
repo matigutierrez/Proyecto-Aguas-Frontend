@@ -5,9 +5,9 @@
   .module('app')
   .service('ComiteService', comiteService);
 
-  comiteService.$inject = ['$resource', 'API', 'ClienteService', 'MedidorService', 'ViviendaService', 'LecturaMensualService', 'ParametrosService'];
+  comiteService.$inject = ['$resource', 'API', 'ClienteService', 'MedidorService', 'ViviendaService', 'LecturaMensualService'];
 
-  function comiteService($resource, API, ClienteService, MedidorService, ViviendaService, LecturaMensualService, ParametrosService) {
+  function comiteService($resource, API, ClienteService, MedidorService, ViviendaService, LecturaMensualService) {
     var comite = $resource(API + 'comite/:id', {id: '@id'},
       {
         update: {
@@ -18,14 +18,7 @@
 
     var comiteParametros = $resource(API + 'comite/:id/parametros', {id: '@id'});
     comite.prototype.parametros = function () {
-      //var parametros = [];
       return comiteParametros.get({id: this.id});
-      /*comiteParametros.query({id: this.id}).$promise.then(function (data) {
-        for (var i = 0; i < data.length; i++) {
-          parametros[i] = new ParametrosService(data[i]);
-        }
-      });*/
-      //return parametros;
     };
 
     var comiteClientes = $resource(API + 'comite/:id/clientes', {id: '@id'});

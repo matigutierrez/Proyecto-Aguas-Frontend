@@ -9,7 +9,7 @@
     controllerAs: 'vm'
   });
 
-  registromedidor.$inject = ['UsuarioLogService' ,'MedidorService', 'EstadoMedidorService', 'ViviendaService', '$state', '$mdDialog', '$rootScope'];
+  registromedidor.$inject = ['UsuarioLogService', 'MedidorService', 'EstadoMedidorService', 'ViviendaService', '$state', '$mdDialog', '$rootScope'];
 
   var dataComit = {};
 
@@ -34,7 +34,7 @@
     });
 
     vm.crearmedidor = function (medidor) {
-      if (vm.usuario.superadmin == 1) {
+      if (vm.usuario.superadmin === 1) {
         var medidor1 = {
           num_medidor: medidor.num_medidor,
           marca_medidor: medidor.marca_medidor,
@@ -45,8 +45,7 @@
         };
         vm.showAlert(MedidorService.save(medidor1), medidor);
         $state.go('medidores');
-
-      } else if (vm.usuario.superadmin == 0) {
+      } else if (vm.usuario.superadmin === 0) {
         var medidor2 = {
           num_medidor: medidor.num_medidor,
           marca_medidor: medidor.marca_medidor,

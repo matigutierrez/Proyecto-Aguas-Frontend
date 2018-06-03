@@ -18,8 +18,7 @@
 
     vm.updateParameters = function (id) {
       $rootScope.idParams = id;
-      console.log($rootScope.idParams);
       $state.go('actualizarParametros');
-    }
+    };
   }
 })();

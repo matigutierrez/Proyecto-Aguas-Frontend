@@ -27,10 +27,10 @@
     vm.subsidio_id = datosCliente.subsidio_id;
 
     vm.subs = [];
-    SubsidioService.query().$promise.then(function (data){
+    SubsidioService.query().$promise.then(function (data) {
       for (var i = 0; i < data.length; i++) {
         vm.subs = data[i];
-        if (vm.subsidio_id == vm.subs.id) {
+        if (vm.subsidio_id === vm.subs.id) {
           vm.subsidio = vm.subs.subsidio_porcentaje;
         }
       }

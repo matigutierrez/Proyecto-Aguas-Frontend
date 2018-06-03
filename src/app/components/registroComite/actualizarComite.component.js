@@ -28,7 +28,7 @@
       }, function () {}), comite);
     };
 
-    vm.showAlert = function(ev, comite) {
+    vm.showAlert = function (ev, comite) {
       $mdDialog.show(
         $mdDialog.alert()
           .clickOutsideToClose(true)

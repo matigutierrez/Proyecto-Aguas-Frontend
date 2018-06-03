@@ -8,8 +8,8 @@
   clienteService.$inject = ['$resource', 'API', 'ViviendaService', '$injector'];
 
   function clienteService($resource, API, ViviendaService, $injector) {
-    //var MedidorService = angular.injector(['ng', 'app']).get('MedidorService');
-    //var MedidorService = $injector.get('MedidorService');
+    // var MedidorService = angular.injector(['ng', 'app']).get('MedidorService');
+    // var MedidorService = $injector.get('MedidorService');
 
     var cliente = $resource(API + 'cliente/:id', {id: '@id'}, {
       update: {

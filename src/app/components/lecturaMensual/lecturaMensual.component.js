@@ -13,7 +13,7 @@
 
   function lecturaMensualCtrl(LecturaMensualService, $rootScope, $state, $mdDialog) {
     var vm = this;
-    
+
     vm.lecturaMensual = $rootScope.datosComite.registrosmensuales();
 
     vm.busqueda = function (dato) {

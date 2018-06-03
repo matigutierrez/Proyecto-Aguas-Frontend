@@ -33,7 +33,6 @@
       };
 
       vm.showAlert(UsuarioService.save(usu), usuario);
-      //UsuarioService.save(usu);
       $state.go('comites');
     };
 

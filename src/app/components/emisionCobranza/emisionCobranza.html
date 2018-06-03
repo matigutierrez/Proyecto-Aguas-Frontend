@@ -91,43 +91,30 @@
               <h3>Cobros por Multa</h3>
             </div>
             <div layout="column" layout-xs="column">
-              <div layout="row">
-                <div flex="10"><md-checkbox ng-model="data.cb1"></md-checkbox></div>
-                <div flex="90">
-                  <md-input-container class="md-icon-float md-block" style="margin-top: -5px;">
-                    <label>Multa Reunión</label>
-                    <md-icon md-svg-src="/assets/img/multa.svg"></md-icon>
-                    <input ng-model="vm.nroBoleta" value="vm.dataMedidor.id">
-                  </md-input-container>
-                </div>
-              </div>
-              <div layout="row">
-                <div flex="10"><md-checkbox ng-model="data.cb2"></md-checkbox></div>
-                <div flex="90">
-                  <md-input-container md-no-float class="md-block" style="margin-top: -10px;">
-                    <label>Multa Corte</label>
-                    <md-icon md-svg-src="/assets/img/multa.svg"></md-icon>
-                    <input ng-model="vm.nroBoleta" value="vm.dataMedidor.vivienda_id">
-                  </md-input-container>
-                </div>
-              </div>
-              <div layout="row">
-                <div flex="10"><md-checkbox ng-model="data.cb3"></md-checkbox></div>
-                <div flex="90">
-                  <md-input-container md-no-float class="md-block" style="margin-top: -10px;">
-                    <label>Multa Adulteración</label>
-                    <md-icon md-svg-src="/assets/img/multa.svg"></md-icon>
-                    <input ng-model="vm.nroBoleta" value="vm.dataMedidor.vivienda_id">
-                  </md-input-container>
-                </div>
-              </div>
+              <md-input-container class="md-icon-float md-block" style="margin-top: -5px;">
+                <label>Multa Reunión</label>
+                <md-icon md-svg-src="/assets/img/multa.svg"></md-icon>
+                <input type="number" ng-model="vm.multa_reunion" value="vm.dataMedidor.id" required>
+              </md-input-container>
+
+              <md-input-container md-no-float class="md-block" style="margin-top: -10px;">
+                <label>Multa Corte</label>
+                <md-icon md-svg-src="/assets/img/multa.svg"></md-icon>
+                <input type="number" ng-model="vm.multa_corte" value="vm.dataMedidor.vivienda_id" required>
+              </md-input-container>
+
+              <md-input-container md-no-float class="md-block" style="margin-top: -10px;">
+                <label>Multa Adulteración</label>
+                <md-icon md-svg-src="/assets/img/multa.svg"></md-icon>
+                <input type="number" ng-model="vm.multa_adulteracion" value="vm.dataMedidor.vivienda_id" required>
+              </md-input-container>
             </div>
 
             <div style="margin-top: -30px;">
               <h3>Saldos</h3>
             </div>
             <div layout="column" layout-xs="column">
-              <md-input-container md-no-float class="md-block" style="margin-top: 0px; width: 224px; margin-bottom: 40px;">
+              <md-input-container md-no-float class="md-block" style="margin-top: 0px; width: 224px; margin-bottom: 20px;">
                 <label>Subsidio %</label>
                 <md-icon md-svg-src="/assets/img/casa.svg"></md-icon>
                 <input ng-model="vm.valorSubsidio" type="text" disabled>
@@ -143,18 +130,6 @@
                 <label>Monto a Pagar $</label>
                 <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
                 <input ng-model="vm.dataLectura.valor_pagar" type="number" disabled>
-              </md-input-container>
-
-              <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
-                <label>Total Abono $</label>
-                <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
-                <input ng-model="vm.totalAbonos" type="number" disabled>
-              </md-input-container>
-
-              <md-input-container md-no-float class="md-block" style="margin-top: -20px;">
-                <label>Paga Boleta(?)</label>
-                <md-icon md-svg-src="/assets/img/saldo.svg"></md-icon>
-                <input ng-model="vm.pagaBoleta" type="number" disabled>
               </md-input-container>
 
               <md-input-container md-no-float class="md-block" style="margin-top: -15px; margin-left: -13px;">
@@ -175,6 +150,9 @@
                 <input ng-model="vm.total" value="vm.dataMedidor.id" disabled>
               </md-input-container>
             </div>
+            <md-input-container md-no-float class="md-block">
+              <md-button id="registro" class="md-raised marg" md-colors="{background: 'light-green-900'}" layout-fill style="min-height: 50px; width: 150px;" ng-click="vm.calcularTotal(vm.dataLectura)">Calcular Total</md-button>
+            </md-input-container>
           </div>
         </md-content>
         

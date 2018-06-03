@@ -24,7 +24,7 @@
       vm.parametros = data;
     });
 
-    vm.crearcomite = function (comite, index) {
+    vm.crearcomite = function (comite) {
       var comit = {
         nombre: comite.nombre,
         comuna_id: parseInt(comite.comuna_id, 10)
@@ -39,7 +39,7 @@
 
         var params = {
           comite_id: ultimo.id,
-          valor_metro:  0,
+          valor_metro: 0,
           valor_maximo_descuento: 0,
           valor_sobre_consumo: 0,
           metros_sobre_consumo: 0,
@@ -53,7 +53,7 @@
       });
     };
 
-    vm.showAlert = function(ev, comite) {
+    vm.showAlert = function (ev, comite) {
       $mdDialog.show(
         $mdDialog.alert()
           .clickOutsideToClose(true)
@@ -63,7 +63,5 @@
           .targetEvent(ev)
       );
     };
-
-
   }
 })();
