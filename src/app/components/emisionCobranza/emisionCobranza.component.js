@@ -9,14 +9,20 @@
     controllerAs: 'vm'
   });
 
-  emisionCobranzaCtrl.$inject = ['$rootScope', 'SubsidioService', 'BoletaEmitidaService', '$mdDialog', '$state'];
+  emisionCobranzaCtrl.$inject = ['$rootScope', 'SubsidioService', 'BoletaEmitidaService', '$mdDialog', '$state', 'URLTokenService'];
 
-  function emisionCobranzaCtrl($rootScope, SubsidioService, BoletaEmitidaService, $mdDialog, $state) {
+  function emisionCobranzaCtrl($rootScope, SubsidioService, BoletaEmitidaService, $mdDialog, $state, URLTokenService) {
     var vm = this;
 
     vm.nroBoleta = 1;
 
     vm.dataMedidor = $rootScope.datosMedidor;
+
+    vm.urltoken;
+    URLTokenService.get().$promise.then(function (data) {
+      vm.urltoken = data;
+      console.log(vm.urltoken)
+    });
 
     vm.clienteMedidor = vm.dataMedidor.clienteMedidor().then(function (data) {
       vm.nombreCompleto = data.nombre + " " + data.apellido_pater + " " + data.apellido_mater;
